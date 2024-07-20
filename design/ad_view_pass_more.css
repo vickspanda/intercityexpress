@@ -1,0 +1,76 @@
+.pass_account_ppv {
+    background-color: rgb(247, 243, 243); /* Fallback color */
+  background-color: rgba(255, 255, 255, 0.75); /* Black w/opacity/see-through */
+  color: rgb(0, 0, 0);
+  border: 2px solid #f1f1f1;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  border-radius: 50px;
+  width: 55%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-family:'tw cen MT';
+}
+.pass_account_ppv .col1{
+    margin-top: 1%;
+    margin-left: 2%;
+    width: 300px;
+}
+
+.pass_account_ppv .col2_ppv{
+    width: 200px;
+    margin-top: 3.5%;
+    margin-left: 5%;
+}
+
+.pass_account_ppv .col3_ppv{
+    margin-top: 3.5%;
+    margin-left: 15%;
+}
+
+footer{
+    display: flex;
+}
+
+.col2_ppv_main{
+    margin-top: 2%;
+    margin-left: 2%;
+    display: flex;
+}
+
+
+.col2_ppv{
+    font-size: 24px;
+    text-align: left;
+}
+
+.col3_ppv{
+    font-size: 24px;
+    text-align: left;
+}
+
+.signup{
+    text-align: center;
+}
+
+#signup1{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color:#07166b;
+    color: #fff;
+    height: 50px;
+    width: 150px;
+    border: 1px solid #5a5858;
+    border-radius: 15px;
+    font-family:'tw cen MT';
+}
+
+#signup1:hover{
+    background-color: #091c88;
+    color: #fff;
+    font-size: 25px;
+    height: 55px;
+    width: 160px;
+}

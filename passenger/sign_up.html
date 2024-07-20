@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../design/sign_up.css">
+    <title>Sign Up</title>
+    <style>
+        .error {
+            color: white;
+            display: none;
+        }
+        .invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="create_account">
+        <form id="signUpForm" action="sign_up.php" method="post">
+            <div class="heading">
+                <label>Create Account</label>
+            </div>
+            <footer>
+                <div class="col1">
+                    <div class="fields1">
+                        <input type="text" name="p_name" placeholder="Full Name" id="p_name" autofocus required><br>
+                        <span class="error" id="nameError">Name should be less than 60 characters</span><br>
+                        <input type="text" name="p_address" placeholder="Address" id="p_address" required><br>
+                        <span class="error" id="addressError">Address should be less than 500 characters</span><br>
+                    </div>
+                    <div class="drop_down">
+                        <select id="state" name="p_state" class="state" required>
+                            <option value="" disabled selected hidden>Select State</option>
+                            <option>Andaman and Nicobar Islands</option>
+                            <option>Andhra Pradesh</option>
+                            <option>Arunachal Pradesh</option>
+                            <option>Assam</option>
+                            <option>Bihar</option>
+                            <option>Chandigarh</option>
+                            <option>Chhattisgarh</option>
+                            <option>Dadra and Nagar Haveli and Daman And Diu</option>
+                            <option>Delhi</option>
+                            <option>Goa</option>
+                            <option>Gujarat</option>
+                            <option>Haryana</option>
+                            <option>Himachal Pradesh</option>
+                            <option>Jharkhand</option>
+                            <option>Jammu and Kashmir</option>
+                            <option>Ladakh</option>
+                            <option>Lakshadweep</option>
+                            <option>Karnataka</option>
+                            <option>Kerala</option>
+                            <option>Madhya Pradesh</option>
+                            <option>Maharashtra</option>
+                            <option>Manipur</option>
+                            <option>Meghalaya</option>
+                            <option>Mizoram</option>
+                            <option>Nagaland</option>
+                            <option>Odisha</option>
+                            <option>Puducherry</option>
+                            <option>Punjab</option>
+                            <option>Rajasthan</option>
+                            <option>Sikkim</option>
+                            <option>Tamil Nadu</option>
+                            <option>Telangana</option>
+                            <option>Tripura</option>
+                            <option>Uttarakhand</option>
+                            <option>Uttar Pradesh</option>
+                            <option>West Bengal</option>
+                        </select>
+                        <select id="district" name="p_district" class="district">
+                            <option value="" disabled selected hidden>Select District</option>
+                        </select>
+                    </div><br>
+                    <div class="fields2">
+                        <input type="text" name="p_pincode" placeholder="Pin Code" id="p_pincode" required><br>
+                        <span class="error" id="pincodeError">Please enter a valid 6-digit Pin Code</span><br>
+                        <div class="DOB">
+                            <input type="text" name="p_dob" placeholder="Date of Birth" id="p_dob" onfocus="(this.type='date')" onblur="(this.type='text')" required><br>
+                            <span class="error" id="dobError">Date of Birth is required</span><br>
+                        </div>
+                        <input type="text" name="p_mobile" placeholder="Mobile Number" id="p_mobile" required><br>
+                        <span class="error" id="mobileError">Please enter a valid 10-digit mobile number</span><br>
+                        <input type="email" name="p_email" placeholder="Email Id" id="p_email" required><br>
+                        <span class="error" id="emailError">Valid Email is required</span><br>
+                    </div>
+                </div>
+                <div class="col2">
+                    <div class="fields3">
+                        <input type="radio" value="Male" name="p_gender" id="male" required>
+                        <label for="male">Male</label>
+                        <input type="radio" value="Female" name="p_gender" id="female" required>
+                        <label for="female">Female</label>
+                        <span class="error" id="genderError">Gender is required</span>
+                    </div><br>
+                    <div class="fields1">
+                        <input type="text" name="p_username" placeholder="Create Username" id="p_username" required onblur="validateUsername()"><br>
+                        <span class="error" id="usernameError">Username should be less than 30 characters</span><div id="usernameMessage"></div><br>
+                        <input type="password" name="p_password" placeholder="Create Password" id="p_password" required><br>
+                        <span class="error" id="passwordError">Password should be more than 8 characters</span><br>
+                        <input type="password" placeholder="Confirm Password" id="p_confirm_password" required><br>
+                        <span class="error" id="confirmPasswordError">Passwords do not match</span><br>
+                    </div>
+                    <div class="sec">
+                        <select name="p_secq" id="sec_ques" required>
+                            <option value="" disabled selected hidden>Select Your Security Question</option>
+                            <option>What is Your School Name?</option>
+                            <option>What is Your Nick Name?</option>
+                            <option>What is Your Favourite Song?</option>
+                        </select>
+                        <span class="error" id="secQuesError">Security Question is required</span><br><br>
+                        <input name="p_seca" type="password" placeholder="Security Answer" id="p_seca" required><br>
+                        <span class="error" id="secAnsError">Security Answer is required</span><br>
+                    </div>
+                    <div class="fields4">
+                        <input type="checkbox" value="True" name="tnc" id="tnc" required>
+                        <label for="tnc">I have read and agreed with the <a href="t&c.html" target="_blank">Terms and Conditions</a>.</label>
+                        <span class="error" id="tncError">You must agree to the terms and conditions</span><br><br><br>
+                    </div>
+                </div>
+            </footer>
+            <div class="signup">
+                <input type="submit" value="Sign Up">
+                <button onclick="location.href = 'index.html'" type="button">Cancel</button><br><br><br>
+            </div>
+        </form>
+    </div>
+    <script src="../script/pass_signup.js"></script>
+</body>
+</html>

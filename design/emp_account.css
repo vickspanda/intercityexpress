@@ -1,0 +1,87 @@
+.bg_admin_account{
+    background-image:url("../images/home_bg.jpg");
+    height: 100%; 
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+.nav{ /* Black w/opacity/see-through */
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav ul li:hover {
+    color: rgb(116, 107, 107);
+    font-size: 22.5px;
+}
+
+.nav {
+    height: 10px;
+    line-height: 70px;
+}
+
+.nav ul{
+    margin: 0;
+    margin-right: 10;
+}
+
+.nav ul li {
+    list-style-type: none;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+#ta_selected{
+    color: #091c88;
+    font-style: underline;
+}
+
+.admin_account {
+    background-color: rgb(255, 255, 255); /* Fallback color */
+  background-color: rgba(255, 255, 255, 0.75); /* Black w/opacity/see-through */
+  color: rgb(0, 0, 0);
+  border: 2px solid #f1f1f1;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  border-radius: 50px;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-family:'tw cen MT';
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+* {
+    box-sizing: border-box;
+  }
+  
+
+.admin_account .col1{
+    margin-top: 1%;
+    margin-left: 2%;
+    width: 30%;
+}
+
+.admin_account .col2{
+    margin-top: 17.5%;
+    margin-left: 40px;
+    align-items: center;
+}
+
+.admin_account .col2 .welcome{
+    font-size: 40px;
+    text-align: center;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <head>
+        <title>Forgot Password</title>
+        <link rel="stylesheet" href="../design/change_pass.css">
+        <link rel="stylesheet" href="../design/home.css">
+    </head>
+    <body>
+        <nav>
+            <img src="../images/logo.png" class="img" alt="logo">
+            <ul>
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="../travel_agent/index.html">AGENT</a></li>
+                <li><a href="../employee/index.html">EMPLOYEE</a></li>
+                <li><a href="../passenger/index.html">PASSENGER</a></li>
+                <li><a href="../admin/index.html">ADMIN</a></li>
+                <li><a href="#">FACILITIES</a></li>
+                <li><a href="#">SCHEDULE</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="background"></div>
+        <div class="login_form">
+            <form action="forgot_ta.php" method="post">
+                <br><br>
+                <div class="lbl2">
+                    <label>Forgot Password ?</label><br><br><br>
+                </div>
+                <div class="credentials_forgot">
+                    <input type="username" name="ta_username" placeholder="Username" autofocus required>
+                    <br><br><br>
+                    <select name="ta_gov_id" class="govt_id">
+                        <option value="" disabled selected hidden>Select Government ID</option>
+                        <option>Aadhar</option>
+                        <option>Driving Licence</option>
+                        <option>Elector Photo Identity Card</option>
+                        <option>PAN</option>
+                    </select>
+                    <br><br><br>
+                    <input type="text" placeholder="ID Number" name="ta_id" required>
+                    <br><br><br>
+                </div>
+                <div class="submit2">
+                    <input type="submit" value="Validate">
+                    <button onclick="location.href='index.html'" type="button" id="signup">Cancel</button>
+                    
+                    <br><br><br>
+                </div>
+        </div>
+    </body>
+</html>

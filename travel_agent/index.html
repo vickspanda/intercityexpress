@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+    <head>
+        <title>Travel Agent Login</title>
+        <link rel="stylesheet" href="../design/login_page.css">
+        <link rel="stylesheet" href="../design/home.css">
+    </head>
+    <body>
+        <nav>
+            <img src="../images/logo.png" class="img" alt="logo">
+            <ul>
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="../travel_agent/index.html">AGENT</a></li>
+                <li><a href="../employee/index.html">EMPLOYEE</a></li>
+                <li><a href="../passenger/index.html">PASSENGER</a></li>
+                <li><a href="../admin/index.html">ADMIN</a></li>
+                <li><a href="#">FACILITIES</a></li>
+                <li><a href="#">SCHEDULE</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="background"></div>
+        <div class="login_form">
+            <form method="post" action="ta_validate.php">
+                <br><br>
+                <div class="lbl2">
+                    <label>Travel Agent</label><br><br><br>
+                </div>
+                <div class="credentials">
+                    <input type="username" name="ta_username" placeholder="Username" autofocus required>
+                    <br><br><br>
+                    <input type="password" name="ta_password" placeholder="Password" required>
+                    <br><br><br>
+                </div>
+                <div class="submit1">
+                    <input type="submit" value="Sign In">
+                    <button onclick="location.href = 'ta_reg.html'" type="button">Register</button>
+                    <br><br>
+                    <a href="forgot_ta.html">Forgot Password?</a>
+                    <br><br><br>
+                </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design/home.css">
+    <title>Intercity Express</title>
+    <script src="script/index.js" defer></script>
+
+</head>
+<body>
+    <nav>
+        <img src="images/logo.png" class="img" alt="logo">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="travel_agent/index.html">AGENT</a></li>
+            <li><a href="employee/index.html">EMPLOYEE</a></li>
+            <li><a href="passenger/index.html">PASSENGER</a></li>
+            <li><a href="admin/index.html">ADMIN</a></li>
+            <li><a href="#">FACILITIES</a></li>
+            <li><a href="#">SCHEDULE</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+    </nav>
+    <div class="background"></div>
+    <div class="search_form">
+        <form method="post" action="process/search_train.php">
+            <br><br>
+            <div class="home_lbl1">
+                <label>Book Ticket</label><br><br><br>
+            </div>
+            <div class="stations">
+                <select class="from" name="from_station" required>
+                    <option value="" disabled hidden selected>From</option>
+                </select>
+                <br><br><br>
+                <select class="to" name="to_station" required>
+                    <option value="" disabled hidden selected>To</option>
+                </select>
+                <br><br><br>
+            </div>
+            <div class="DOJ">
+                <input type="text" name="date_of_journey" placeholder="Date of Journey" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+                <select class="coaches" name="coach_class" required>
+                    <option value="" disabled hidden selected>All Classes</option>
+                    <option value="AC Chair Car">AC Chair Car</option>
+                    <option value="2S Sitting Car">2S Sitting Car</option>
+                </select>
+            </div>
+            <br><br>
+            <div class="search">
+                <input type="submit" value="Search">
+                <br><br><br>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

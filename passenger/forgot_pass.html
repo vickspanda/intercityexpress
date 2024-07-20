@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    <head>
+        <title>Forgot Password</title>
+        <link rel="stylesheet" href="../design/change_pass.css">
+        <link rel="stylesheet" href="../design/home.css">
+    </head>
+    <body>
+        <nav>
+            <img src="../images/logo.png" class="img" alt="logo">
+            <ul>
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="../travel_agent/index.html">AGENT</a></li>
+                <li><a href="../employee/index.html">EMPLOYEE</a></li>
+                <li><a href="../passenger/index.html">PASSENGER</a></li>
+                <li><a href="../admin/index.html">ADMIN</a></li>
+                <li><a href="#">FACILITIES</a></li>
+                <li><a href="#">SCHEDULE</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="background"></div>
+        <div class="login_form">
+            <form method="post" action="forgot_pass.php">
+                <br><br>
+                <div class="lbl2">
+                    <label>Forgot Password ?</label><br><br><br>
+                </div>
+                <div class="credentials_forgot">
+                    <input type="username" name="pass_username" placeholder="Username" autofocus required>
+                    <br><br><br>
+                    <select name="pass_secq" id="sec_ques">
+                        <option value="" disabled selected hidden>Select Your Security Question</option>
+                        <option>What is Your School Name ?</option>
+                        <option>What is Your Nick Name ?</option>
+                        <option>What is Your Favourite Song ?</option>
+                    </select>
+                    <br><br><br>
+                    <input type="password" name="pass_seca" placeholder="Security Password" required>
+                    <br><br><br>
+                </div>
+                <div class="submit2">
+                    <input type="submit" value="Validate">
+                    <button onclick="location.href='index.html'" type="button" id="signup">Cancel</button>
+                    <br><br><br>
+                </div>
+        </div>
+    </body>
+</html>

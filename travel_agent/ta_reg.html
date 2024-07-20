@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../design/ta_reg.css">
+    <title>Travel Agent Registration</title>
+    <style>
+        .invalid {
+            border-color:white;
+        }
+        .error {
+            color: white;
+            display: none;
+        }
+    </style>
+    <script src="../script/ta_signup.js" defer></script>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="create_account">
+        <form action="ta_sign_up.php" method="post" id="registrationForm">
+            <br><br>
+            <div class="heading">
+                <label>Travel Agent Registration</label>
+            </div>
+            <br><br>
+        <footer>
+            <div class="col1">
+                <div class="fields1">
+                    <input type="text" id="fullName" name="ta_name" placeholder="Full Name" autofocus required maxlength="70"><br>
+                    <span id="fullNameError" class="error">Please enter a valid name (up to 60 characters).</span><br>
+                    <input type="text" id="resAddress" name="ta_res_address" placeholder="Residential Address" required maxlength="500"><br>
+                    <span id="resAddressError" class="error">Please enter a valid address (up to 500 characters).</span><br>
+                </div>
+                <div class="drop_down">
+                    <select class="state" id="resState" name="ta_res_state" required onblur="resPopulateDistricts()">
+                        <option value="" disabled selected hidden>Select State</option>
+                        <option>Andaman and Nicobar Islands</option>
+                        <option>Andhra Pradesh</option>
+                        <option>Arunachal Pradesh</option>
+                        <option>Assam</option>
+                        <option>Bihar</option>
+                        <option>Chandigarh</option>
+                        <option>Chhattisgarh</option>
+                        <option>Dadra and Nagar Haveli and Daman And Diu</option>
+                        <option>Delhi</option>
+                        <option>Goa</option>
+                        <option>Gujarat</option>
+                        <option>Haryana</option>
+                        <option>Himachal Pradesh</option>
+                        <option>Jharkhand</option>
+                        <option>Jammu and Kashmir</option>
+                        <option>Ladakh</option>
+                        <option>Lakshadweep</option>
+                        <option>Karnataka</option>
+                        <option>Kerala</option>
+                        <option>Madhya Pradesh</option>
+                        <option>Maharashtra</option>
+                        <option>Manipur</option>
+                        <option>Meghalaya</option>
+                        <option>Mizoram</option>
+                        <option>Nagaland</option>
+                        <option>Odisha</option>
+                        <option>Puducherry</option>
+                        <option>Punjab</option>
+                        <option>Rajasthan</option>
+                        <option>Sikkim</option>
+                        <option>Tamil Nadu</option>
+                        <option>Telangana</option>
+                        <option>Tripura</option>
+                        <option>Uttarakhand</option>
+                        <option>Uttar Pradesh</option>
+                        <option>West Bengal</option>
+                    </select>
+                    <select class="district" name="ta_res_district" id="resDistrict">
+                        <option value="" disabled selected hidden>Select District</option>
+                    </select>
+                    
+                    <input type="text" id="resPincode" placeholder="Pin Code" name="ta_res_pincode" required maxlength="6"><br>
+                    <span id="resPincodeError" class="error">Please enter a valid 6-digit pin code.</span>
+                </div><br>
+                <div class="fields2">
+                    <div class="DOB">
+                        <input type="text" id="dob" name="ta_date_of_birth" placeholder="Date of Birth" onfocus="(this.type='date')" onblur="(this.type='text')" required>
+                        <span id="dobError" class="error">Please enter a valid date of birth.</span><br><br>
+                    </div>
+                    <input type="text" id="mobile" name="ta_mobile_no" placeholder="Mobile Number" required maxlength="10"><br>
+                    <span id="mobileError" class="error">Please enter a valid 10-digit mobile number.</span><br>
+                    <input type="email" id="email" name="ta_email_id" placeholder="Email Id" required maxlength="60"><br>
+                    <span id="emailError" class="error">Please enter a valid email address (up to 60 characters).</span><br>
+                </div>
+
+                <div class="fields3">
+                    <input type="radio" value="Male" name="gender" id="male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" value="Female" name="gender" id="female" required>
+                    <label for="female">Female</label>
+                    <span id="genderError" class="error">Please select your gender.</span>
+                </div>
+            </div>
+            <div class="col2">
+                <div class="fields1">
+                    <input type="text" name="ta_com_address" id="comAddress" placeholder="Commercial Address" required maxlength="500"><br>
+                    <span id="comAddressError" class="error">Please enter a valid address (up to 500 characters).</span><br>
+                </div>
+                <div class="drop_down">
+                    <select class="state" name="ta_com_state" required id="comState" onblur="comPopulateDistricts()">
+                        <option value="" disabled selected hidden>Select State</option>
+                        <option>Andaman and Nicobar Islands</option>
+                        <option>Andhra Pradesh</option>
+                        <option>Arunachal Pradesh</option>
+                        <option>Assam</option>
+                        <option>Bihar</option>
+                        <option>Chandigarh</option>
+                        <option>Chhattisgarh</option>
+                        <option>Dadra and Nagar Haveli and Daman And Diu</option>
+                        <option>Delhi</option>
+                        <option>Goa</option>
+                        <option>Gujarat</option>
+                        <option>Haryana</option>
+                        <option>Himachal Pradesh</option>
+                        <option>Jharkhand</option>
+                        <option>Jammu and Kashmir</option>
+                        <option>Ladakh</option>
+                        <option>Lakshadweep</option>
+                        <option>Karnataka</option>
+                        <option>Kerala</option>
+                        <option>Madhya Pradesh</option>
+                        <option>Maharashtra</option>
+                        <option>Manipur</option>
+                        <option>Meghalaya</option>
+                        <option>Mizoram</option>
+                        <option>Nagaland</option>
+                        <option>Odisha</option>
+                        <option>Puducherry</option>
+                        <option>Punjab</option>
+                        <option>Rajasthan</option>
+                        <option>Sikkim</option>
+                        <option>Tamil Nadu</option>
+                        <option>Telangana</option>
+                        <option>Tripura</option>
+                        <option>Uttarakhand</option>
+                        <option>Uttar Pradesh</option>
+                        <option>West Bengal</option>
+                    </select>
+                    <select class="district" name="ta_com_district" id="comDistrict">
+                        <option value="" disabled selected hidden>Select District</option>
+                    </select>
+                    <input type="text" id="comPincode" name="ta_com_pincode" placeholder="Pin Code" required maxlength="6"><br>
+                    <span id="comPincodeError" class="error">Please enter a valid 6-digit pin code.</span>
+                </div><br>
+                <div class="fields1">
+                    <select class="govt_id" name="ta_gov_id" id="govtId">
+                        <option value="" disabled selected hidden>Select Government ID</option>
+                        <option>Aadhar</option>
+                        <option>Driving Licence</option>
+                        <option>Elector Photo Identity Card</option>
+                        <option>PAN</option>
+                    </select>
+                    <br>
+                    <span id="govtIdError" class="error">Please select a government ID.</span><br>
+                    <input type="text" id="idNumber" name="ta_id" placeholder="ID Number" required maxlength="20"><br>
+                    <span id="idNumberError" class="error">Please enter a valid ID number (up to 20 characters).</span><br>
+                    <input type="text" id="username" placeholder="Create Username" name="ta_username" required maxlength="30" onblur="validateUsername()"><br>
+                    <span id="usernameError" class="error" name="username">Please enter a valid username (up to 30 characters).</span><div id="usernameMessage"></div><br>
+                    <input type="password" id="password"  name="ta_password" placeholder="Create Password" required><br>
+                    <span id="passwordError" class="error">Please enter a password of more than 8 letters.</span><br>
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required><br>
+                    <span id="confirmPasswordError" class="error">Passwords do not match.</span><br>
+                </div>
+            </div>
+        </footer>
+            <div class="signup">
+                <input type="submit" value="Register">
+                <button onclick="location.href = 'index.html'" type="button">Cancel</button><br>
+            </div>
+            <br><br>
+        </form>
+    </div>
+
+</body>
+</html>

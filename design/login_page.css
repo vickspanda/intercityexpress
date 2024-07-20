@@ -1,0 +1,214 @@
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  
+.background{
+    /* The image used */
+    background-image: url("../images/home_bg.jpg");
+    
+    /* Add the blur effect */
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    
+    /* Full height */
+    height: 100%; 
+    
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+
+label {
+    font-size: 35px;
+    font-family: 'tw cen MT';
+}
+
+.login_form{    
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.6); /* Black w/opacity/see-through */
+  color: white;
+  border: 2px solid #f1f1f1;
+  border-radius: 50px;
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 30%;
+  
+}
+
+.credentials{
+    text-align: center;
+}
+
+.credentials input{
+    font-size: 20px;
+    text-align: left;
+    background-color: #d9d9d9;
+    height: 40px;
+    width: 300px;
+    border: 0.5px solid #999696;
+    border-radius: 10px;
+    font-family:'tw cen MT';
+    padding-left: 3%;
+}
+
+.credentials_forgot{
+    text-align: center;
+}
+
+.credentials_forgot input{
+    font-size: 20px;
+    text-align: left;
+    background-color: #d9d9d9;
+    height: 40px;
+    width: 300px;
+    border: 0.5px solid #999696;
+    border-radius: 10px;
+    font-family:'tw cen MT';
+    padding-left: 3%;
+}
+
+.credentials_forgot select{
+    font-size: 20px;
+    text-align: left;
+    background-color: #d9d9d9;
+    height: 40px;
+    width: 300px;
+    border: 0.5px solid #999696;
+    border-radius: 10px;
+    font-family:'tw cen MT';
+    padding-left: 3%;
+}
+
+.submit1{
+    margin-left: 50px;
+}
+
+.submit1 input{
+    font-size: 20px;
+    text-align: center;
+    background-color: #07166b;
+    color: #fff;
+    height: 40px;
+    width: 130px;
+    border: 1px solid #5a5858;
+    border-radius: 10px;
+    font-family:'tw cen MT';
+}
+
+.submit1 input:hover {
+
+    background-color: #091c88;
+    color: #fff;
+    font-size: 22px;
+    height: 43px;
+    width: 135px;
+}
+
+.submit1 button{
+    font-size: 20px;
+    text-align: center;
+    background-color:#07166b;
+    color: #fff;
+    height: 40px;
+    width: 130px;
+    border: 1px solid #5a5858;
+    border-radius: 10px;
+    font-family:'tw cen MT';
+    margin-left: 40px;
+}
+
+.submit1 button:hover {
+
+    background-color: #091c88;
+    color: #fff;
+    font-size: 22px;
+    height: 43px;
+    width: 135px;
+}
+
+
+
+
+.submit1 a{
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.submit1 a:hover {
+
+    color: #bac1e7;
+    font-size: 20px;
+}
+
+.submit2 input{
+    font-size: 20px;
+    background-color: #07166b;
+    color: #fff;
+    height: 40px;
+    width: 100px;
+    border: 1px solid #5a5858;
+    border-radius: 10px;
+    font-family:'tw cen MT';
+}
+
+.submit2 input:hover {
+
+    background-color: #091c88;
+    color: #fff;
+    font-size: 22px;
+    height: 43px;
+    width: 105px;
+}
+
+.submit2 a{
+    
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.submit2 a:hover {
+
+    color: #bac1e7;
+    font-size: 20px;
+}
+
+
+.submit2{
+    text-align: center;
+}
+.lbl1 {
+    margin-left: 60px;
+}
+.lbl2 {
+    text-align: center;
+}
+
+.lbl3 {
+    text-align: center;
+}
+
+
+.fcc-btn {
+        
+        width: 115px;
+        height: 25px;
+        background: #4E9CAF;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        line-height: 25px;
+  }
