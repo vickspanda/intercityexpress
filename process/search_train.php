@@ -11,8 +11,10 @@ $total_seats = 20;
 
 if ($seat_type === '2S Sitting Car') {
     $fare = 'ss_fare';
+    $coach_no = 'D1';
 } elseif ($seat_type === 'AC Chair Car') {
     $fare = 'ac_fare';
+    $coach_no = 'A1';
 }
 
 if(!$from_station || !$to_station){
@@ -84,12 +86,18 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
                                 $dep = $train_schedule['dep'];
                                 $dep_time = $doj .' '. $dep;
                                 
-
                                 $add_time_query = "SELECT $1::timestamp + $2::interval AS arr";
                                 $add_time_result = pg_query_params($conn, $add_time_query, array($dep_time, $time_taken));
 
-                                $get_booked_info = "SELECT count(*) from tickets, seat_allocated WHERE tickets.ticket_no = seat_allocated.ticket_no ";
-
+                                $get_booked_info = "SELECT count(*) from tickets, seat_allocated WHERE tickets.ticket_no = seat_allocated.ticket_no AND seat_allocated.doj = $1 and tickets.train_no = $2 and seat_allocated.coach_no = $3";
+                                $get_booked_execute = pg_query_params($conn, $get_booked_info,array($doj,$train_no,$coach_no));
+                                if($get_booked_execute){
+                                    $get_count = pg_fetch_assoc($get_booked_execute);
+                                    $booked_seats_count = $get_count['count'];
+                                    $avl_seats = $total_seats - $booked_seats_count;
+                                }else{
+                                    echo 'Error';
+                                }
                                 if ($add_time_result && pg_num_rows($add_time_result) > 0) {
                                     $new_time_row = pg_fetch_assoc($add_time_result);
                                     $arr_time = $new_time_row['arr'];
@@ -116,10 +124,10 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
                                 <td style="text-align:center"><?php echo htmlspecialchars($arr_time); ?></td>
                             </tr>
                             <tr>
-                                <td>Coach:</td>
+                                <td>Coach Class:</td>
                                 <td><?php echo htmlspecialchars($seat_type);?></td>
                                 <td>Seats Left:</td>
-                                <td><?php echo htmlspecialchars($total_seats);?></td>
+                                <td><?php echo htmlspecialchars($avl_seats);?></td>
                             </tr>
                     <?php
                         }
