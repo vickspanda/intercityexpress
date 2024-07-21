@@ -24,6 +24,9 @@
         $_SESSION['ta_password'] = $password;
         echo '<script>window.location.href="../travel_agent/ta_validate.php";</script>';
     }
-
-    
+    if($userType === 'employee'){
+        $_SESSION['emp_username'] = $username;
+        $_SESSION['emp_password'] = $password;
+        echo '<script>window.location.href="../employee/emp_validate.php";</script>';
+    }    
 ?>

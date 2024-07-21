@@ -1,13 +1,29 @@
 <?php
     session_start();
-    $_SESSION['train_no'] = $_POST['train_no'].'<br>';
-    $_SESSION['train_fare'] = $_POST['train_fare'].'<br>';
-    $_SESSION['doj'] = $_POST['doj'].'<br>';
-    $_SESSION['dep_time'] = $_POST['dep_time'].'<br>';
-    $_SESSION['arr_time'] = $_POST['arr_time'].'<br>';
-    $_SESSION['coach_no'] = $_POST['coach_no'].'<br>';
-    $_SESSION['endStn'] = $_POST['endStn'].'<br>';
-    $_SESSION['startStn'] = $_POST['startStn'].'<br>';
+    if(isset($_POST['train_no'])){
+        $_SESSION['train_no'] = $_POST['train_no'];
+    }
+    if(isset($_POST['train_fare'])){
+        $_SESSION['train_fare'] = $_POST['train_fare'];
+    }
+    if(isset($_POST['doj'])){
+        $_SESSION['doj'] = $_POST['doj'];
+    }
+    if(isset($_POST['dep_time'])){
+        $_SESSION['dep_time'] = $_POST['dep_time'];
+    }
+    if(isset($_POST['arr_time'])){
+        $_SESSION['arr_time'] = $_POST['arr_time'];
+    }
+    if(isset($_POST['coach_no'])){
+        $_SESSION['coach_no'] = $_POST['coach_no'];
+    }
+    if(isset($_POST['endStn'])){
+        $_SESSION['endStn'] = $_POST['endStn'];
+    }
+    if(isset($_POST['startStn'])){
+        $_SESSION['startStn'] = $_POST['startStn'];
+    }
     
 
 ?>

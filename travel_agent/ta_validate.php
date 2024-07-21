@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
 echo "<!DOCTYPE html>
 <head>
     <title>Authenticating ...</title>
@@ -16,7 +18,7 @@ $ta_conn = $conn;
 // Validate username and password from form submission
 $ta_username = $_POST["ta_username"] ?? '';
 $ta_password = $_POST["ta_password"] ?? '';
-if(isset($_SESSION['book'])== TRUE){
+if(isset($_SESSION['book']) == TRUE){
     $book = $_SESSION["book"];
     $ta_username = $_SESSION["ta_username"] ?? '';
     $ta_password = $_SESSION["ta_password"] ?? '';
@@ -59,7 +61,6 @@ if (!$ta_row && $book == TRUE){
 $hashed_password = $ta_row['password'];
 if (password_verify($ta_password, $hashed_password)) {
     $status_db = $ta_row['status'];
-    session_start();
     if($book == FALSE){
         $_SESSION["ta_username"] = $ta_username;
     }
@@ -104,4 +105,4 @@ if (password_verify($ta_password, $hashed_password)) {
 
 // Close database connection
 pg_close($ta_conn);
-?>
+?>*/
