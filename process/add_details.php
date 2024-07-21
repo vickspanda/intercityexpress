@@ -133,7 +133,7 @@
                         <span class="error" id="SS_fareError">Please Enter only Number</span>
                         <br><br>
                         <div class="sec">
-                        <select name="p_gender" id="sec_ques" required>
+                        <select name="user_gender" id="sec_ques" required>
                             <option selected hidden><?php echo $user_gender;?></option>
                             <option>Male</option>
                             <option>Female</option>

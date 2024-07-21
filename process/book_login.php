@@ -58,9 +58,9 @@
                     </div>
                     <br><br>
                 </div>
-                <div class="submit2">
+                <div class="submit1">
                     <input type="submit" value="Sign In">
-                    
+                    <button type="button" onclick="location.href='cancel_transaction.php'">Cancel</button>
                     <br><br><br>
                 </div>
         </div>
