@@ -89,6 +89,18 @@ label {
     padding-left: 3%;
 }
 
+.credentials .sec_book select{
+    font-size: 20px;
+    text-align: center;
+    background-color: #d9d9d9;
+    height: 40px;
+    width: 300px;
+    border: 0.5px solid #999696;
+    border-radius: 10px;
+    font-family:'tw cen MT';
+    padding-left: 3%;
+}
+
 .submit1{
     margin-left: 50px;
 }
