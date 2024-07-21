@@ -21,7 +21,7 @@ create table passenger (
     mobile_no varchar(10) not null,
     email_id varchar(60) not null unique,
     gender varchar(20) not null,
-    username varchar(30) not null,
+    username varchar(30) not null unique,
     password text not null,
     sec_ques varchar(200) not null,
     sec_ans text not null,
@@ -45,7 +45,7 @@ create table travel_agent (
     ta_com_pincode varchar(6) not null,
     ta_gov_id varchar(50) not null,
     ta_id varchar(20) not null,
-    username varchar(30) not null,
+    username varchar(30) not null unique,
     password text not null,
     status varchar(10)
 );
@@ -66,14 +66,14 @@ create table employee (
     emp_res_pincode varchar(6) not null,
     emp_date_of_birth date not null,
     emp_mobile_no varchar(10) not null,
-    emp_email_id varchar(60) not null unique,
+    emp_email_id varchar(60) not null unique unique,
     emp_gender varchar(20) not null,
     emp_qual varchar(50) not null,
     emp_date_of_joining date not null,
     emp_gov_id varchar(50) not null,
     emp_id varchar(20) not null,
     emp_des varchar(30) not null,
-    username varchar(30) not null,
+    username varchar(30) not null unique,
     password text not null,
     status varchar(20)
 );
@@ -145,6 +145,14 @@ create table train_schedule(
     dep time
 );
 
+create table ticket_no_generator(
+    ticket_id serial primary key,
+    counter int
+);
+
+insert into ticket_no_generator(counter) values (1000001);
+
+
 create table tickets(
     ticket_no varchar(10) primary key,
     train_no int references trains(train_no) ON DELETE CASCADE,
@@ -153,7 +161,7 @@ create table tickets(
     drop_stn varchar(10) references stations(station_code) ON DELETE CASCADE,
     starts_on TIMESTAMP,
     ends_on TIMESTAMP,
-    user_type varchar(10)
+    user_type varchar(20)
 );
 
 create table seat_allocated(
@@ -165,15 +173,33 @@ create table seat_allocated(
 
 create table tickets_pass(
     ticket_no varchar(10) references tickets(ticket_no) ON DELETE CASCADE,
-    pass_username varchar(30) references passenger(username) ON DELETE CASCADE,
-
+    username varchar(30) references passenger(username) ON DELETE CASCADE,
+    user_name varchar(100),
+    user_gender varchar(10),
+    user_age varchar(10),
+    ticket_fare int,
+    total_fare int
 );
 
 create table tickets_ta(
     ticket_no varchar(10) references tickets(ticket_no) ON DELETE CASCADE,
+    username varchar(30) references travel_agent(username) ON DELETE CASCADE,
+    user_name varchar(100),
+    user_gender varchar(10),
+    user_age varchar(10),
+    ticket_fare int,
+    ta_comm int,
+    total_fare int
 );
 
 create table tickets_emp(
     ticket_no varchar(10) references tickets(ticket_no) ON DELETE CASCADE,
+    username varchar(30) references employee(username) ON DELETE CASCADE,
+    user_name varchar(100),
+    user_gender varchar(10),
+    user_age varchar(10),
+    ticket_fare int,
+    emp_conn int,
+    total_fare int
 );
 

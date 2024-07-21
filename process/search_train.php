@@ -68,11 +68,12 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
     <div class="pass_account_ppv">
                 <br>
                 <h2><?php echo htmlspecialchars($from_station); ?> to <?php echo htmlspecialchars($to_station); ?></h2>
+                <div class="details">
                 <table style="width:90%">
                     <tr>
-                        <th style="width:100px">Train No.</th>
+                        <th>Train No.</th>
                         <th style="width:300px">Train Name</th>
-                        <th style="width:20px">Fare</th>
+                        <th >Fare</th>
                         <th style="text-align:center; width:200px">Action</th>
                     </tr>
                     <?php 
@@ -151,13 +152,14 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
                                 <td>Coach Class:</td>
                                 <td><?php echo htmlspecialchars($seat_type);?></td>
                                 <td>Seats Available:</td>
-                                <td><?php echo htmlspecialchars($avl_seats);?></td>
+                                <td style="text-align:center"><?php echo htmlspecialchars($avl_seats);?></td>
                             </tr>
                     <?php
                         }
                     }
                     ?>
                 </table>
+                </div>
                 <?php 
                 if ($count == 0) {
                 ?>
