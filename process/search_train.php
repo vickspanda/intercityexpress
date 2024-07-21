@@ -94,6 +94,15 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
                                 if($get_booked_execute){
                                     $get_count = pg_fetch_assoc($get_booked_execute);
                                     $booked_seats_count = $get_count['count'];
+                                    $get_total_info = "SELECT count(*) from seats";
+                                    $get_total_execute = pg_query($conn, $get_total_info);
+                                    if($get_total_execute){
+                                        $get_total_count = pg_fetch_assoc($get_total_execute);
+                                        $total_seats = $get_total_count['count'];
+                                        $avl_seats = $total_seats - $booked_seats_count;
+                                    }else{
+                                        echo 'Error';
+                                    }
                                     $avl_seats = $total_seats - $booked_seats_count;
                                 }else{
                                     echo 'Error';
@@ -126,7 +135,7 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
                             <tr>
                                 <td>Coach Class:</td>
                                 <td><?php echo htmlspecialchars($seat_type);?></td>
-                                <td>Seats Left:</td>
+                                <td>Seats Available:</td>
                                 <td><?php echo htmlspecialchars($avl_seats);?></td>
                             </tr>
                     <?php
