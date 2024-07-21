@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include 'connect.php';
 
@@ -124,7 +125,16 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
                                 <td><?php echo htmlspecialchars($train_no); ?><br></td>
                                 <td><?php echo htmlspecialchars($train_name); ?></td>
                                 <td><?php echo 'Rs. ' . htmlspecialchars($train_fare); ?></td>
-                                <td style="text-align:center"><?php echo "<button onclick=\"location.href='#'\" type=\"button\" id=\"unblock\">BOOK TICKET</button>"; ?></td>
+                                <?php 
+                                $_SESSION['train_no'] = $train_no;
+                                $_SESSION['train_fare'] = $train_fare;
+                                $_SESSION['doj'] = $doj;
+                                $_SESSION['dep_time'] = $dep_time;
+                                $_SESSION['arr_time'] = $arr_time;
+                                $_SESSION['coach_no'] = $coach_no; 
+                                ?>
+
+                                <td style="text-align:center"><?php echo "<button onclick=\"location.href='book_login.php'\" type=\"button\" id=\"unblock\">BOOK TICKET</button>"; ?></td>
                             </tr>
                             <tr>
                                 <td>Starts on:<br></td>
