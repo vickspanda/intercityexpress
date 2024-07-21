@@ -38,6 +38,9 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
         $to = pg_fetch_assoc($to_stnCode);
         $endStn = $to['station_code'];
 
+        $_SESSION['endStn'] = $endStn;
+        $_SESSION['startStn'] = $startStn;
+
         $getroute = "SELECT route_code, time_taken FROM routes WHERE start_station = $1 and end_station = $2";
         $route_execute = pg_query_params($conn, $getroute, array($startStn, $endStn));
         if ($route_execute && pg_num_rows($route_execute) > 0) {
@@ -132,6 +135,8 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
                                 $_SESSION['dep_time'] = $dep_time;
                                 $_SESSION['arr_time'] = $arr_time;
                                 $_SESSION['coach_no'] = $coach_no; 
+                                
+
                                 ?>
 
                                 <td style="text-align:center"><?php echo "<button onclick=\"location.href='book_login.php'\" type=\"button\" id=\"unblock\">BOOK TICKET</button>"; ?></td>

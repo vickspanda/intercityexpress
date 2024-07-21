@@ -38,22 +38,22 @@ const districts = {
 };
 
 function populateDistricts() {
-    const stateSelect = document.getElementById("state");
-    const districtSelect = document.getElementById("district");
+    const stateSelect = document.getElementById('state');
+    const districtSelect = document.getElementById('district');
     const selectedState = stateSelect.value;
 
-    districtSelect.innerHTML = '<option value="" disabled hidden selected>Select District</option>';
 
     if (districts[selectedState]) {
         districts[selectedState].forEach(function(district) {
-            const option = document.createElement("option");
+            const option = document.createElement('option');
             option.text = district;
             option.value = district;
             districtSelect.add(option);
         });
     }
 }
-populateDistricts();
+
+document.getElementById('state').addEventListener('change', populateDistricts);
 
 // Function to check username availability
 function validateUsername() {

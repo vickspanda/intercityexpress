@@ -28,7 +28,6 @@ $pass_dob = get_passenger_data($conn, $pass_username, 'date_of_birth');
 $pass_age_query = pg_query_params($conn, "SELECT AGE(date_of_birth) FROM passenger WHERE username = $1", array($pass_username));
 $pass_age = pg_fetch_result($pass_age_query, 0, 0);
 $pass_gender = get_passenger_data($conn, $pass_username, 'gender');
-
 pg_close($conn);
 ?>
 
@@ -68,7 +67,7 @@ pg_close($conn);
                         <span class="error" id="addressError">Address should be less than 500 characters</span><br><br>
                     </div>
                     <div class="drop_down">
-                        <select id="state" name="p_state" class="state" required onblur="populateDistricts()">
+                        <select id="state" name="p_state" class="state" required onchange="populateDistricts()">
                             <option selected hidden><?php echo $pass_state;?></option>
                             <option>Andaman and Nicobar Islands</option>
                             <option>Andhra Pradesh</option>
@@ -107,8 +106,8 @@ pg_close($conn);
                             <option>Uttar Pradesh</option>
                             <option>West Bengal</option>
                         </select>
-                        <select id="district" name="p_district" class="district">
-                            <option selected hidden><?php echo $pass_district;?></option>
+                        <select id="district" name="p_district" class="district" required>
+                            <option value="<?php echo $pass_district;?>" selected hidden><?php echo $pass_district;?></option>
                         </select>
                     </div><br><br>
                     <div class="fields2">
