@@ -1,4 +1,5 @@
 <?php
+    session_start();
 echo "<!DOCTYPE html>
 <head>
     <title>Authenticating ...</title>
@@ -8,13 +9,22 @@ echo "<!DOCTYPE html>
 </html>";
 
 include '../process/connect.php';
-
+$book = FALSE;
 // Establish connection
 $emp_conn = $conn;
 
 // Validate username and password from form submission
 $emp_username = $_POST["emp_username"] ?? '';
 $emp_password = $_POST["emp_password"] ?? '';
+if(isset($_SESSION['book']) == TRUE){
+    $book = $_SESSION["book"];
+    $emp_username = $_SESSION["emp_username"] ?? '';
+    $emp_password = $_SESSION["emp_password"] ?? '';
+    if (!$emp_username || !$emp_password) {
+        echo '<script>window.location.href="../index.html";</script>';
+        exit();
+    }
+}
 include '../process/!emp_username';
 if (!$emp_username || !$emp_password) {
     echo '<script>window.location.href="index.html";</script>';
@@ -36,25 +46,48 @@ if (!$user_query) {
 $emp_row = pg_fetch_assoc($user_query);
 
 // Check if username exists
-if (!$emp_row) {
+if (!$emp_row && $book == FALSE) {
     echo '<script>window.alert("Entered Employee not found !!!"); window.location.href="index.html";</script>';
+    exit;
+}
+if (!$emp_row && $book == TRUE) {
+    echo '<script>window.alert("Entered Employee not found !!!"); window.location.href="../process/book_login.php";</script>';
     exit;
 }
 
 // Verify the password
 $hashed_password = $emp_row['password'];
 if (password_verify($emp_password, $hashed_password)) {
-    session_start();
-    $_SESSION["emp_username"] = $emp_row['username'];
+    if($book == FALSE){
+        $_SESSION["emp_username"] = $emp_row['username'];
+    }else{
+        $_SESSION['username'] = $emp_username;
+        $_SESSION['emp_username'] = NULL;
+        $_SESSION["emp_password"] = NULL;
+    }
     $status_db = $emp_row['status'];
         if($status_db === 'Active') {
-            echo '<script>window.location.href="emp_dashboard.php";</script>';
+            if($book == FALSE){
+                echo '<script>window.location.href="emp_dashboard.php";</script>';
+            }else{
+                echo '<script>window.location.href="../process/add_details.php";</script>';
+            }
         }else{
-            $_SESSION["userType"] = 'employee';
-            echo '<script>window.location.href="../process/block_alert.php";</script>';
+            if($book == FALSE){
+                $_SESSION["userType"] = 'employee';
+                echo '<script>window.location.href="../process/block_alert.php";</script>';
+            }else{
+                session_destroy();
+                session_abort();
+                echo '<script>window.alert("You are not allowed to Book Tickets as Your Services are suspended by the Authority !!");window.location.href="../index.html";</script>';
+            }
         }
 } else {
-    echo '<script>window.alert("You have entered wrong password !!!"); window.location.href="index.html";</script>';
+    if($book == FALSE){
+        echo '<script>window.alert("You have entered wrong password !!!"); window.location.href="index.html";</script>';
+    }else{
+        echo '<script>window.alert("You have entered wrong password !!!"); window.location.href="../process/book_login.php";</script>';
+    }
 }
 
 // Close database connection
