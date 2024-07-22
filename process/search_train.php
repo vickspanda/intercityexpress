@@ -7,6 +7,29 @@ $doj = $_POST['date_of_journey'] ?? '';
 $seat_type = $_POST['coach_class'] ?? '';
 $fare = '';
 $total_seats = 20;
+$day_doj = new DateTime($doj);
+$day_of_doj = $day_doj->format('l');
+if($day_of_doj === 'Monday'){
+    $day = 'mon';
+}
+if($day_of_doj === 'Tuesday'){
+    $day = 'tue';
+}
+if($day_of_doj === 'Wednesday'){
+    $day = 'wed';
+}
+if($day_of_doj === 'Thursday'){
+    $day = 'thu';
+}
+if($day_of_doj === 'Friday'){
+    $day = 'fri';
+}
+if($day_of_doj === 'Saturday'){
+    $day = 'sat';
+}
+if($day_of_doj === 'Sunday'){
+    $day = 'sun';
+}
 
 if ($seat_type === '2S Sitting Car') {
     $fare = 'ss_fare';
@@ -46,9 +69,10 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
             $route_code = $result['route_code'];
             $time_taken = $result['time_taken'];
             $xyz = 'Active';
+            $abc = 'TRUE';
 
-            $get_train = "SELECT train_no, train_name, $fare FROM trains WHERE route_code = $1 AND status=$2 ORDER BY train_no DESC LIMIT 2";
-            $train_execute = pg_query_params($conn, $get_train, array($route_code,$xyz));
+            $get_train = "SELECT trains.train_no, trains.train_name, $fare FROM trains, train_schedule WHERE trains.route_code = $1 AND trains.status=$2 AND train_schedule.$day=$3 AND trains.train_no=train_schedule.train_no ORDER BY train_no DESC LIMIT 2";
+            $train_execute = pg_query_params($conn, $get_train, array($route_code,$xyz,$abc));
             $count = pg_num_rows($train_execute);
         }
     }
