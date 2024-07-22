@@ -126,7 +126,7 @@
                                 $total_fare = $train_fare - $emp_conn;
                                 $_SESSION['total_fare'] = $total_fare;
                                 $_SESSION['ticket_fare'] = $train_fare;
-                                $_SESSION['emp_comm'] = $emp_comm;
+                                $_SESSION['emp_conn'] = $emp_conn;
                         ?>
                         <tr>
                             <td></td>
@@ -145,8 +145,8 @@
                             </tr>
                 </table>
                 <br>
-        <button onclick="location.href='book_ticket.php'" type="button" id="signup1">Proceed</button>
-        <button onclick="location.href='../index.html'" type="button" id="signup1">Cancel</button><br>
+        <button onclick="location.href='make_payment.php'" type="button" id="signup1">Proceed</button>
+        <button onclick="location.href='cancel_transaction.php'" type="button" id="signup1">Cancel</button><br>
         <br>
     </div>
     

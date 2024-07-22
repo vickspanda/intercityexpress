@@ -45,6 +45,21 @@ label {
   
 }
 
+.login_form1{    
+    background-color: rgb(255, 255, 255); /* Fallback color */
+    background-color: rgb(255, 255, 255, 0.6); /* Black w/opacity/see-through */
+    color: rgb(0, 0, 0);
+    border: 2px solid #ffffff;
+    border-radius: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 30%;
+    
+  }
+
 .credentials{
     text-align: center;
 }
@@ -223,4 +238,23 @@ label {
         color: white;
         font-weight: bold;
         line-height: 25px;
+  }
+
+  table, td {
+    margin-left: 5%;
+    width: 100%;
+  }
+
+   td{
+    text-align: center;
+    font-size: 25px;
+    width: 180px;
+    height: 55px;
+    padding-left: 10px;
+    align-items: center;
+    font-style: bold;
+  }
+
+  table{
+    width: 90%;
   }

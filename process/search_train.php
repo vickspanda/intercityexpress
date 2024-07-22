@@ -45,9 +45,10 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
             $result = pg_fetch_assoc($route_execute);
             $route_code = $result['route_code'];
             $time_taken = $result['time_taken'];
+            $xyz = 'Active';
 
-            $get_train = "SELECT train_no, train_name, $fare FROM trains WHERE route_code = $1 ORDER BY train_no DESC LIMIT 2";
-            $train_execute = pg_query_params($conn, $get_train, array($route_code));
+            $get_train = "SELECT train_no, train_name, $fare FROM trains WHERE route_code = $1 AND status=$2 ORDER BY train_no DESC LIMIT 2";
+            $train_execute = pg_query_params($conn, $get_train, array($route_code,$xyz));
             $count = pg_num_rows($train_execute);
         }
     }
@@ -91,9 +92,9 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
                                 
                                 $add_time_query = "SELECT $1::timestamp + $2::interval AS arr";
                                 $add_time_result = pg_query_params($conn, $add_time_query, array($dep_time, $time_taken));
-
-                                $get_booked_info = "SELECT count(*) from tickets, seat_allocated WHERE tickets.ticket_no = seat_allocated.ticket_no AND seat_allocated.doj = $1 and tickets.train_no = $2 and seat_allocated.coach_no = $3";
-                                $get_booked_execute = pg_query_params($conn, $get_booked_info,array($doj,$train_no,$coach_no));
+                                $ticket_status = 'Confirmed';
+                                $get_booked_info = "SELECT count(*) from tickets, seat_allocated WHERE tickets.ticket_no = seat_allocated.ticket_no AND seat_allocated.doj = $1 and tickets.train_no = $2 and seat_allocated.coach_no = $3 AND tickets.status = $4";
+                                $get_booked_execute = pg_query_params($conn, $get_booked_info,array($doj,$train_no,$coach_no,$ticket_status));
                                 if($get_booked_execute){
                                     $get_count = pg_fetch_assoc($get_booked_execute);
                                     $booked_seats_count = $get_count['count'];
@@ -106,7 +107,6 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
                                     }else{
                                         echo 'Error';
                                     }
-                                    $avl_seats = $total_seats - $booked_seats_count;
                                 }else{
                                     echo 'Error';
                                 }
@@ -136,10 +136,25 @@ if ($from_stnCode && pg_num_rows($from_stnCode) > 0) {
                                     <input name="coach_no" value="<?php echo $coach_no?>" hidden>
                                     <input name="endStn" value="<?php echo $endStn?>" hidden>
                                     <input name="startStn" value="<?php echo $startStn?>" hidden>
+                                    <input name="total_seats" value="<?php echo $total_seats?>" hidden>
+
 
                                 
 
+                                    <?php
+                                        if($avl_seats == 0){
+                                            ?>
+
+                                <td style="text-align:center"><?php echo "Not Applicable"; ?></td>
+
+                                            <?php
+                                        }else{
+                                            ?>
                                 <td style="text-align:center"><?php echo "<button type=\"submit\" id=\"unblock\">BOOK TICKET</button>"; ?></td>
+                                            
+                                            <?php
+                                        }
+                                    ?>
                                 </form>
                             </tr>
                             <tr>

@@ -203,3 +203,13 @@ create table tickets_emp(
     total_fare int
 );
 
+create table payment(
+    transaction_id serial primary key,
+    ticket_no varchar(10) references tickets(ticket_no) ON DELETE CASCADE,
+    status varchar(20),
+    total_fare int,
+    ticket_fare int, 
+    ta_comm int,
+    emp_conn int,
+    upi_used varchar(100)
+);

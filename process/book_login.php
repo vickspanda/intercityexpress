@@ -24,6 +24,9 @@
     if(isset($_POST['startStn'])){
         $_SESSION['startStn'] = $_POST['startStn'];
     }
+    if(isset($_POST['total_seats'])){
+        $_SESSION['total_seats'] = $_POST['total_seats'];
+    }
     
 
 ?>

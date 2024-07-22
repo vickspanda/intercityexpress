@@ -16,10 +16,11 @@
     $total_fare = $_SESSION['total_fare'];
     $ta_comm = $_SESSION['ta_comm'];
     $emp_conn = $_SESSION['emp_conn'];
+    $total_seats = $_SESSION['total_seats'];
+    $upi = $_POST['upi'];
     if(!$username){
         echo "<script>window.location.href='../index.html'</script>";
     }
-    include 'connect.php';
     include 'connect.php';
 
     pg_query($conn, "BEGIN");
@@ -74,47 +75,95 @@
                 $sec_execute = pg_query_params($conn,$insert_into_sec,$sec_array);
             }
             if($sec_execute){
-                $get_seat_no = "SELECT seat_no from tickets, seat_allocated WHERE tickets.ticket_no = seat_allocated.ticket_no AND seat_allocated.doj = $1 and tickets.train_no = $2 and seat_allocated.coach_no = $3 AND tickets.status = 'Confirmed' ORDER BY seat_no DESC LIMIT 1";
+                $get_seat_no = "SELECT seat_allocated.seat_no from tickets, seat_allocated WHERE tickets.ticket_no = seat_allocated.ticket_no AND seat_allocated.doj = $1 and tickets.train_no = $2 and seat_allocated.coach_no = $3 AND tickets.status = 'Confirmed' ORDER BY seat_allocated.seat_no DESC LIMIT 1";
                 $get_seat_execute = pg_query_params($conn, $get_seat_no,array($doj,$train_no,$coach_no));
                 if($get_seat_execute){
                     if(pg_num_rows($get_seat_execute)==0){
                         $seat_no = 1;
-                    }else{
+                    }
+                    else{
                         $seat_row = pg_fetch_assoc($get_seat_execute);
-                        $seat_no = $seat_row['seat_no'] + 1;
+                        $seat_no = $seat_row['seat_no'];
+                        if($seat_no == $total_seats){
+                            $get_seat_can = "SELECT seat_allocated.seat_no FROM tickets, seat_allocated WHERE tickets.ticket_no = seat_allocated.ticket_no AND seat_allocated.doj = $1 and tickets.train_no = $2 and seat_allocated.coach_no = $3 AND tickets.status = 'Cancelled' AND seat_allocated.seat_no NOT IN (SELECT seat_allocated.seat_no from tickets, seat_allocated WHERE tickets.ticket_no = seat_allocated.ticket_no AND seat_allocated.doj = $1 and tickets.train_no = $2 and seat_allocated.coach_no = $3 AND tickets.status = 'Confirmed' ORDER BY seat_allocated.seat_no DESC) ORDER BY seat_allocated.seat_no DESC LIMIT 1";
+                            $get_can_execute = pg_query_params($conn, $get_seat_can,array($doj,$train_no,$coach_no));
+                            if($get_can_execute){
+                                $seat_row = pg_fetch_assoc($get_can_execute);
+                                $seat_no = $seat_row['seat_no'];
+                            }else {
+                                die("Error fetching counter: " . pg_last_error($conn));
+                                session_destroy();
+                                session_abort();
+                                echo '<script>window.alert("Got some technical Failure 0 '.$seat_no.'!!!"); window.location.href="../index.html";</script>';
+                            }
+                        }else{
+                            $seat_no = $seat_no + 1;
+                        }
+                        
                     }
                     $insert_into_sa = "INSERT INTO seat_allocated VALUES ($1,$2,$3,$4)";
                     $sa_array = array($ticket_no,$coach_no,$seat_no,$doj);
                     $sa_execute = pg_query_params($conn,$insert_into_sa,$sa_array);
                     if($sa_execute){
-                        pg_query($conn,"COMMIT");
-                        echo '<script>window.alert("Ticket has been Booked Successfully with Ticket No. = '.$ticket_no.'!!!"); window.location.href="../'.$userType.'/'.$user.'_dashboard.php";</script>';
+                        $payment_status = 'Received';
+                        if($userType === 'passenger')
+                        {
+                            $insert_into_payment = "INSERT INTO payment (ticket_no, status, total_fare, ticket_fare, upi_used) VALUES ($1,$2,$3,$4,$5)";
+                            $payment_array = array($ticket_no,$payment_status,$total_fare,$ticket_fare,$upi);
+                            $payment_execute = pg_query_params($conn,$insert_into_payment,$payment_array);
+                        }
+                        else if($userType === 'employee')
+                        {
+                            $insert_into_payment = "INSERT INTO payment (ticket_no, status, total_fare, ticket_fare, ta_comm, upi_used) VALUES ($1,$2,$3,$4,$5,$6)";
+                            $payment_array = array($ticket_no,$payment_status,$total_fare,$ticket_fare,$ta_comm,$upi);
+                            $payment_execute = pg_query_params($conn,$insert_into_payment,$payment_array);
+                        }
+                        else if($userType === 'travel_agent')
+                        {
+                            $insert_into_payment = "INSERT INTO payment (ticket_no, status, total_fare, ticket_fare, emp_conn, upi_used) VALUES ($1,$2,$3,$4,$5,$6)";
+                            $payment_array = array($ticket_no,$payment_status,$total_fare,$ticket_fare,$emp_conn,$upi);
+                            $payment_execute = pg_query_params($conn,$insert_into_payment,$payment_array);
+                        }
+                        if($payment_execute){
+                            pg_query($conn,"COMMIT");
+                            echo '<script>window.alert("Ticket has been Booked Successfully with Ticket No. = '.$ticket_no.'!!!"); window.location.href="../'.$userType.'/'.$user.'_dashboard.php";</script>';
+                        }else{
+                            pg_query($conn, "ROLLBACK"); // Rollback the transaction if emp_reg_execute fails
+                            session_destroy();
+                            session_abort();
+                            echo '<script>window.alert("Got some technical Failure 1!!!"); window.location.href="../index.html";</script>';
+                            echo "Error: " . pg_last_error($conn);
+                        }
 
                     }
                     else{
                         pg_query($conn, "ROLLBACK"); // Rollback the transaction if emp_reg_execute fails
                         session_destroy();
                         session_abort();
-                        echo '<script>window.alert("Got some technical Failure!!!"); window.location.href="../index.html";</script>';
-                        echo "Error: 3 " . pg_last_error($conn);
+                        echo '<script>window.alert("Got some technical Failure 2 '.pg_num_rows($get_seat_execute).'!!!"); window.location.href="../index.html";</script>';
+                        echo "Error:" . pg_last_error($conn);
                     }
                 }
             }else{
                 pg_query($conn, "ROLLBACK"); // Rollback the transaction if emp_reg_execute fails
                 session_destroy();
                 session_abort();
-                echo "Error: 2" . pg_last_error($conn);
+                echo '<script>window.alert("Got some technical Failure 3!!!"); window.location.href="../index.html";</script>';
+
+                echo "Error: " . pg_last_error($conn);
             }
         } else {
             pg_query($conn, "ROLLBACK"); // Rollback the transaction if emp_reg_execute fails
             session_destroy();
             session_abort();
-            echo '<script>window.alert("Got some technical Failure!!!"); window.location.href="../index.html";</script>';
-            echo "Error: 1" . pg_last_error($conn);
+            echo '<script>window.alert("Got some technical Failure 4!!!"); window.location.href="../index.html";</script>';
+            echo "Error: " . pg_last_error($conn);
         }
 
     } else {
         die("Error fetching counter: " . pg_last_error($conn));
-        echo '<script>window.alert("Got some technical Failure!!!"); window.location.href="../index.html";</script>';
+        session_destroy();
+        session_abort();
+        echo '<script>window.alert("Got some technical Failure 5!!!"); window.location.href="../index.html";</script>';
     }
 ?>
