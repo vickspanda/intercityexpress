@@ -81,8 +81,17 @@
                                 <td><?php echo htmlspecialchars($arr_time); ?></td>
                             </tr>
                             <tr>
-                                <td>Coach Class:</td>
-                                <td><?php echo htmlspecialchars($coach_no);?></td>
+                            <td>Coach Class:</td>
+                                <td><?php if($coach_no==='D1')
+                                {
+                                    ?>
+                                    2S Second Sitting
+                                    <?php
+                                }else if($coach_no==='A1'){
+                                    ?>
+                                    AC Chair Car
+                                    <?php
+                                }?></td>
                                 <td>Username:</td>
                                 <td><?php echo htmlspecialchars($username);?></td>
                             </tr>

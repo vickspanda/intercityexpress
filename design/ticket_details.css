@@ -1,0 +1,149 @@
+.bg_pass_account{
+    background-image:url("../images/home_bg.jpg");
+    height: 100%; 
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
+.nav{ /* Black w/opacity/see-through */
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav ul li:hover {
+    color: #091c88;
+    font-size: 22.5px;
+}
+
+.nav {
+    height: 10px;
+    line-height: 70px;
+}
+
+.nav ul{
+    margin: 0;
+    margin-right: 10px;
+}
+
+.nav ul li {
+    list-style-type: none;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+
+#ta_selected{
+    color: #091c88;
+    font-style: underline;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+* {
+    box-sizing: border-box;
+  }
+  
+  table, th, td {
+    margin-left: 5%;
+    width: 100%;
+  }
+
+  th, td{
+    text-align: left;
+    font-size: 20px;
+    width: 180px;
+    height: 40px;
+    padding-left: 10px;
+    align-items: end;
+    font-style: bold;
+  }
+
+  table{
+    width: 100%;
+  }
+
+
+.pass_account_ppv {
+  background-color: rgb(247, 243, 243); /* Fallback color */
+  background-color: rgba(255, 255, 255, 0.75); /* Black w/opacity/see-through */
+  color: rgb(0, 0, 0);
+  border: 2px solid #f1f1f1;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  border-radius: 50px;
+  width: 80%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  font-family:'tw cen MT';
+  align-items: center;
+  text-align: center;
+}
+
+
+.no-user{
+    text-align: center;
+    font-size: 20px;
+}
+
+
+footer{
+    display: contents;
+}
+
+#unblock{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    background-color:#07166b;
+    color: #fff;
+    height: 40px;
+    width: 150px;
+    border: 1px solid #5a5858;
+    border-radius: 15px;
+    font-family:'tw cen MT';
+}
+
+#unblock:hover{
+    background-color: #091c88;
+    color: #fff;
+    font-size: 22px;
+    height: 55px;
+    width: 160px;
+}
+
+h2{
+    text-align: center;
+}
+
+#signup1{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color:#07166b;
+    color: #fff;
+    height: 50px;
+    width: 150px;
+    border: 1px solid #5a5858;
+    border-radius: 15px;
+    font-family:'tw cen MT';
+    margin-left: 40px;
+}
+
+#signup1:hover{
+    background-color: #091c88;
+    color: #fff;
+    font-size: 25px;
+    height: 55px;
+    width: 160px;
+}

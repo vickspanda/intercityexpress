@@ -49,9 +49,9 @@
         $tickets_execute = pg_query_params($conn,$insert_into_tickets,$tickets_array);
 
         if ($tickets_execute) {
+            $_SESSION['ticket_no'] = $ticket_no;
             if($userType === 'passenger')
             {
-                $user = 'passenger';
                 $_SESSION['pass_username'] = $username;
                 $insert_into_sec = "INSERT INTO tickets_pass VALUES ($1,$2,$3,$4,$5,$6,$7)";
                 $sec_array = array($ticket_no,$username,$user_name,$user_gender,$user_age,$ticket_fare,$total_fare);
@@ -59,7 +59,6 @@
             }
             else if($userType === 'employee')
             {
-                $user = 'emp';
                 $_SESSION['emp_username'] = $username;
                 $insert_into_sec = "INSERT INTO tickets_emp VALUES ($1,$2,$3,$4,$5,$6,$7,$8)";
                 $sec_array = array($ticket_no,$username,$user_name,$user_gender,$user_age,$ticket_fare,$emp_conn,$total_fare);
@@ -67,7 +66,6 @@
             }
             else if($userType === 'travel_agent')
             {
-                $user = 'ta';
                 $_SESSION['ta_username'] = $username;
                 $insert_into_sec = "INSERT INTO tickets_ta VALUES ($1,$2,$3,$4,$5,$6,$7,$8)";
                 
@@ -105,7 +103,7 @@
                     $sa_array = array($ticket_no,$coach_no,$seat_no,$doj);
                     $sa_execute = pg_query_params($conn,$insert_into_sa,$sa_array);
                     if($sa_execute){
-                        $payment_status = 'Received';
+                        $payment_status = 'Successful';
                         if($userType === 'passenger')
                         {
                             $insert_into_payment = "INSERT INTO payment (ticket_no, status, total_fare, ticket_fare, upi_used) VALUES ($1,$2,$3,$4,$5)";
@@ -114,19 +112,20 @@
                         }
                         else if($userType === 'employee')
                         {
-                            $insert_into_payment = "INSERT INTO payment (ticket_no, status, total_fare, ticket_fare, ta_comm, upi_used) VALUES ($1,$2,$3,$4,$5,$6)";
-                            $payment_array = array($ticket_no,$payment_status,$total_fare,$ticket_fare,$ta_comm,$upi);
-                            $payment_execute = pg_query_params($conn,$insert_into_payment,$payment_array);
-                        }
-                        else if($userType === 'travel_agent')
-                        {
                             $insert_into_payment = "INSERT INTO payment (ticket_no, status, total_fare, ticket_fare, emp_conn, upi_used) VALUES ($1,$2,$3,$4,$5,$6)";
                             $payment_array = array($ticket_no,$payment_status,$total_fare,$ticket_fare,$emp_conn,$upi);
                             $payment_execute = pg_query_params($conn,$insert_into_payment,$payment_array);
                         }
+                        else if($userType === 'travel_agent')
+                        {
+                            $insert_into_payment = "INSERT INTO payment (ticket_no, status, total_fare, ticket_fare, ta_comm, upi_used) VALUES ($1,$2,$3,$4,$5,$6)";
+                            $payment_array = array($ticket_no,$payment_status,$total_fare,$ticket_fare,$ta_comm,$upi);
+                            $payment_execute = pg_query_params($conn,$insert_into_payment,$payment_array);
+                        }
                         if($payment_execute){
                             pg_query($conn,"COMMIT");
-                            echo '<script>window.alert("Ticket has been Booked Successfully with Ticket No. = '.$ticket_no.'!!!"); window.location.href="../'.$userType.'/'.$user.'_dashboard.php";</script>';
+                            
+                            echo '<script>window.location.href="view_ticket.php";</script>';
                         }else{
                             pg_query($conn, "ROLLBACK"); // Rollback the transaction if emp_reg_execute fails
                             session_destroy();
