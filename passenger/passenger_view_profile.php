@@ -48,15 +48,15 @@ pg_close($conn);
     <div class="pass_account_ppv">
         <footer>
             <div class="col1">
-                <div class="nav">
+            <div class="nav">
                     <ul>
-                        <li><a href="#">PASSENGERS</a></li>
-                        <li><a href="ta_reg.php">TRAVEL AGENTS</a></li>
-                        <li><a href="emp_reg.php">EMPLOYEES</a></li>
+                        <li><a href="../process/list_tickets.php">UPCOMING TRIPS</a></li>
+                        <li><a href="#">PAST TRIPS</a></li>
+                        <li><a href="#">CANCEL TRIPS</a></li>
                         <li><a href="#">TRAINS</a></li>
                         <li><a href="#">STATIONS</a></li>
                         <li><a href="../process/change_pass.php">CHANGE PASSWORD</a></li>
-                        <li><a href="passenger_view_profile.php">YOUR PROFILE</a></li>
+                        <li><a href="../passenger/passenger_view_profile.php">YOUR PROFILE</a></li>
                         <li><a href="#" onclick="logout()">LOG OUT</a></li>
                     </ul>
                 </div>
