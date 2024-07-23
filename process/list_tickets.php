@@ -207,8 +207,10 @@ $count = pg_num_rows($query);
                                 <?php
                                     if($title === 'CANCEL'){
                                         ?>
-                                <input id="ticket_no" value="<?php echo $ticket_no; ?>" hidden>
-                                <button id = "unblock" type="button" onclick="cancel_ticket()">CANCEL</button>
+                                        <form method="post" action="cancel_ticket.php" >
+                                <input name="ticket_no" value="<?php echo $ticket_no; ?>" hidden>
+                                <input id = "unblock" type="submit" value="CANCEL">
+                                </form>
                             <?php
                                     }else{
                                         ?>

@@ -1,8 +1,8 @@
 <?php
     include 'connect.php';
 
-    if (isset($_GET['ticket_no'])) {
-        $ticket_no = $_GET['ticket_no'];
+    if (isset($_POST['ticket_no'])) {
+        $ticket_no = $_POST['ticket_no'];
     }
 
     $status2 = 'Refunded';

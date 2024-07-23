@@ -1,7 +1,7 @@
 <?php
     session_start();
     $get_back = FALSE;
-
+    $title = $_SESSION['title'];
     if(isset($_SESSION['pass_username'])){
         $username = $_SESSION['pass_username'];
     }
@@ -142,13 +142,31 @@
                                     <?php
                                 }?></td>
                                 <td>Seat No:</td>
-                                <td><?php echo htmlspecialchars($coach_no);?> / <?php echo htmlspecialchars($seat_no);?></td>
+                                <td><?php if($status==='Cancelled')
+                                {
+                                    ?>
+                                    Cancelled
+                                    <?php
+                                }else{
+                                    ?>
+                                    <?php echo htmlspecialchars($coach_no);?> / <?php echo htmlspecialchars($seat_no);?>
+                                    <?php
+                                }?></td>
                             </tr>
                             <tr>
                                 <td>Username:</td>
                                 <td><?php echo htmlspecialchars($username);?></td>
                                 <td>Seat Type:</td>
-                                <td><?php echo htmlspecialchars($seat_type);?></td>
+                                <td><?php if($status==='Cancelled')
+                                {
+                                    ?>
+                                    Cancelled
+                                    <?php
+                                }else{
+                                    ?>
+                                    <?php echo htmlspecialchars($seat_type);?>
+                                    <?php
+                                }?></td>
                             </tr>
                             <tr>
                                 <td>Traveler's Name</td>
