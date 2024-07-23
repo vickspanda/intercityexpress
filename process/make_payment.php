@@ -16,6 +16,8 @@
     $total_fare = $_SESSION['total_fare'];
     $ta_comm = $_SESSION['ta_comm'];
     $emp_conn = $_SESSION['emp_conn'];
+    $user_mob = $_SESSION['user_mob'];
+    $user_email = $_SESSION['user_email'];
 
     if(!$username){
         echo "<script>window.location.href='../index.html'</script>";

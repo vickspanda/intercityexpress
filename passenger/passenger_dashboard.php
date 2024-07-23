@@ -37,9 +37,9 @@ pg_close($conn);
             <div class="col1">
             <div class="nav">
                     <ul>
-                        <li><a href="../process/list_tickets.php">UPCOMING TRIPS</a></li>
-                        <li><a href="#">PAST TRIPS</a></li>
-                        <li><a href="#">CANCEL TRIPS</a></li>
+                    <li><a href="../process/get_task.php?title=UPCOMING">UPCOMING TRIPS</a></li>
+                        <li><a href="../process/get_task.php?title=PAST">PAST TRIPS</a></li>
+                        <li><a href="../process/get_task.php?title=CANCEL">CANCEL TRIP</a></li>
                         <li><a href="#">TRAINS</a></li>
                         <li><a href="#">STATIONS</a></li>
                         <li><a href="../process/change_pass.php">CHANGE PASSWORD</a></li>

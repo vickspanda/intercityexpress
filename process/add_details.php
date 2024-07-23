@@ -42,6 +42,8 @@
             if($userType === 'passenger'){
                 $user_name = $user_row['name'];
                 $user_gender = $user_row['gender'];
+                $user_email = $user_row['email_id'];
+                $user_mob = $user_row['mobile_no'];
                 // Function to get passenger age in years
                 function get_passenger_age($conn, $pass_username) {
                     $query = "
@@ -64,6 +66,8 @@
             }else{
                 $user_name = $user_row['emp_name'];
                 $user_gender = $user_row['emp_gender'];
+                $user_email = $user_row['emp_email_id'];
+                $user_mob = $user_row['emp_mobile_no'];
                 // Function to get passenger age in years
                 function get_employee_age($conn, $emp_username) {
                     $query = "
@@ -138,7 +142,11 @@
                             <option>Male</option>
                             <option>Female</option>
                         </select>
-                    </div><br><br>
+                        <br><br>
+                        <br>
+
+                        <input type="text" name="mobile_no" placeholder="Enter Traveler's Mobile Number" id="mobile_no" value="<?php echo $user_mob; ?>" required><br>
+                    </div><br>
                     </div>
                 </div>
                 <div class="col2">
@@ -151,6 +159,9 @@
                         <input type="text" name="age" placeholder="Enter Traveler's Age" id="age" value="<?php echo $user_age; ?>" required><br>
                         <span class="error" id="AC_fareError">Please Enter only Number</span>
                         <br><br>
+
+                        <input type="text" name="email" placeholder="Enter Traveler's Email Id" id="email" value="<?php echo $user_email; ?>" required><br>
+                   
                     </div>
                 </div>
             </footer>

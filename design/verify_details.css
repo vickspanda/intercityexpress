@@ -60,9 +60,9 @@ body, html {
 
   th, td{
     text-align: left;
-    font-size: 25px;
+    font-size: 20px;
     width: 180px;
-    height: 50px;
+    height: 40px;
     padding-left: 10px;
     align-items: end;
     font-style: bold;

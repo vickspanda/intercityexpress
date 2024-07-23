@@ -2,59 +2,53 @@
 session_start();
 if(isset($_SESSION['pass_username'])){
     $username = $_SESSION['pass_username'];
+    $userType = 'tickets_pass';
+    $dbtable = 'passenger';
+    $type = 'pass';
+
 }
+$title = $_SESSION['title'];
 if(isset($_SESSION['emp_username'])){
     $username = $_SESSION['emp_username'];
+    $userType = 'tickets_emp';
+
+    $dbtable = 'employee';
+    $type = 'emp';
+
 }
 if(isset($_SESSION['admin_username'])){
     $admin_username = $_SESSION['admin_username'];
 }
 if(isset($_SESSION['ta_username'])){
     $username = $_SESSION['ta_username'];
+    $userType = 'tickets_ta';
+    $dbtable = 'travel_agent';
+    $type = 'ta';
+
 }
 if(!$username && !$admin_username){
     echo '<script>window.location.href="../index.html";</script>';
 }
 
 include '../process/connect.php';
-$_POST['pass'] = 'passenger';
 
+$today_date = date("Y-m-d");
 
-if(isset($_POST['pass'])){
-    $db = $_POST['pass'];
-    $userType = 'tickets_pass';
-    $title = 'Passengers';
-    $us_name = 'name';
-    $id = 'pass_id';
-    $next = 'pass_list';
-    $redirect = 'ad_pass_profile.php';
+if($title === 'UPCOMING' || $title === 'CANCEL'){
+
+    $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $userType.user_name, $userType.user_age, tickets.status, seat_allocated.doj FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.status ='Confirmed' AND seat_allocated.doj >= $2 ORDER BY tickets.ticket_no DESC LIMIT 5";
+    $query = pg_query_params($conn, $user, array($username,$today_date));
+    if (!$query) {
+        die("Query failed: " . pg_last_error());
+    }
+
+}else{
+    $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $userType.user_name, $userType.user_age, tickets.status, seat_allocated.doj FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.ticket_no NOT IN (SELECT tickets.ticket_no FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.status ='Confirmed' AND seat_allocated.doj >= $2) ORDER BY tickets.ticket_no DESC LIMIT 5";
+    $query = pg_query_params($conn, $user, array($username,$today_date));
+    if (!$query) {
+        die("Query failed: " . pg_last_error());
+    }
 }
-
-if(isset($_POST['emp'])){
-    $userType = 'tickets_emp';
-    $title = 'Employees';
-    $us_name = 'emp_name';
-    $id = 'emp_uid';
-    $next = 'emp_list';
-    $redirect = 'ad_emp_profile.php';
-}
-
-if(isset($_POST['ta'])){
-    $userType = 'tickets_ta';
-    $title = 'Travel Agents';
-    $us_name = 'ta_name';
-    $id = 'ta_uid';
-    $next = 'ta_list';
-    $redirect = 'ad_ta_profile.php';
-}
-
-
-$user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $userType.user_name, $userType.user_age, tickets.status, seat_allocated.doj FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 ORDER BY tickets.ticket_no DESC LIMIT 5";
-$query = pg_query_params($conn, $user, array($username));
-if (!$query) {
-    die("Query failed: " . pg_last_error());
-}
-
 $count = pg_num_rows($query);
 
 
@@ -68,8 +62,16 @@ $count = pg_num_rows($query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../design/list_tickets.css">
-    <title><?php echo $title;?> List</title>
-    <script src="../script/admin_logout.js" defer></script>
+    <title><?php echo $title;?> TRIP</title>
+    <script src="../script/<?php echo $type; ?>_logout.js" defer></script>
+    <?php 
+        if($title === 'CANCEL'){
+            ?>
+    <script src="../script/cancel.js" defer></script>
+            
+            <?php
+        }
+    ?>
 
 
 </head>
@@ -79,14 +81,14 @@ $count = pg_num_rows($query);
         <footer>
             <div class="col1">
                 <?php
-                    if($db ==='passenger'){
+                    if($dbtable === 'passenger'){
                 ?>
                 
                 <div class="nav">
                     <ul>
-                        <li><a href="../process/list_tickets.php">UPCOMING TRIPS</a></li>
-                        <li><a href="#">PAST TRIPS</a></li>
-                        <li><a href="#">CANCEL TRIPS</a></li>
+                    <li><a href="../process/get_task.php?title=UPCOMING">UPCOMING TRIPS</a></li>
+                        <li><a href="../process/get_task.php?title=PAST">PAST TRIPS</a></li>
+                        <li><a href="../process/get_task.php?title=CANCEL">CANCEL TRIP</a></li>
                         <li><a href="#">TRAINS</a></li>
                         <li><a href="#">STATIONS</a></li>
                         <li><a href="../process/change_pass.php">CHANGE PASSWORD</a></li>
@@ -97,37 +99,56 @@ $count = pg_num_rows($query);
                 
                 <?php
 
-                    }else if($userType === 'employee'){
+                    }else if($dbtable == 'employee'){
 
                         ?>
                 
-                        <div class="nav">
-                            <ul>
-                                <li><a href="ad_pass_options.php">PASSENGERS</a></li>
-                                <li><a href="ad_ta_options.php">TRAVEL AGENTS</a></li>
-                                <li><a href="ad_emp_options.php">EMPLOYEES</a></li>
-                                <li><a href="ad_train_options.php">TRAINS</a></li>
-                                <li><a href="ad_station_options.php">STATIONS</a></li>
-                                <li><a href="ad_view_options.php"  id="ta_selected">VIEW USERS</a></li>
-                                <li><a href="ad_more_options.php" >MORE OPTIONS</a></li>
-                                <li><a href="#" onclick="logout()">LOG OUT</a></li>
-                            </ul>
-                        </div>
+                <div class="nav">
+                    <ul>
+                    <li><a href="../process/get_task.php?title=UPCOMING">UPCOMING TRIPS</a></li>
+                        <li><a href="../process/get_task.php?title=PAST">PAST TRIPS</a></li>
+                        <li><a href="../process/get_task.php?title=CANCEL">CANCEL TRIP</a></li>
+                        <li><a href="#">TRAINS</a></li>
+                        <li><a href="../process/change_pass.php">CHANGE PASSWORD</a></li>
+                        <li><a href="../employee/emp_view_profile.php">YOUR PROFILE</a></li>
+                        <li><a href="../employee/emp_view_more.php">CONTACT DETAILS</a></li>
+                        <li><a href="#" onclick="logout()">LOG OUT</a></li>
+                    </ul>
+                </div>
                         
                         <?php
 
-                    }else if($userType === 'travel_agent'){
+                    }else if($dbtable == 'travel_agent'){
+
+                        ?>
+                
+                <div class="nav">
+                    <ul>
+                    <li><a href="../process/get_task.php?title=UPCOMING">UPCOMING TRIPS</a></li>
+                        <li><a href="../process/get_task.php?title=PAST">PAST TRIPS</a></li>
+                        <li><a href="../process/get_task.php?title=CANCEL">CANCEL TRIP</a></li>
+                        <li><a href="#">TRAINS</a></li>
+                        <li><a href="../process/change_pass.php">CHANGE PASSWORD</a></li>
+                        <li><a href="../travel_agent/ta_view_profile.php">YOUR PROFILE</a></li>
+                        <li><a href="../travel_agent/ta_view_more.php">CONTACT DETAILS</a></li>
+                        <li><a href="#" onclick="logout()">LOG OUT</a></li>
+                    </ul>
+                </div>
+                        
+                        <?php
+
+                    }else if($dbtable === 'admin'){
 
                         ?>
                 
                         <div class="nav">
                             <ul>
-                                <li><a href="ad_pass_options.php">PASSENGERS</a></li>
+                                <li><a href="ad_pass_options.php" id="ta_selected">PASSENGERS</a></li>
                                 <li><a href="ad_ta_options.php">TRAVEL AGENTS</a></li>
                                 <li><a href="ad_emp_options.php">EMPLOYEES</a></li>
                                 <li><a href="ad_train_options.php">TRAINS</a></li>
                                 <li><a href="ad_station_options.php">STATIONS</a></li>
-                                <li><a href="ad_view_options.php"  id="ta_selected">VIEW USERS</a></li>
+                                <li><a href="ad_view_options.php" >VIEW USERS</a></li>
                                 <li><a href="ad_more_options.php" >MORE OPTIONS</a></li>
                                 <li><a href="#" onclick="logout()">LOG OUT</a></li>
                             </ul>
@@ -141,7 +162,7 @@ $count = pg_num_rows($query);
             
             <div class="colb">
                 <br>
-                <h2 style="text-align:center">Tickets List</h2>
+                <h2 style="text-align:center;width:100%"><?php echo $title;?> TRIPS</h2>
             <table style="width:100%">
                                 
                 <?php 
@@ -182,11 +203,25 @@ $count = pg_num_rows($query);
                             <td><?php echo htmlspecialchars($to_station); ?></td>
                             <td>Status:</td>
                             <td><?php echo htmlspecialchars($status); ?></td>
-                            <td rowspan="2"><form method="POST" action="view_ticket.php">
+                            <td rowspan="2">
+                                <?php
+                                    if($title === 'CANCEL'){
+                                        ?>
+                                <input id="ticket_no" value="<?php echo $ticket_no; ?>" hidden>
+                                <button id = "unblock" type="button" onclick="cancel_ticket()">CANCEL</button>
+                            <?php
+                                    }else{
+                                        ?>
+                                        <form method="POST" action="view_ticket.php">
                                 <input name="ticket_no" value="<?php echo $ticket_no; ?>" hidden>
-                                <input name="userType" value="<?php echo $db; ?>" hidden>
+                                <input name="userType" value="<?php echo $dbtable; ?>" hidden>
                                 <input id = "unblock" type="submit" value="VIEW DETAILS">
-                            </form></td>
+                            </form>
+                            <?php
+                                    }
+                                ?>
+
+                            </td>
                             </tr>
                             <tr>
                             <td colspan="5"></td>
@@ -201,8 +236,8 @@ $count = pg_num_rows($query);
                     if ($count == 0){
                         ?>
 
-                        <p class="no-user">
-                            No Active User Found !!!
+                        <p class="no-user" style="text-align:center;width:100%">
+                            No Trip Found !!!
                         </div>
                         <?php
                     }

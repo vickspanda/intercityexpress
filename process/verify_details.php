@@ -16,6 +16,10 @@
     $_SESSION['user_gender'] = $user_gender;
     $user_age = $_POST['age'];
     $_SESSION['user_age'] = $user_age;
+    $user_mob = $_POST['mobile_no'];
+    $_SESSION['user_mob'] = $user_mob;
+    $user_email = $_POST['email'];
+    $_SESSION['user_email'] = $user_email;
 
     if(!$username){
         echo "<script>window.location.href='../index.html'</script>";
@@ -100,6 +104,12 @@
                                 <td><?php echo htmlspecialchars($user_name);?></td>
                                 <td>Traveler's Age:</td>
                                 <td><?php echo htmlspecialchars($user_age);?></td>
+                            </tr>
+                            <tr>
+                                <td>Email Id</td>
+                                <td><?php echo htmlspecialchars($user_email);?></td>
+                                <td>Mobile No.:</td>
+                                <td><?php echo htmlspecialchars($user_mob);?></td>
                             </tr>
                             
                             <tr>

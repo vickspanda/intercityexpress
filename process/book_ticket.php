@@ -17,6 +17,8 @@
     $ta_comm = $_SESSION['ta_comm'];
     $emp_conn = $_SESSION['emp_conn'];
     $total_seats = $_SESSION['total_seats'];
+    $user_mob = $_SESSION['user_mob'];
+    $user_email = $_SESSION['user_email'];
     $upi = $_POST['upi'];
     if(!$username){
         echo "<script>window.location.href='../index.html'</script>";
@@ -53,23 +55,23 @@
             if($userType === 'passenger')
             {
                 $_SESSION['pass_username'] = $username;
-                $insert_into_sec = "INSERT INTO tickets_pass VALUES ($1,$2,$3,$4,$5,$6,$7)";
-                $sec_array = array($ticket_no,$username,$user_name,$user_gender,$user_age,$ticket_fare,$total_fare);
+                $insert_into_sec = "INSERT INTO tickets_pass VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)";
+                $sec_array = array($ticket_no,$username,$user_name,$user_gender,$user_age,$ticket_fare,$total_fare,$user_mob,$user_email);
                 $sec_execute = pg_query_params($conn,$insert_into_sec,$sec_array);
             }
             else if($userType === 'employee')
             {
                 $_SESSION['emp_username'] = $username;
-                $insert_into_sec = "INSERT INTO tickets_emp VALUES ($1,$2,$3,$4,$5,$6,$7,$8)";
-                $sec_array = array($ticket_no,$username,$user_name,$user_gender,$user_age,$ticket_fare,$emp_conn,$total_fare);
+                $insert_into_sec = "INSERT INTO tickets_emp VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)";
+                $sec_array = array($ticket_no,$username,$user_name,$user_gender,$user_age,$ticket_fare,$emp_conn,$total_fare,$user_mob,$user_email);
                 $sec_execute = pg_query_params($conn,$insert_into_sec,$sec_array);
             }
             else if($userType === 'travel_agent')
             {
                 $_SESSION['ta_username'] = $username;
-                $insert_into_sec = "INSERT INTO tickets_ta VALUES ($1,$2,$3,$4,$5,$6,$7,$8)";
+                $insert_into_sec = "INSERT INTO tickets_ta VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)";
                 
-                $sec_array = array($ticket_no,$username,$user_name,$user_gender,$user_age,$ticket_fare,$ta_comm,$total_fare);
+                $sec_array = array($ticket_no,$username,$user_name,$user_gender,$user_age,$ticket_fare,$ta_comm,$total_fare,$user_mob,$user_email);
                 $sec_execute = pg_query_params($conn,$insert_into_sec,$sec_array);
             }
             if($sec_execute){
@@ -124,6 +126,7 @@
                         }
                         if($payment_execute){
                             pg_query($conn,"COMMIT");
+                        echo '<script>window.alert("Your Ticket has been Booked Successfully!!!");</script>';
                             
                             echo '<script>window.location.href="view_ticket.php";</script>';
                         }else{

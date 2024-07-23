@@ -37,15 +37,15 @@ pg_close($conn);
     <div class="admin_account">
         <footer>
             <div class="col1">
-                <div class="nav">
+            <div class="nav">
                     <ul>
-                        <li><a href="#">PASSENGERS</a></li>
-                        <li><a href="ta_reg.php">TRAVEL AGENTS</a></li>
-                        <li><a href="emp_reg.php">EMPLOYEES</a></li>
+                    <li><a href="../process/get_task.php?title=UPCOMING">UPCOMING TRIPS</a></li>
+                        <li><a href="../process/get_task.php?title=PAST">PAST TRIPS</a></li>
+                        <li><a href="../process/get_task.php?title=CANCEL">CANCEL TRIP</a></li>
                         <li><a href="#">TRAINS</a></li>
                         <li><a href="../process/change_pass.php">CHANGE PASSWORD</a></li>
-                        <li><a href="emp_view_profile.php">YOUR PROFILE</a></li>
-                        <li><a href="emp_view_more.php">CONTACT DETAILS</a></li>
+                        <li><a href="../employee/emp_view_profile.php">YOUR PROFILE</a></li>
+                        <li><a href="../employee/emp_view_more.php">CONTACT DETAILS</a></li>
                         <li><a href="#" onclick="logout()">LOG OUT</a></li>
                     </ul>
                 </div>

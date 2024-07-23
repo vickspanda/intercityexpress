@@ -178,7 +178,9 @@ create table tickets_pass(
     user_gender varchar(10),
     user_age varchar(10),
     ticket_fare int,
-    total_fare int
+    total_fare int,
+    user_mob varchar(10),
+    user_email varchar(200)
 );
 
 create table tickets_ta(
@@ -189,7 +191,9 @@ create table tickets_ta(
     user_age varchar(10),
     ticket_fare int,
     ta_comm int,
-    total_fare int
+    total_fare int,
+    user_mob varchar(10),
+    user_email varchar(200)
 );
 
 create table tickets_emp(
@@ -200,7 +204,9 @@ create table tickets_emp(
     user_age varchar(10),
     ticket_fare int,
     emp_conn int,
-    total_fare int
+    total_fare int,
+    user_mob varchar(10),
+    user_email varchar(200)
 );
 
 create table payment(
