@@ -10,12 +10,12 @@
         $username = $_SESSION['emp_username'];
     }
     if(isset($_SESSION['admin_username'])){
-        $username = $_SESSION['admin_username'];
+        $admin_username = $_SESSION['admin_username'];
     }
     if(isset($_SESSION['ta_username'])){
         $username = $_SESSION['ta_username'];
     }
-    if(!$username){
+    if(!$username && !$admin_username){
         echo '<script>window.location.href="../index.html";</script>';
     }
     include '../process/connect.php';
