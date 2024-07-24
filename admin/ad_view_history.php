@@ -20,20 +20,28 @@ include '../process/!admin_username.php';
 <body>
     <div class="background"></div>
     <div class="login_form">
-        <form id="signUpForm" action="ad_emp_profile.php" method="post" onsubmit="validateForm(event)">
+        <form id="signUpForm" action="../process/list_tickets.php" method="post" onsubmit="validateForm(event)">
             <div class="lbl1">
                 <br><br><br>
-                <label>Employee History !!!</label>
+                <label>User's History !!!</label>
             </div>
             <div class="credentials">
             <br><br>
-                <input type="text" id="username" name="username" placeholder="Enter Employee's Username" onblur="validateUsername()" autofocus required>
-                <br><br> <div id="usernameMessage"></div>
-                <input type="text" id="userType" name="userType" value="employee" hidden><br><br>
-            </div>
+            <div class="sec_book">
+                        <select id="userType" name="userType" required>
+                            <option value="" disabled selected hidden>Select Your User Type</option>
+                            <option value="passenger">Passenger</option>
+                            <option value="employee">Employee</option>
+                            <option value="travel_agent">Travel Agent</option>
+                        </select>
+                    </div><br><br>
+                <input type="text" id="username" name="username" placeholder="Enter User's Username" onblur="validateUsername()" autofocus required>
+                 <div id="usernameMessage"></div>
+                
+            </div><br><br>
             <div class="submit1">
                 <input type="submit" value="View">
-                <button onclick="location.href = 'ad_emp_options.php'" type="button">Cancel</button><br><br><br><br>
+                <button onclick="location.href = 'ad_more_options.php'" type="button">Cancel</button><br><br><br><br>
             </div>
         </form>
     </div>

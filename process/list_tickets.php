@@ -5,15 +5,18 @@ if(isset($_SESSION['pass_username'])){
     $userType = 'tickets_pass';
     $dbtable = 'passenger';
     $type = 'pass';
+$title = $_SESSION['title'];
+
 
 }
-$title = $_SESSION['title'];
 if(isset($_SESSION['emp_username'])){
     $username = $_SESSION['emp_username'];
     $userType = 'tickets_emp';
 
     $dbtable = 'employee';
     $type = 'emp';
+$title = $_SESSION['title'];
+
 
 }
 if(isset($_SESSION['admin_username'])){
@@ -22,16 +25,21 @@ if(isset($_SESSION['admin_username'])){
     if($_SESSION['userType']){
         $userType = $_SESSION['userType'];
     }
+    if(isset($_POST['userType'])){
+        $userType = $_POST['userType'];
+    }
     if($userType === 'employee'){
         $user_ticket = 'tickets_emp';
         $count = 4;
-
     }
     if($userType === 'passenger'){
         $user_ticket = 'tickets_pass';
     }
     if($userType === 'travel_agent'){
         $user_ticket = 'tickets_ta';
+    }
+    if(isset($_POST['username'])){
+        $user_id = $_POST['username'];
     }
     $dbtable = 'admin';
 }
@@ -41,6 +49,8 @@ if(isset($_SESSION['ta_username'])){
     $userType = 'tickets_ta';
     $dbtable = 'travel_agent';
     $type = 'ta';
+$title = $_SESSION['title'];
+
 
 }
 if(!$username && !$admin_username){
@@ -68,11 +78,19 @@ if(!$admin_username){
         }
     }
 }else{
-    $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $user_ticket.user_name, $user_ticket.user_age, tickets.status, seat_allocated.doj FROM $user_ticket, tickets, seat_allocated WHERE tickets.ticket_no = $user_ticket.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND tickets.user_type = $1 ORDER BY tickets.ticket_no DESC LIMIT $count";
+    if(isset($_POST['username'])){
+        $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $user_ticket.user_name, $user_ticket.user_age, tickets.status, seat_allocated.doj FROM $user_ticket, tickets, seat_allocated WHERE tickets.ticket_no = $user_ticket.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND tickets.user_type = $1 AND $user_ticket.username = $2 ORDER BY tickets.ticket_no DESC LIMIT $count";
+        $query = pg_query_params($conn, $user, array($userType,$user_id));
+        if (!$query) {
+            die("Query failed: " . pg_last_error());
+        }
+    }else{
+        $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $user_ticket.user_name, $user_ticket.user_age, tickets.status, seat_allocated.doj FROM $user_ticket, tickets, seat_allocated WHERE tickets.ticket_no = $user_ticket.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND tickets.user_type = $1 ORDER BY tickets.ticket_no DESC LIMIT $count";
         $query = pg_query_params($conn, $user, array($userType));
         if (!$query) {
             die("Query failed: " . pg_last_error());
         }
+    }
 }
 $count = pg_num_rows($query);
 
@@ -241,7 +259,22 @@ $count = pg_num_rows($query);
                                         ?>
                                         <form method="POST" action="view_ticket.php">
                                 <input name="ticket_no" value="<?php echo $ticket_no; ?>" hidden>
-                                <input name="userType" value="<?php echo $dbtable; ?>" hidden>
+                                <?php
+                                    if(!$admin_username){
+                                        ?>
+                                            <input name="userType" value="<?php echo $dbtable; ?>" hidden>
+                                        <?php
+                                    }else{
+                                        if(isset($_POST['username'])){
+                                            ?>
+                                            <input name="more" value="TRUE" hidden>
+                                            <?php
+                                        }
+                                        ?>
+                                            <input name="userType" value="<?php echo $userType; ?>" hidden>
+                                        <?php
+                                    }
+                                ?>
                                 <input id = "unblock" type="submit" value="VIEW DETAILS">
                             </form>
                             <?php

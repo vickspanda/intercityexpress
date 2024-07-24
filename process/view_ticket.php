@@ -1,19 +1,35 @@
 <?php
     session_start();
     $get_back = FALSE;
+    $more = 'FALSE';
     $title = $_SESSION['title'];
     if(isset($_SESSION['pass_username'])){
         $username = $_SESSION['pass_username'];
+        if(isset($_POST['userType'])){
+            $userType = $_POST["userType"] ?? '';
+        }
     }
     if(isset($_SESSION['emp_username'])){
         $username = $_SESSION['emp_username'];
+        if(isset($_POST['userType'])){
+            $userType = $_POST["userType"] ?? '';
+        }
 
     }
     if(isset($_SESSION['admin_username'])){
         $admin_username = $_SESSION['admin_username'];
+        if(isset($_POST['userType'])){
+            $userType = $_POST["userType"] ?? '';
+        }
+        if(isset($_POST['more'])){
+            $more = $_POST["more"] ?? '';
+        }
     }
     if(isset($_SESSION['ta_username'])){
         $username = $_SESSION['ta_username'];
+        if(isset($_POST['userType'])){
+            $userType = $_POST["userType"] ?? '';
+        }
 
     }
 
@@ -29,10 +45,6 @@
     }
     if(isset($_POST['ticket_no'])){
         $ticket_no = $_POST["ticket_no"] ?? '';
-    }
-
-    if(isset($_POST['userType'])){
-        $userType = $_POST["userType"] ?? '';
     }
     if(isset($_SESSION['userType'])){
         $userType = $_SESSION["userType"] ?? '';
@@ -239,13 +251,23 @@
                             <?php
                         }
                     }else{
-                        ?>
-            <button onclick="location.href='list_tickets.php'" type="button" id="signup1">Close</button>
+                        if($more === 'TRUE'){
+                            ?>
+                            <form method="post" action="list_tickets.php">
+                            <input name="userType" value="<?php echo $userType; ?>" hidden>
+                            <input name="username" value="<?php echo $username; ?>" hidden>
+                            <input type="submit" id="signup1" value="Close">
+                            </form>
+                            <?php
+                        }else{
+                            ?>
+            <button onclick="location.href='list_tickets.php'" type="button" id="signup1">Close</button><br>
                             
                             <?php
+                        }
                     }
                 ?>
-        <br><br>
+        <br>
     </div>
     
 </body>

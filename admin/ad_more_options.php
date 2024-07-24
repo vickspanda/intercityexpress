@@ -67,7 +67,7 @@ include '../process/!admin_username.php';
                 
                 <br><br>
                  <br><br>
-                 <button onclick="location.href='#'" type="button" id="signup2">BOOKED HISTORY</button><br><br>
+                 <button onclick="location.href='ad_view_history.php'" type="button" id="signup2">USER'S HISTORY</button><br><br>
                 <br><br>
                 
             </div>

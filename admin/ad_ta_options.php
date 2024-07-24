@@ -44,7 +44,7 @@ include '../process/!admin_username.php';
                  <br><br>
                  <button onclick="location.href='ad_view_ta.php'" type="button" id="signup2">VIEW DETAILS</button><br><br>
                  <br><br>
-                 <button onclick="location.href='../process/get_task.php?userType=passenger'" type="button" id="signup2">BOOKED HISTORY</button>
+                 <button onclick="location.href='../process/get_task.php?userType=travel_agent'" type="button" id="signup2">BOOKED HISTORY</button>
                 
             </div>
             <div class="col3_ppv">
