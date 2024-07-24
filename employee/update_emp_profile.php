@@ -161,13 +161,14 @@ $emp_res_pincode = get_employee_data($conn, $emp_username, 'emp_res_pincode');
                     <div class="DOB">
                         <input type="text" id="dob" name="dob" <?php
                             if($part === 'more'){
-                                ?>placeholder = "<?php echo $emp_dob;?>"<?php
+                                ?>placeholder = "<?php echo $emp_dob;?>" <?php
                             }   else if ($part === 'profile'){
                                 ?> 
                                 value = "<?php echo $emp_dob;?>"
-                                placeholder = "Date of Birth"<?php
+                                placeholder = "Date of Birth"
+                                onfocus="(this.type='Date')" onblur="(this.type='text')"<?php
                             }                 
-                    ?>  onfocus="(this.type='Date')" onblur="(this.type='text')"  <?php echo $reqp;?> <?php echo $wtdp;?>><br>
+                    ?>   <?php echo $reqp;?> <?php echo $wtdp;?>><br>
                         <span id="dobError" class="error"></span><br>
                     </div>
                     <input type="text" id="mobile" name="mobile" <?php
@@ -216,7 +217,7 @@ $emp_res_pincode = get_employee_data($conn, $emp_username, 'emp_res_pincode');
                             <option>Ph.D</option>
                         </select><br>
                         <span id="qualificationError" class="error"></span><br>
-                        <input type="text" id="doj" name="doj" placeholder="<?php echo $emp_date_of_joining;?>" onfocus="(this.type='Date')" onblur="(this.type='text')" readonly><br>
+                        <input type="text" id="doj" name="doj" placeholder="<?php echo $emp_date_of_joining;?>" readonly><br>
                         <span id="dojError" class="error"></span><br>
                     </div>
                 </div>
@@ -229,7 +230,7 @@ $emp_res_pincode = get_employee_data($conn, $emp_username, 'emp_res_pincode');
                         <option>PAN</option>
                     </select><br>
                     <span id="govtIdError" class="error"></span><br>
-                    <input type="text" id="idNumber" name="idNumber" placeholder="<?php echo $emp_id?>"><br>
+                    <input type="text" id="idNumber" name="idNumber" placeholder="<?php echo $emp_id?>" readonly><br>
                     <span id="idNumberError" class="error"></span><br>
                     <select id="designation" name="designation" class="designation" disabled>
                         <option selected hidden><?php echo $emp_des;?></option>
