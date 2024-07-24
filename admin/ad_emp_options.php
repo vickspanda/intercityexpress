@@ -38,16 +38,18 @@ include '../process/!admin_username.php';
             </div>
             
             <div class="col2_ppv">
-                 <br><br><br><br><br>
+                 <br><br><br>
                  <button onclick="location.href='emp_reg.php'" type="button" id="signup2">ADD EMPLOYEE</button>
 
                  <br><br>
                  <br><br>
                  <button onclick="location.href='ad_view_emp.php'" type="button" id="signup2">VIEW DETAILS</button><br><br>
+                 <br><br>
+                 <button onclick="location.href='../process/get_task.php?userType=employee'" type="button" id="signup2">BOOKED HISTORY</button>
                 
             </div>
             <div class="col3_ppv">
-                <br><br><br><br><br>
+                <br><br><br>
                 <button onclick="location.href='ad_block_emp.php'" type="button" id="signup2">BLOCK EMPLOYEE</button><br><br>
                 
                 <br><br>

@@ -18,7 +18,24 @@ if(isset($_SESSION['emp_username'])){
 }
 if(isset($_SESSION['admin_username'])){
     $admin_username = $_SESSION['admin_username'];
+    $count = 5;
+    if($_SESSION['userType']){
+        $userType = $_SESSION['userType'];
+    }
+    if($userType === 'employee'){
+        $user_ticket = 'tickets_emp';
+        $count = 4;
+
+    }
+    if($userType === 'passenger'){
+        $user_ticket = 'tickets_pass';
+    }
+    if($userType === 'travel_agent'){
+        $user_ticket = 'tickets_ta';
+    }
+    $dbtable = 'admin';
 }
+
 if(isset($_SESSION['ta_username'])){
     $username = $_SESSION['ta_username'];
     $userType = 'tickets_ta';
@@ -34,20 +51,28 @@ include '../process/connect.php';
 
 $today_date = date("Y-m-d");
 
-if($title === 'UPCOMING' || $title === 'CANCEL'){
+if(!$admin_username){
+    if($title === 'UPCOMING' || $title === 'CANCEL'){
 
-    $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $userType.user_name, $userType.user_age, tickets.status, seat_allocated.doj FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.status ='Confirmed' AND seat_allocated.doj >= $2 ORDER BY tickets.ticket_no DESC LIMIT 5";
-    $query = pg_query_params($conn, $user, array($username,$today_date));
-    if (!$query) {
-        die("Query failed: " . pg_last_error());
+        $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $userType.user_name, $userType.user_age, tickets.status, seat_allocated.doj FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.status ='Confirmed' AND seat_allocated.doj >= $2 ORDER BY tickets.ticket_no DESC LIMIT 5";
+        $query = pg_query_params($conn, $user, array($username,$today_date));
+        if (!$query) {
+            die("Query failed: " . pg_last_error());
+        }
+    
+    }else{
+        $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $userType.user_name, $userType.user_age, tickets.status, seat_allocated.doj FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.ticket_no NOT IN (SELECT tickets.ticket_no FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.status ='Confirmed' AND seat_allocated.doj >= $2) ORDER BY tickets.ticket_no DESC LIMIT 5";
+        $query = pg_query_params($conn, $user, array($username,$today_date));
+        if (!$query) {
+            die("Query failed: " . pg_last_error());
+        }
     }
-
 }else{
-    $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $userType.user_name, $userType.user_age, tickets.status, seat_allocated.doj FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.ticket_no NOT IN (SELECT tickets.ticket_no FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.status ='Confirmed' AND seat_allocated.doj >= $2) ORDER BY tickets.ticket_no DESC LIMIT 5";
-    $query = pg_query_params($conn, $user, array($username,$today_date));
-    if (!$query) {
-        die("Query failed: " . pg_last_error());
-    }
+    $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $user_ticket.user_name, $user_ticket.user_age, tickets.status, seat_allocated.doj FROM $user_ticket, tickets, seat_allocated WHERE tickets.ticket_no = $user_ticket.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND tickets.user_type = $1 ORDER BY tickets.ticket_no DESC LIMIT $count";
+        $query = pg_query_params($conn, $user, array($userType));
+        if (!$query) {
+            die("Query failed: " . pg_last_error());
+        }
 }
 $count = pg_num_rows($query);
 
@@ -143,13 +168,13 @@ $count = pg_num_rows($query);
                 
                         <div class="nav">
                             <ul>
-                                <li><a href="ad_pass_options.php" id="ta_selected">PASSENGERS</a></li>
-                                <li><a href="ad_ta_options.php">TRAVEL AGENTS</a></li>
-                                <li><a href="ad_emp_options.php">EMPLOYEES</a></li>
-                                <li><a href="ad_train_options.php">TRAINS</a></li>
-                                <li><a href="ad_station_options.php">STATIONS</a></li>
-                                <li><a href="ad_view_options.php" >VIEW USERS</a></li>
-                                <li><a href="ad_more_options.php" >MORE OPTIONS</a></li>
+                                <li><a href="../admin/ad_pass_options.php">PASSENGERS</a></li>
+                                <li><a href="../admin/ad_ta_options.php">TRAVEL AGENTS</a></li>
+                                <li><a href="../admin/ad_emp_options.php">EMPLOYEES</a></li>
+                                <li><a href="../admin/ad_train_options.php">TRAINS</a></li>
+                                <li><a href="../admin/ad_station_options.php">STATIONS</a></li>
+                                <li><a href="../admin/ad_view_options.php" >VIEW USERS</a></li>
+                                <li><a href="../admin/ad_more_options.php" >MORE OPTIONS</a></li>
                                 <li><a href="#" onclick="logout()">LOG OUT</a></li>
                             </ul>
                         </div>

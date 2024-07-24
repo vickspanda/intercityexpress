@@ -37,16 +37,18 @@ include '../process/!admin_username.php';
                 </div>
             </div>
             <div class="col2_ppv">
-                 <br><br><br><br><br>
+                 <br><br><br>
                  <button onclick="location.href='ad_ta_approval.php'" type="button" id="signup2">PENDING APPROVALS</button>
 
                  <br><br>
                  <br><br>
                  <button onclick="location.href='ad_view_ta.php'" type="button" id="signup2">VIEW DETAILS</button><br><br>
+                 <br><br>
+                 <button onclick="location.href='../process/get_task.php?userType=passenger'" type="button" id="signup2">BOOKED HISTORY</button>
                 
             </div>
             <div class="col3_ppv">
-                <br><br><br><br><br>
+                <br><br><br>
                 <button onclick="location.href='ad_block_ta.php'" type="button" id="signup2">BLOCK AGENT</button><br><br>
                 
                 <br><br>

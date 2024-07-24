@@ -226,16 +226,23 @@
                 </table>
                 
                 <?php
-                    if($get_back == TRUE){
-                        ?>
-        <button onclick="location.href='list_tickets.php'" type="button" id="signup1">Close</button>
-                        
-                        <?php
+                    if(!$admin_username){
+                        if($get_back == TRUE){
+                            ?>
+            <button onclick="location.href='list_tickets.php'" type="button" id="signup1">Close</button>
+                            
+                            <?php
+                        }else{
+                            ?>
+            <button onclick="location.href='../<?php echo $userType?>/<?php echo $user;?>_dashboard.php'" type="button" id="signup1">Close</button>
+                            
+                            <?php
+                        }
                     }else{
                         ?>
-        <button onclick="location.href='../<?php echo $userType?>/<?php echo $user;?>_dashboard.php'" type="button" id="signup1">Close</button>
-                        
-                        <?php
+            <button onclick="location.href='list_tickets.php'" type="button" id="signup1">Close</button>
+                            
+                            <?php
                     }
                 ?>
         <br><br>
