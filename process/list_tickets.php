@@ -22,7 +22,7 @@ $title = $_SESSION['title'];
 if(isset($_SESSION['admin_username'])){
     $admin_username = $_SESSION['admin_username'];
     $count = 5;
-    if($_SESSION['userType']){
+    if(isset($_SESSION['userType'])){
         $userType = $_SESSION['userType'];
     }
     if(isset($_POST['userType'])){
@@ -42,6 +42,7 @@ if(isset($_SESSION['admin_username'])){
         $user_id = $_POST['username'];
     }
     $dbtable = 'admin';
+    $type = 'admin';
 }
 
 if(isset($_SESSION['ta_username'])){
@@ -105,7 +106,7 @@ $count = pg_num_rows($query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../design/list_tickets.css">
-    <title><?php echo $title;?> TRIP</title>
+    <title><?php echo $title.' ';?>TRIP</title>
     <script src="../script/<?php echo $type; ?>_logout.js" defer></script>
     <?php 
         if($title === 'CANCEL'){
@@ -205,7 +206,7 @@ $count = pg_num_rows($query);
             
             <div class="colb">
                 <br>
-                <h2 style="text-align:center;width:100%"><?php echo $title;?> TRIPS</h2>
+                <h2 style="text-align:center;width:100%"><?php echo $title.' ';?>TRIPS</h2>
             <table style="width:100%">
                                 
                 <?php 

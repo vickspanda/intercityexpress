@@ -8,11 +8,17 @@
         if(isset($_POST['userType'])){
             $userType = $_POST["userType"] ?? '';
         }
+        if(isset($_POST['ticket_no'])){
+            $ticket_no = $_POST["ticket_no"] ?? '';
+        }
     }
     if(isset($_SESSION['emp_username'])){
         $username = $_SESSION['emp_username'];
         if(isset($_POST['userType'])){
             $userType = $_POST["userType"] ?? '';
+        }
+        if(isset($_POST['ticket_no'])){
+            $ticket_no = $_POST["ticket_no"] ?? '';
         }
 
     }
@@ -24,11 +30,17 @@
         if(isset($_POST['more'])){
             $more = $_POST["more"] ?? '';
         }
+        if(isset($_POST['ticket_no'])){
+            $ticket_no = $_POST["ticket_no"] ?? '';
+        }
     }
     if(isset($_SESSION['ta_username'])){
         $username = $_SESSION['ta_username'];
         if(isset($_POST['userType'])){
             $userType = $_POST["userType"] ?? '';
+        }
+        if(isset($_POST['ticket_no'])){
+            $ticket_no = $_POST["ticket_no"] ?? '';
         }
 
     }
@@ -42,13 +54,11 @@
     include '../process/connect.php';
     if(isset($_SESSION['ticket_no'])){
         $ticket_no = $_SESSION['ticket_no'];
+        if(isset($_SESSION['userType'])){
+            $userType = $_SESSION["userType"] ?? '';
+        }
     }
-    if(isset($_POST['ticket_no'])){
-        $ticket_no = $_POST["ticket_no"] ?? '';
-    }
-    if(isset($_SESSION['userType'])){
-        $userType = $_SESSION["userType"] ?? '';
-    }
+
     if($userType === 'passenger'){
         $user = 'passenger';
         $userTicket = 'tickets_pass';
