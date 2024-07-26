@@ -60,9 +60,6 @@ include '../process/!admin_username.php';
                 <br> <br> 
             </div>
         </footer>
-        <div class="signup">
-            <br><br>
-        </div>
     </div>
 </body>
 </html>

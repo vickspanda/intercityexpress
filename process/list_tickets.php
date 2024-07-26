@@ -30,7 +30,7 @@ if(isset($_SESSION['admin_username'])){
     }
     if($userType === 'employee'){
         $user_ticket = 'tickets_emp';
-        $count = 4;
+        $count = 5;
     }
     if($userType === 'passenger'){
         $user_ticket = 'tickets_pass';
@@ -237,10 +237,18 @@ $count = pg_num_rows($query);
                                 
                             </tr>  
                             <tr>
-                            <td><?php echo htmlspecialchars($from_station); ?></td>
+                            <td><?php if($from_station === 'Chattrapati Shivaji Maharaj Terminus' ){
+                                ?>CSMT<?php
+                            }else{
+                                echo htmlspecialchars($from_station);
+                            } ?></td>
                             <td style='width:50px' >To</td>
 
-                            <td><?php echo htmlspecialchars($to_station); ?></td>
+                            <td><?php if($to_station === 'Chattrapati Shivaji Maharaj Terminus' ){
+                                ?>CSMT<?php
+                            }else{
+                                echo htmlspecialchars($to_station);
+                            } ?></td>
                             <td>Status:</td>
                             <td><?php echo htmlspecialchars($status); ?></td>
                             <td rowspan="2">

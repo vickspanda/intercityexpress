@@ -90,7 +90,7 @@ label {
 }
 
 .submit1{
-    margin-left: 50px;
+    text-align: center;
 }
 
 .submit1 input{
@@ -189,7 +189,8 @@ label {
     text-align: center;
 }
 .lbl1 {
-    margin-left: 60px;
+    text-align: center;
+
 }
 .lbl2 {
     text-align: center;
