@@ -131,3 +131,32 @@ footer{
     height: 45px;
     width: 170px;
 }
+.signup1{
+    align-items: center;
+}
+.signup1 button{
+    text-align: center;
+    align-items: center;
+}
+
+#signup1{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color:#07166b;
+    color: #fff;
+    height: 50px;
+    width: 150px;
+    border: 1px solid #5a5858;
+    border-radius: 15px;
+    font-family:'tw cen MT';
+    margin-left: 40px;
+}
+
+#signup1:hover{
+    background-color: #091c88;
+    color: #fff;
+    font-size: 25px;
+    height: 55px;
+    width: 160px;
+}

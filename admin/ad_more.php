@@ -25,38 +25,50 @@ include '../process/!admin_username.php';
         <footer>
             <div class="col1">
                 <div class="nav">
-                <ul>
-                    <li><a href="ad_pass_options.php" id="ta_selected">PASSENGERS</a></li>
+                    <ul>
+                    <li><a href="ad_pass_options.php">PASSENGERS</a></li>
                         <li><a href="ad_ta_options.php">TRAVEL AGENTS</a></li>
                         <li><a href="ad_emp_options.php">EMPLOYEES</a></li>
                         <li><a href="ad_train_options.php">TRAINS</a></li>
                         <li><a href="ad_station_options.php">STATIONS</a></li>
-                        <li><a href="ad_view_options.php">VIEW USERS</a></li>
-                        <li><a href="ad_more_options.php" >MORE OPTIONS</a></li>
+                        <li><a href="ad_view_options.php" >VIEW USERS</a></li>
+                        <li><a href="ad_more_options.php" id="ta_selected">MORE OPTIONS</a></li>
                         <li><a href="#" onclick="logout()">LOG OUT</a></li>
                     </ul>
                 </div>
             </div>
-            
             <div class="col2_ppv">
                  <br><br><br>
-                 <button onclick="location.href='../process/get_task.php?userType=passenger'" type="button" id="signup2">BOOKED HISTORY</button>
+                 <button onclick="location.href='ad_view_history.php'" type="button" id="signup2">USER'S HISTORY</button>
+               
+                 <br><br>
+                 <br><br>
+                <button onclick="location.href='ad_advance_book.php'" type="button" id="signup2">ADVANCE BOOKING</button>
+                 
+                 <br><br>
+                 <br><br>
+                <button onclick="location.href='#'" type="button" id="signup2">AGENT'S EARNINGS</button>
 
-
-                 <br><br>
-                 <br><br>
-                 <button onclick="location.href='ad_view_pass.php'" type="button" id="signup2">VIEW DETAILS</button><br><br>
-                 <br><br>
                 
             </div>
             <div class="col3_ppv">
-                <br><br><br>
-                <button onclick="location.href='ad_block_pass.php'" type="button" id="signup2">BLOCK PASSENGER</button><br><br>
+                 <br><br><br>
+                <button onclick="location.href='#'" type="button" id="signup2">VIEW FEEDBACKS</button>
+
+
+                <br><br>
+
+                
                 
                 <br><br>
-                <button onclick="location.href='ad_unblock_pass.php'" type="button" id="signup2">UNBLOCK PASSENGER</button><br><br>
+                <button onclick="location.href='#'" type="button" id="signup2">UPDATE CONTACT</button>
+
+                
                 <br><br>
-                <br> <br> 
+                 <br><br>
+                <button onclick="location.href='#'" type="button" id="signup2">OUR EARNINGS</button>
+
+                
             </div>
         </footer>
         <div class="signup">

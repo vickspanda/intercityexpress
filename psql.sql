@@ -1,7 +1,9 @@
 
-create database intercityexpress;
+create database intercity;
 
 --create table Admin
+
+\c intercity
 
 create table admin (
     UID varchar(05) primary key , 
@@ -219,3 +221,14 @@ create table payment(
     emp_conn int,
     upi_used varchar(100)
 );
+
+create table limits(
+    uid int primary key,
+    user_type varchar(20),
+    booking_limit int,
+    comm_conn int
+);
+
+INSERT INTO limits(uid,user_type) VALUES(1,'passenger');
+INSERT INTO limits(uid,user_type) VALUES(2,'travel_agent');
+INSERT INTO limits(uid,user_type) VALUES(3,'employee');
