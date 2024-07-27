@@ -50,6 +50,20 @@
         echo 'Error: 2';
     }
 
+    $get_comm_conn = "SELECT comm_conn FROM limits WHERE user_type = $1";
+    $get_comm_conn_execute = pg_query_params($conn,$get_comm_conn,array($userType));
+    if($get_comm_conn_execute){
+        $comm_conn_row = pg_fetch_assoc($get_comm_conn_execute);
+        if($userType === 'travel_agent'){
+            $ta_comm = $comm_conn_row['comm_conn'];
+        }else if ($userType === 'employee'){
+            $emp_conn = $comm_conn_row['comm_conn'];
+        }
+    }
+    else{
+        echo 'Error: 2';
+    }
+
 
 ?>
 
@@ -125,7 +139,7 @@
                                     $_SESSION['ticket_fare'] = $train_fare;
                                 }
                                 else if($userType === 'travel_agent'){
-                                    $ta_comm = 100;
+                                    $ta_comm = $train_fare * $ta_comm/100;
                                     $total_fare = $train_fare + $ta_comm;
                                     $_SESSION['total_fare'] = $total_fare;
                                     $_SESSION['ticket_fare'] = $train_fare;
@@ -141,7 +155,7 @@
                             <?php
                             }
                             else if($userType === 'employee'){
-                                $emp_conn = 100;
+                                $emp_conn = $train_fare * $emp_conn/100;
                                 $total_fare = $train_fare - $emp_conn;
                                 $_SESSION['total_fare'] = $total_fare;
                                 $_SESSION['ticket_fare'] = $train_fare;

@@ -54,7 +54,7 @@ include '../process/!admin_username.php';
                 <br><br>
                 <button onclick="location.href='ad_unblock_ta.php'" type="button" id="signup2">UNBLOCK AGENT</button><br><br>
                 <br><br>
-                <button onclick="location.href='#'" type="button" id="signup2">SET COMMISSION</button>
+                <button onclick="location.href='ad_ta_comm.php'" type="button" id="signup2">SET COMMISSION</button>
                 
             </div>
         </footer>
