@@ -18,23 +18,6 @@ function fetchStations() {
         });
 }
 
-// Function to fetch booking limit
-function bookingLimit() {
-    fetch('../process/booking_limit.php')
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                console.error('Error:', data.error);
-            } else {
-                booking_limit = data.booking_limit;
-                setDateRange(booking_limit);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-}
-
 
 // Function to populate dropdowns with station names
 function populateDropdowns(stations) {
@@ -114,39 +97,10 @@ function updateFromDropdown() {
     }
 }
 
-// Function to set the date range
-function setDateRange(booking_limit) {
-    const dateInput = document.querySelector('input[name="date_of_journey"]');
-    const today = new Date();
-    const minDate = new Date(today);
-    const maxDate = new Date(today);
-
-    minDate.setDate(today.getDate() + 1); // Tomorrow
-    maxDate.setDate(today.getDate() + booking_limit + 1);
-
-    dateInput.min = minDate.toISOString().split('T')[0];
-    dateInput.max = maxDate.toISOString().split('T')[0];
-
-    console.log("Date range set:", dateInput.min, dateInput.max); // Debug log
-}
-
-// Function to validate the form before submission
-function validateForm(event) {
-    const dateInput = document.querySelector('input[name="date_of_journey"]');
-    const selectedDate = new Date(dateInput.value);
-    const minDate = new Date(dateInput.min);
-    const maxDate = new Date(dateInput.max);
-
-    if (selectedDate < minDate || selectedDate > maxDate) {
-        event.preventDefault(); // Prevent form submission
-        alert(`You have Exceeded the Advance Booking Limit for Every Type of User !!! Please select a date below ${dateInput.max}...`);
-    }
-}
 
 // Call fetchStations and bookingLimit on page load
 document.addEventListener('DOMContentLoaded', () => {
     fetchStations();
-    bookingLimit();
 
     // Add event listener to the form
     const form = document.querySelector('form');

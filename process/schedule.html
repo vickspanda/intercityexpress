@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../design/home.css">
+    <title>Check Schedule</title>
+    <script src="../script/schedule.js" defer></script>
+
+</head>
+<body>
+    <nav>
+        <img src="../images/logo.png" class="img" alt="logo">
+        <ul>
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="../travel_agent/index.html">AGENT</a></li>
+            <li><a href="./employee/index.html">EMPLOYEE</a></li>
+            <li><a href="../passenger/index.html">PASSENGER</a></li>
+            <li><a href="../admin/index.html">ADMIN</a></li>
+            <li><a href="#">FACILITIES</a></li>
+            <li><a href="../process/schedule.html">SCHEDULE</a></li>
+            <li><a href="../process/contact.php">CONTACT</a></li>
+        </ul>
+    </nav>
+    <div class="background"></div>
+    <div class="search_form">
+        <form method="post" action="../process/schedule.php">
+            <br><br>
+            <div class="home_lbl1">
+                <label>Check Schedule</label><br><br><br>
+            </div>
+            <div class="stations">
+                <select class="from" name="from_station" required>
+                    <option value="" disabled hidden selected>From</option>
+                </select>
+                <br><br><br>
+                <select class="to" name="to_station" required>
+                    <option value="" disabled hidden selected>To</option>
+                </select>
+                <br>
+            </div>
+            <br><br>
+            <div class="search">
+                <input type="submit" value="Search">
+                <br><br><br>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -14,7 +14,13 @@
   font-size: 20px;
   font-weight: bold;
 }
-
+table{
+    width: 100%;
+    font-size: 25;
+}
+td{
+    width:50%;
+}
 .nav ul li:hover {
     color: #091c88;
     font-size: 22.5px;
