@@ -1,0 +1,230 @@
+.heading{
+    font-size: 50px;
+    font-weight: 100;
+}
+
+.create_account {
+    background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.6); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  position: fixed;
+  border: 2px solid #f1f1f1;
+  border-radius: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 499px;
+  align-items: center;
+  
+}
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+* {
+    box-sizing: border-box;
+  }
+  
+.bg-image {
+    background-image: url("../images/home_bg.jpg");
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+  }
+
+.heading {
+    text-align: center;
+}
+
+.fields1{
+    text-align: center;
+    align-items: center;
+}
+
+.fields2{
+    text-align: center;
+    align-items: center;
+}
+
+.fields1 input{
+    font-size: 20px;
+    height: 40px;
+    width: 400px;
+    border: 0.5px solid #999696;
+    border-radius: 8px;
+    font-family:'tw cen MT';
+    padding-left: 3%;
+    background-color: #d9d9d9;
+}
+
+.drop_down{
+    text-align: center;
+    align-items: center;
+}
+.drop_down select{
+    font-size: 20px;
+    text-align: center;
+    height: 40px;
+    width: 193px;
+    border: 0.5px solid #999696;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    font-family:'tw cen MT';
+}
+
+.days{
+    align-items: center;
+    text-align: center;
+}
+
+.stations select{
+    font-size: 20px;
+    text-align: center;
+    height: 40px;
+    width: 400px;
+    border: 0.5px solid #999696;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    font-family:'tw cen MT';
+}
+
+ 
+.sec select{
+    font-size: 20px;
+    text-align: left;
+    height: 40px;
+    width: 400px;
+    border: 0.5px solid #999696;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    font-family:'tw cen MT';
+    padding-left: 3%;
+}
+
+.sec input{
+    font-size: 20px;
+    text-align: left;
+    height: 40px;
+    width: 400px;
+    border: 0.5px solid #999696;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    font-family:'tw cen MT';
+    padding-left: 3%;
+}
+
+footer {
+    display: flex;
+}
+
+
+.state option{
+    text-align: left;
+}
+
+.district option{
+    text-align: left;
+}
+
+.sec_ques option{
+    text-align: left;
+}
+
+.fields2 input{
+    font-size: 20px;
+    text-align: left;
+    height: 40px;
+    width: 400px;
+    border: 0.5px solid #999696;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    font-family:'tw cen MT';
+    padding-left: 3%;
+}
+
+.fields3 input{
+    font-size: 20px;
+    height: 20px;
+    width: 50px;
+    font-family:'tw cen MT';
+    background-color: #d9d9d9;
+}
+
+.fields3 label{
+    font-size: 20px;
+    color: #fff;
+}
+
+.fields4 label{
+    font-size: 20px;
+    color: #fff;
+}
+
+.fields4 a{
+    color: #f3f8f8;
+}
+
+a :hover{
+    color: #cdf5f5;
+    font-size: 50px;
+}
+
+.fields4 input{
+    width: 30px ;
+}
+
+
+.signup{
+    text-align: center;
+}
+
+.signup input{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color:#07166b;
+    color: #fff;
+    height: 50px;
+    width: 150px;
+    border: 1px solid #5a5858;
+    border-radius: 15px;
+    font-family:'tw cen MT';
+}
+
+.signup input:hover {
+
+    background-color: #091c88;
+    color: #fff;
+    font-size: 25px;
+    height: 55px;
+    width: 160px;
+}
+
+.signup button{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color:#07166b;
+    color: #fff;
+    height: 50px;
+    width: 150px;
+    border: 1px solid #5a5858;
+    border-radius: 15px;
+    font-family:'tw cen MT';
+    margin-left: 50px;
+}
+
+.signup button:hover {
+
+    background-color: #091c88;
+    color: #fff;
+    font-size: 25px;
+    height: 55px;
+    width: 160px;
+}

@@ -1,7 +1,17 @@
 <?php
     include 'connect.php';
 
-
+    $getContactQuery = "SELECT * FROM contact WHERE uid = $1";
+    $getContactExe = pg_query_params($conn, $getContactQuery,array(1));
+    if($getContactExe){
+        $getContactRow = pg_fetch_assoc($getContactExe);
+        $mobile_no = $getContactRow['mobile_no'];
+        $email_id = $getContactRow['email_id'];
+        $address = $getContactRow['address'];
+        $district = $getContactRow['district'];
+        $state = $getContactRow['state'];
+        $pincode = $getContactRow['pincode'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -26,20 +36,20 @@
                 <li><a href="../admin/index.html">ADMIN</a></li>
                 <li><a href="#">FACILITIES</a></li>
                 <li><a href="#">SCHEDULE</a></li>
-                <li><a href="../process/connect.php">CONTACT</a></li>
+                <li><a href="../process/contact.php">CONTACT</a></li>
             </ul>
         </nav>
     <div class="bg_pass_account"></div>
     <div class="pass_account_ppv">
         <h1 style="text-align: center;">Contact Us !!!</h1>
         <footer>
-            <div class="col2_ppv"><br>
+            <div class="col2_ppv">
                 Mobile No. <br><br>
                 Email Id <br><br>
                 Address <br><br>
                 
             </div>
-            <div class="col3_ppv"><br>
+            <div class="col3_ppv">
                 +91 <?php echo htmlspecialchars($mobile_no); ?><br><br>
                 <?php echo htmlspecialchars($email_id); ?><br><br>
                 <?php echo htmlspecialchars($address); ?>,<br> <?php echo htmlspecialchars($district); ?>, <?php echo htmlspecialchars($state); ?> <br> <?php echo htmlspecialchars($pincode); ?>
@@ -48,9 +58,9 @@
             </div>
         </footer>
         <div class="signup">
-            <br><br>
+            <br>
             <button onclick="location.href='../index.html'" type="button" id="signup1">Close</button>
-            <br><br><br>
+            <br><br>
         </div>
     </div>
 </body>

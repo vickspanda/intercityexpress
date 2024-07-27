@@ -232,3 +232,16 @@ create table limits(
 INSERT INTO limits(uid,user_type) VALUES(1,'passenger');
 INSERT INTO limits(uid,user_type) VALUES(2,'travel_agent');
 INSERT INTO limits(uid,user_type) VALUES(3,'employee');
+
+
+create table contact(
+    uid int primary key,
+    mobile_no varchar(10),
+    email_id varchar(100),
+    address varchar(200),
+    state varchar(100),
+    district varchar(100),
+    pincode varchar(6)
+);
+
+INSERT INTO contact (uid) VALUES(1);

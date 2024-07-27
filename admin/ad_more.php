@@ -61,7 +61,7 @@ include '../process/!admin_username.php';
                 
                 
                 <br><br>
-                <button onclick="location.href='#'" type="button" id="signup2">UPDATE CONTACT</button>
+                <button onclick="location.href='updateContact.php'" type="button" id="signup2">UPDATE CONTACT</button>
 
                 
                 <br><br>
