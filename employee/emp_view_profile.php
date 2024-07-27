@@ -5,6 +5,11 @@ $emp_username = $_SESSION["emp_username"] ?? '';
 include '../process/!emp_username';
 
 include '../process/connect.php';
+$username = $emp_username;
+$userType = 'employee';
+$_SESSION['userType'] = $userType;
+include '../process/getUserStatus.php';
+
 
 
 function get_employee_data($conn, $emp_username, $field) {

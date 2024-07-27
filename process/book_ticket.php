@@ -24,6 +24,8 @@
         echo "<script>window.location.href='../index.html'</script>";
     }
     include 'connect.php';
+    include 'getUserStatus.php';
+
 
     pg_query($conn, "BEGIN");
 

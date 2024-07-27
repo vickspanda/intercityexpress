@@ -6,6 +6,10 @@ include '../process/!ta_username.php';
 
 
 include '../process/connect.php';
+$username = $ta_username;
+$userType = 'travel_agent';
+$_SESSION['userType'] = $userType;
+include '../process/getUserStatus.php';
 
 
 if(isset($_GET["part"]))

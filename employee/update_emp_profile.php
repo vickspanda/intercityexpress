@@ -4,6 +4,11 @@
     include '../process/!emp_username';
 
     include '../process/connect.php';
+    $username = $emp_username;
+    $userType = 'employee';
+    $_SESSION['userType'] = $userType;
+    include '../process/getUserStatus.php';
+
 
     $wtdm = $wtdp = $dism = $disp = $reqp = $reqm = '';
 

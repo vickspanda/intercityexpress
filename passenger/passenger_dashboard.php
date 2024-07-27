@@ -5,6 +5,10 @@ $pass_username = $_SESSION["pass_username"] ?? '';
 include '../process/!pass_username.php';
 
 include '../process/connect.php';
+$username = $pass_username;
+$userType = 'passenger';
+include '../process/getUserStatus.php';
+
 
 
 $get_pass_name_query = "SELECT name FROM passenger WHERE username = $1";

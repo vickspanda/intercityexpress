@@ -4,6 +4,10 @@ $emp_username = $_SESSION["emp_username"];
 include '../process/!emp_username';
 
 include '../process/connect.php';
+$username = $emp_username;
+$userType = 'employee';
+$_SESSION['userType'] = $userType;
+include '../process/getUserStatus.php';
 
 
 $get_emp_name = "SELECT emp_name FROM employee WHERE username=$1";

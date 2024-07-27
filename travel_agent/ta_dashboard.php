@@ -5,6 +5,10 @@ $ta_username = $_SESSION["ta_username"] ?? '';
 include '../process/!ta_username.php';
 
 include '../process/connect.php';
+$username = $ta_username;
+$userType = 'travel_agent';
+$_SESSION['userType'] = $userType;
+include '../process/getUserStatus.php';
 
 $get_ta_name_query = "SELECT ta_name FROM travel_agent WHERE username = $1";
 $ta_name_result = pg_query_params($conn, $get_ta_name_query, array($ta_username));

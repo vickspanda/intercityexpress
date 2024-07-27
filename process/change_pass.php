@@ -20,6 +20,10 @@
         $us = 'ta';
 
     }
+    include '../process/connect.php';
+    include '../process/getUserStatus.php';
+
+
     
     if(!$username)  {
         echo '<script>window.location.href="../index.html"</script>';

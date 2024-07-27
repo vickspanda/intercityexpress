@@ -5,7 +5,9 @@ $pass_username = $_SESSION["pass_username"] ?? '';
 include '../process/!pass_username.php';
 
 include '../process/connect.php';
-
+$username = $pass_username;
+$userType = 'passenger';
+include '../process/getUserStatus.php';
 
 function get_passenger_data($conn, $pass_username, $field) {
     $query = "SELECT $field FROM passenger WHERE username = $1";

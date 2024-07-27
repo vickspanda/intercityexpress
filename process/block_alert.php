@@ -18,9 +18,11 @@ if($userType === 'passenger'){
     $login_page = 'logout.php?user=../employee/';
     $username = $_SESSION["emp_username"];
 }
-
+if(isset($_SESSION['username'])){
+    $username = $_SESSION["username"];
+}
 if(!$username)  {
-    echo '<script>window.location.href="index.html"</script>';
+    echo '<script>window.location.href="../index.html"</script>';
   }
 
 $get_name_query = "SELECT $col_name FROM $userType WHERE username = $1";

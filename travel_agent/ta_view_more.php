@@ -6,6 +6,10 @@ include '../process/!ta_username.php';
 
 
 include '../process/connect.php';
+$username = $ta_username;
+$userType = 'travel_agent';
+$_SESSION['userType'] = $userType;
+include '../process/getUserStatus.php';
 
 function get_ta_data($conn, $ta_username, $field) {
     $query = "SELECT $field FROM travel_agent WHERE username = $1";

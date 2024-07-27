@@ -25,6 +25,8 @@
         echo "<script>window.location.href='../index.html'</script>";
     }
     include 'connect.php';
+    include 'getUserStatus.php';
+
 
     $get_train_name = "SELECT train_name FROM trains WHERE train_no = $1";
     $get_train_execute = pg_query_params($conn,$get_train_name,array($train_no));

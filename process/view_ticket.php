@@ -7,6 +7,8 @@
         $username = $_SESSION['pass_username'];
         if(isset($_POST['userType'])){
             $userType = $_POST["userType"] ?? '';
+            $_SESSION['userType'] = $_POST["userType"] ;
+
         }
         if(isset($_POST['ticket_no'])){
             $ticket_no = $_POST["ticket_no"] ?? '';
@@ -16,6 +18,7 @@
         $username = $_SESSION['emp_username'];
         if(isset($_POST['userType'])){
             $userType = $_POST["userType"] ?? '';
+            $_SESSION['userType'] = $_POST["userType"] ;
         }
         if(isset($_POST['ticket_no'])){
             $ticket_no = $_POST["ticket_no"] ?? '';
@@ -26,6 +29,8 @@
         $admin_username = $_SESSION['admin_username'];
         if(isset($_POST['userType'])){
             $userType = $_POST["userType"] ?? '';
+            $_SESSION['userType'] = $_POST["userType"] ;
+
         }
         if(isset($_POST['more'])){
             $more = $_POST["more"] ?? '';
@@ -38,6 +43,7 @@
         $username = $_SESSION['ta_username'];
         if(isset($_POST['userType'])){
             $userType = $_POST["userType"] ?? '';
+            $_SESSION['userType'] = $_POST["userType"] ;
         }
         if(isset($_POST['ticket_no'])){
             $ticket_no = $_POST["ticket_no"] ?? '';
@@ -52,6 +58,7 @@
         echo '<script>window.location.href="../index.html";</script>';
     }
     include '../process/connect.php';
+    include 'getUserStatus.php';
     if(isset($_SESSION['ticket_no'])){
         $ticket_no = $_SESSION['ticket_no'];
         if(isset($_SESSION['userType'])){

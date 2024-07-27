@@ -1,14 +1,15 @@
 <?php
 session_start();
+include '../process/connect.php';
+
 if(isset($_SESSION['pass_username'])){
     $username = $_SESSION['pass_username'];
     $userType = 'tickets_pass';
     $dbtable = 'passenger';
     $type = 'pass';
-$title = $_SESSION['title'];
-
-
+    $title = $_SESSION['title'];
 }
+
 if(isset($_SESSION['emp_username'])){
     $username = $_SESSION['emp_username'];
     $userType = 'tickets_emp';
@@ -52,13 +53,21 @@ if(isset($_SESSION['ta_username'])){
     $type = 'ta';
 $title = $_SESSION['title'];
 
+$getUserStatus = "SELECT status FROM $dbtable WHERE username = $1";
+$getStatusExe = pg_query_params($conn, $getUserStatus, array($username));
+if($getStatusExe){
+    $getStatusRow = pg_fetch_assoc($getStatusExe);
+    $status = $getStatusRow['status'];
+    if($status === 'Blocked'){
+        echo '<script>window.location.href="../process/block_alert.php";</script>';
+    }
+}
 
 }
 if(!$username && !$admin_username){
     echo '<script>window.location.href="../index.html";</script>';
 }
 
-include '../process/connect.php';
 
 $today_date = date("Y-m-d");
 
