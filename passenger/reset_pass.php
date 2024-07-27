@@ -5,10 +5,7 @@
         echo '<script>window.location.href="forgot_pass.html"</script>';
         exit();
     }
-    include 'connect.php';
-    $username = $pass_username;
-    $userType = 'passenger';
-    include '../process/getUserStatus.php';
+
 ?>
 
 <!DOCTYPE html>
