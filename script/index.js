@@ -139,7 +139,7 @@ function validateForm(event) {
 
     if (selectedDate < minDate || selectedDate > maxDate) {
         event.preventDefault(); // Prevent form submission
-        alert(`Please select a date between ${dateInput.min} and ${dateInput.max}.`);
+        alert(`You have Exceeded the Advance Booking Limit for Every Type of User !!! Please select a date below ${dateInput.max}...`);
     }
 }
 

@@ -27,7 +27,7 @@ include '../process/!admin_username.php';
             </div>
             <div class="credentials">
             <br><br>
-            <input type="number" id="booking_limit" name="booking_limit" placeholder="Enter Number of Months" autofocus required>
+            <input type="number" id="booking_limit" name="booking_limit" placeholder="Enter Number of Days" autofocus required>
 
             <br><br><br>
                  <div class="sec_book">

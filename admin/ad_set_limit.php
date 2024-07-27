@@ -13,7 +13,6 @@ if(isset($_POST['userType'])){
 
 if(isset($_POST['booking_limit'])){
     $booking_limit = $_POST['booking_limit'];
-    $booking_limit = $booking_limit * 30;
 
     $updateLimit = "UPDATE limits SET booking_limit = $1 WHERE user_type = $2";
     $updateExe = pg_query_params($conn,$updateLimit,array($booking_limit,$user_type));

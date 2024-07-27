@@ -52,7 +52,7 @@
                     <br><br><br>
                 
                 <div class="sec_book">
-                        <select name="userType" required>
+                        <select name="userType" onblur="validateDateRange()" required>
                             <option value="" disabled selected hidden>Select Your User Type</option>
                             <option value="passenger">Passenger</option>
                             <option value="employee">Employee</option>
