@@ -51,7 +51,7 @@
         $insert_into_tickets = "INSERT INTO tickets VALUES ($1,$2,$3,$4,$5,$6,$7,$8)";
         $tickets_array = array($ticket_no,$train_no,$status,$board_stn,$drop_stn,$starts_on,$ends_on,$userType);
         $tickets_execute = pg_query_params($conn,$insert_into_tickets,$tickets_array);
-
+        
         if ($tickets_execute) {
             $_SESSION['ticket_no'] = $ticket_no;
             if($userType === 'passenger')
@@ -71,10 +71,10 @@
             else if($userType === 'travel_agent')
             {
                 $_SESSION['ta_username'] = $username;
-                $insert_into_sec = "INSERT INTO tickets_ta VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)";
-                
-                $sec_array = array($ticket_no,$username,$user_name,$user_gender,$user_age,$ticket_fare,$ta_comm,$total_fare,$user_mob,$user_email);
-                $sec_execute = pg_query_params($conn,$insert_into_sec,$sec_array);
+                $insert_into_sec = "INSERT INTO tickets_ta (ticket_no, username, user_name, user_gender, user_age, ticket_fare, ta_comm, total_fare, user_mob, user_email) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
+
+                $sec_array = array($ticket_no, $username, $user_name, $user_gender, $user_age, $ticket_fare, $ta_comm, $total_fare, $user_mob, $user_email);
+                $sec_execute = pg_query_params($conn, $insert_into_sec, $sec_array); 
             }
             if($sec_execute){
                 $get_seat_no = "SELECT seat_allocated.seat_no from tickets, seat_allocated WHERE tickets.ticket_no = seat_allocated.ticket_no AND seat_allocated.doj = $1 and tickets.train_no = $2 and seat_allocated.coach_no = $3 AND tickets.status = 'Confirmed' ORDER BY seat_allocated.seat_no DESC LIMIT 1";

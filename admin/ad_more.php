@@ -47,7 +47,7 @@ include '../process/!admin_username.php';
                  
                  <br><br>
                  <br><br>
-                <button onclick="location.href='#'" type="button" id="signup2">AGENT'S EARNINGS</button>
+                <button onclick="location.href='ad_agents_earnings.php'" type="button" id="signup2">AGENT'S EARNINGS</button>
 
                 
             </div>
@@ -66,7 +66,7 @@ include '../process/!admin_username.php';
                 
                 <br><br>
                  <br><br>
-                <button onclick="location.href='#'" type="button" id="signup2">OUR EARNINGS</button>
+                <button onclick="location.href='ad_earnings.php'" type="button" id="signup2">OUR EARNINGS</button>
 
                 
             </div>

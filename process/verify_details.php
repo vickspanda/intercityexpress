@@ -175,8 +175,8 @@
                             <tr>
                                 <td></td>
                                 <td></td>                                
-                                <td>Total Fare:</td>
-                                <td style="text-align:right">Rs. <?php echo htmlspecialchars($total_fare);?></td>
+                                <th>Total Fare:</th>
+                                <th style="text-align:right">Rs. <?php echo htmlspecialchars($total_fare);?></th>
                             </tr>
                 </table>
                 <br>

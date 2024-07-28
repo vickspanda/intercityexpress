@@ -179,8 +179,8 @@ create table tickets_pass(
     user_name varchar(100),
     user_gender varchar(10),
     user_age varchar(10),
-    ticket_fare int,
-    total_fare int,
+    ticket_fare DECIMAL(10, 2),
+    total_fare DECIMAL(10, 2),
     user_mob varchar(10),
     user_email varchar(200)
 );
@@ -191,9 +191,9 @@ create table tickets_ta(
     user_name varchar(100),
     user_gender varchar(10),
     user_age varchar(10),
-    ticket_fare int,
-    ta_comm int,
-    total_fare int,
+    ticket_fare DECIMAL(10, 2),
+    ta_comm DECIMAL(10, 2),
+    total_fare DECIMAL(10, 2),
     user_mob varchar(10),
     user_email varchar(200)
 );
@@ -204,9 +204,9 @@ create table tickets_emp(
     user_name varchar(100),
     user_gender varchar(10),
     user_age varchar(10),
-    ticket_fare int,
-    emp_conn int,
-    total_fare int,
+    ticket_fare DECIMAL(10, 2),
+    emp_conn DECIMAL(10, 2),
+    total_fare DECIMAL(10, 2),
     user_mob varchar(10),
     user_email varchar(200)
 );
@@ -215,10 +215,10 @@ create table payment(
     transaction_id serial primary key,
     ticket_no varchar(10) references tickets(ticket_no) ON DELETE CASCADE,
     status varchar(20),
-    total_fare int,
-    ticket_fare int, 
-    ta_comm int,
-    emp_conn int,
+    total_fare DECIMAL(10, 2),
+    ticket_fare DECIMAL(10, 2), 
+    ta_comm DECIMAL(10, 2),
+    emp_conn DECIMAL(10, 2),
     upi_used varchar(100)
 );
 

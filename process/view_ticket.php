@@ -249,8 +249,8 @@
                         }
                             ?>
                                                            
-                                <td>Total Fare:</td>
-                                <td >Rs. <?php echo htmlspecialchars($total_fare);?></td>
+                                <th>Total Fare:</th>
+                                <th >Rs. <?php echo htmlspecialchars($total_fare);?></th>
                             </tr>
                 </table>
                 

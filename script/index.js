@@ -3,7 +3,7 @@ let booking_limit = 0;
 
 // Function to fetch station names and populate dropdowns
 function fetchStations() {
-    fetch('../process/fetch_stations.php')
+    fetch('process/fetch_stations.php')
         .then(response => response.json())
         .then(data => {
             if (data.error) {
@@ -20,7 +20,7 @@ function fetchStations() {
 
 // Function to fetch booking limit
 function bookingLimit() {
-    fetch('../process/booking_limit.php')
+    fetch('process/booking_limit.php')
         .then(response => response.json())
         .then(data => {
             if (data.error) {

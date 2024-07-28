@@ -41,7 +41,7 @@ include '../process/!admin_username.php';
             </div><br><br>
             <div class="submit1">
                 <input type="submit" value="View">
-                <button onclick="location.href = 'ad_more_options.php'" type="button">Cancel</button><br><br><br><br>
+                <button onclick="location.href = 'ad_more.php'" type="button">Cancel</button><br><br><br><br>
             </div>
         </form>
     </div>
