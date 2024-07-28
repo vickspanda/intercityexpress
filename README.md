@@ -4,6 +4,7 @@ Welcome to the Intercity Express project! This project manages account and booki
 
 ## Table of Contents
 
+- [Technologies Used](#technologies-used)
 - [Features](#features)
   - [Passenger](#passenger)
   - [Employee](#employee)
@@ -12,6 +13,17 @@ Welcome to the Intercity Express project! This project manages account and booki
 - [Admin Management](#admin-management)
 - [Website Structure](#website-structure)
 - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Technologies Used
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** PHP
+- **Database:** PostgreSQL
+- **PDF Generation:** Python
 
 ## Features
 
@@ -74,3 +86,30 @@ Admins have extensive control over the system, including managing users, routes,
 ## Installation
 
 To run this project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/intercity-express.git
+
+## Usage
+
+Once the server is running, open your web browser and navigate to http://localhost:3000. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
+
+## Contributing
+
+We welcome contributions! Please see CONTRIBUTING.md for guidelines on how to contribute to this project.
+
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+
+For any questions or feedback, please contact us at support@intercityexpress.com.
+
+
+Thank you for using Intercity Express! We hope you have a smooth and enjoyable travel booking experience.
+
+
+Feel free to customize any sections further based on your project's specific details and requirements. This README.md should provide a comprehensive overview of your project, making it easier for users and contributors to understand and use.
