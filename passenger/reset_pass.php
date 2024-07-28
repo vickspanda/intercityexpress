@@ -29,7 +29,6 @@
 </head>
 <body>
 <nav>
-            <img src="../images/logo.png" class="img" alt="logo">
             <ul>
                 <li><a href="../index.html">HOME</a></li>
                 <li><a href="#">ABOUT</a></li>
