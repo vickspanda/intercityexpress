@@ -106,7 +106,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Contact
 
-For any questions or feedback, please contact us at support@intercityexpress.com.
+For any questions or feedback, please contact me at vickspanda1@gmail.com.
 
 
 Thank you for using Intercity Express! We hope you have a smooth and enjoyable travel booking experience.
