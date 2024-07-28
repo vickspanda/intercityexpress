@@ -144,9 +144,10 @@ $count = pg_num_rows($query);
                     <li><a href="../process/get_task.php?title=UPCOMING">UPCOMING TRIPS</a></li>
                         <li><a href="../process/get_task.php?title=PAST">PAST TRIPS</a></li>
                         <li><a href="../process/get_task.php?title=CANCEL">CANCEL TRIP</a></li>
+                        <li><a href="../process/get_task.php?title=DOWNLOAD">DOWNLOAD</a></li>
                         <li><a href="../process/change_pass.php">CHANGE PASSWORD</a></li>
                         <li><a href="../passenger/passenger_view_profile.php">YOUR PROFILE</a></li>
-                        <li><a href="#">FEEDBACK</a></li>
+                        <li><a href="../process/feedback.php">FEEDBACK</a></li>
                         <li><a href="#" onclick="logout()">LOG OUT</a></li>
                     </ul>
                 </div>

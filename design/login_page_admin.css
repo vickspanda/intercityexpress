@@ -11,8 +11,8 @@ body, html {
 .background_admin{
     /* The image used */
     background-image: url("../images/home_bg.jpg");
-    filter: blur(1px);
-    -webkit-filter: blur(1px);
+    filter: blur(0.5px);
+    -webkit-filter: blur(0.5px);
     
     /* Add the blur effect */
   
@@ -38,7 +38,7 @@ label {
   border-radius: 50px;
   position: absolute;
   top: 50%;
-  left: 30%;
+  left: 70%;
   transform: translate(-50%, -50%);
   z-index: 2;
   width: 30%;

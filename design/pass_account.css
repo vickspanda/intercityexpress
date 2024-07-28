@@ -1,8 +1,8 @@
 .bg_pass_account{
     background-image:url("../images/home_bg.jpg");
     height: 100%; 
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -41,8 +41,8 @@
 
 
 .pass_account {
-    background-color: rgb(247, 243, 243); /* Fallback color */
-  background-color: rgba(255, 255, 255, 0.75); /* Black w/opacity/see-through */
+    background-color: rgb(255, 255, 255); /* Fallback color */
+  background-color: rgba(255, 255, 255, 0.5); /* Black w/opacity/see-through */
   color: rgb(0, 0, 0);
   border: 2px solid #f1f1f1;
   top: 50%;

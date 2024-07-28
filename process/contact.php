@@ -25,7 +25,7 @@
     <title>Contact Us</title>
 </head>
 <body>
-        <nav>
+<nav>
             <img src="../images/logo.png" class="img" alt="logo">
             <ul>
                 <li><a href="../index.html">HOME</a></li>
@@ -34,8 +34,7 @@
                 <li><a href="../employee/index.html">EMPLOYEE</a></li>
                 <li><a href="../passenger/index.html">PASSENGER</a></li>
                 <li><a href="../admin/index.html">ADMIN</a></li>
-                <li><a href="#">FACILITIES</a></li>
-                <li><a href="#">SCHEDULE</a></li>
+                <li><a href="../process/schedule.html">SCHEDULE</a></li>
                 <li><a href="../process/contact.php">CONTACT</a></li>
             </ul>
         </nav>
@@ -57,11 +56,8 @@
                 
             </div>
         </footer>
-        <div class="signup">
-            <br>
-            <button onclick="location.href='../index.html'" type="button" id="signup1">Close</button>
             <br><br>
-        </div>
+
     </div>
 </body>
 </html>

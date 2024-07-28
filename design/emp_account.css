@@ -45,7 +45,7 @@
 
 .admin_account {
     background-color: rgb(255, 255, 255); /* Fallback color */
-  background-color: rgba(255, 255, 255, 0.75); /* Black w/opacity/see-through */
+  background-color: rgba(255, 255, 255, 0.5); /* Black w/opacity/see-through */
   color: rgb(0, 0, 0);
   border: 2px solid #f1f1f1;
   top: 50%;

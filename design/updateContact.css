@@ -12,7 +12,7 @@
   border: 2px solid #f1f1f1;
   border-radius: 50px;
   top: 50%;
-  left: 50%;
+  left: 70%;
   transform: translate(-50%, -50%);
   width: 499px;
   align-items: center;
@@ -29,8 +29,8 @@ body, html {
   
 .bg-image {
     background-image: url("../images/home_bg.jpg");
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
+    filter: blur(0.5px);
+    -webkit-filter: blur(0.5px);
     height: 100%; 
     background-position: center;
     background-repeat: no-repeat;
