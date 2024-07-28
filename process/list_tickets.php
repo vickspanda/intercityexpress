@@ -8,6 +8,15 @@ if(isset($_SESSION['pass_username'])){
     $dbtable = 'passenger';
     $type = 'pass';
     $title = $_SESSION['title'];
+    $getUserStatus = "SELECT status FROM $dbtable WHERE username = $1";
+$getStatusExe = pg_query_params($conn, $getUserStatus, array($username));
+if($getStatusExe){
+    $getStatusRow = pg_fetch_assoc($getStatusExe);
+    $status = $getStatusRow['status'];
+    if($status === 'Blocked'){
+        echo '<script>window.location.href="../process/block_alert.php";</script>';
+    }
+}
 }
 
 if(isset($_SESSION['emp_username'])){
@@ -17,6 +26,15 @@ if(isset($_SESSION['emp_username'])){
     $dbtable = 'employee';
     $type = 'emp';
 $title = $_SESSION['title'];
+$getUserStatus = "SELECT status FROM $dbtable WHERE username = $1";
+$getStatusExe = pg_query_params($conn, $getUserStatus, array($username));
+if($getStatusExe){
+    $getStatusRow = pg_fetch_assoc($getStatusExe);
+    $status = $getStatusRow['status'];
+    if($status === 'Blocked'){
+        echo '<script>window.location.href="../process/block_alert.php";</script>';
+    }
+}
 
 
 }

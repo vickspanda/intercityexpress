@@ -28,7 +28,7 @@
 <nav>
             <ul>
                 <li><a href="../index.html">HOME</a></li>
-                <li><a href="#">ABOUT</a></li>
+                <li><a href="../process/">ABOUT</a></li>
                 <li><a href="../travel_agent/index.html">AGENT</a></li>
                 <li><a href="../employee/index.html">EMPLOYEE</a></li>
                 <li><a href="../passenger/index.html">PASSENGER</a></li>
