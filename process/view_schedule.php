@@ -127,8 +127,12 @@ pg_close($conn);
 <body>
     <div class="bg_pass_account"></div>
     <div class="pass_account">
+
+    <h1 style="text-align:center">View Schedule</h1>
         <footer>
+
             <table>
+
                 <tr>
                     <td>Train Number</td>
                     <td><?php echo htmlspecialchars($train_no); ?></td>

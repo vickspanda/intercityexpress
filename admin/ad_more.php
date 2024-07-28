@@ -53,7 +53,7 @@ include '../process/!admin_username.php';
             </div>
             <div class="col3_ppv">
                  <br><br><br>
-                <button onclick="location.href='#'" type="button" id="signup2">VIEW FEEDBACKS</button>
+                <button onclick="location.href='ad_view_feedback.php'" type="button" id="signup2">VIEW FEEDBACKS</button>
 
 
                 <br><br>

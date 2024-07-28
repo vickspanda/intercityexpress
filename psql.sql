@@ -245,3 +245,11 @@ create table contact(
 );
 
 INSERT INTO contact (uid) VALUES(1);
+
+CREATE TABLE feedback (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(30) NOT NULL,
+    user_type varchar(30) NOT NULL,
+    subject VARCHAR(100) NOT NULL,
+    content TEXT NOT NULL CHECK (char_length(content) <= 2000)
+);

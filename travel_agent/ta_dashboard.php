@@ -47,7 +47,7 @@ pg_close($conn);
                         <li><a href="../process/change_pass.php">CHANGE PASSWORD</a></li>
                         <li><a href="../travel_agent/ta_view_profile.php">YOUR PROFILE</a></li>
                         <li><a href="../travel_agent/ta_view_more.php">CONTACT DETAILS</a></li>
-                        <li><a href="#">FEEDBACK</a></li>
+                        <li><a href="../process/feedback.php">FEEDBACK</a></li>
                         <li><a href="#" onclick="logout()">LOG OUT</a></li>
                     </ul>
                 </div>

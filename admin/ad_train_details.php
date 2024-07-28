@@ -125,7 +125,7 @@ pg_close($conn);
     <link rel="stylesheet" href="../design/pa_acc.css">
     <link rel="stylesheet" href="../design/pass_ppv.css">
 
-    <title>View Profile</title>
+    <title>View Train Details</title>
     <script src="../script/admin_logout.js" defer></script>
 
 </head>

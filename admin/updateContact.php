@@ -49,7 +49,7 @@
                 <div class="col1">
                     <div class="fields1">
                         <input type="text" name="p_name" placeholder="Full Name" id="p_name" hidden><br>
-                        <input type="text" name="p_address" placeholder="Address" id="p_address" value="<?php echo $address; ?>" autofocus required><br>
+                        <textarea name="p_address" placeholder="Address" id="p_address" maxlength="200" autofocus required><?php echo $address; ?></textarea><br>
                         <span class="error" id="addressError">Address should be less than 500 characters</span><br>
                     </div>
                     <div class="drop_down">

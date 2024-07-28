@@ -12,7 +12,7 @@ if(!$admin_username){
 }
 
 
-$user = "SELECT tickets_ta.username, travel_agent.ta_name, SUM(payment.ta_comm) as tta_comm, SUM(payment.total_fare) as ttotal_fare, SUM(payment.ticket_fare) as tticket_fare FROM tickets, tickets_ta, payment, travel_agent WHERE tickets.ticket_no = payment.ticket_no AND tickets.ticket_no = tickets_ta.ticket_no AND tickets_ta.username = travel_agent.username AND tickets.status = 'Confirmed' AND tickets.user_type = 'travel_agent' GROUP BY tickets_ta.username, travel_agent.ta_name";
+$user = "SELECT tickets_ta.username, travel_agent.ta_name, SUM(payment.ta_comm) as tta_comm, SUM(payment.total_fare) as ttotal_fare, SUM(payment.ticket_fare) as tticket_fare FROM tickets, tickets_ta, payment, travel_agent WHERE tickets.ticket_no = payment.ticket_no AND tickets.ticket_no = tickets_ta.ticket_no AND tickets_ta.username = travel_agent.username AND tickets.status = 'Confirmed' AND tickets.user_type = 'travel_agent' GROUP BY tickets_ta.username, travel_agent.ta_name LIMIT 10";
         $query = pg_query($conn, $user);
         if (!$query) {
             die("Query failed: " . pg_last_error());
