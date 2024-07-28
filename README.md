@@ -69,7 +69,7 @@ Admins have extensive control over the system, including managing users, routes,
 ## Website Structure
 
 - **Home Page:** Book tickets by selecting the journey details.
-- **Login Page:** Separate login pages for each user type, with a common login page that identifies the user type before proceeding.
+- **Login Page:** Separate login pages for each user type.
 - **Schedule Check:** Check the schedule of specific trains between stations.
 - **Contact Page:** Admin can update contact details.
 - **About Page:** Contains a description of the Intercity Express.
