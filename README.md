@@ -12,10 +12,6 @@ Welcome to the Intercity Express project! This project manages account and booki
 - [Admin Management](#admin-management)
 - [Website Structure](#website-structure)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## Features
 
