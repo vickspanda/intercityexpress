@@ -72,7 +72,7 @@ if(!$username && !$admin_username){
 $today_date = date("Y-m-d");
 
 if(!$admin_username){
-    if($title === 'UPCOMING' || $title === 'CANCEL'){
+    if($title === 'UPCOMING' || $title === 'CANCEL' || $title === 'DOWNLOAD'){
 
         $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $userType.user_name, $userType.user_age, tickets.status, seat_allocated.doj FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.status ='Confirmed' AND seat_allocated.doj >= $2 ORDER BY tickets.ticket_no DESC LIMIT 5";
         $query = pg_query_params($conn, $user, array($username,$today_date));
@@ -80,7 +80,9 @@ if(!$admin_username){
             die("Query failed: " . pg_last_error());
         }
     
-    }else{
+    }
+    
+    else{
         $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $userType.user_name, $userType.user_age, tickets.status, seat_allocated.doj FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.ticket_no NOT IN (SELECT tickets.ticket_no FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.status ='Confirmed' AND seat_allocated.doj >= $2) ORDER BY tickets.ticket_no DESC LIMIT 5";
         $query = pg_query_params($conn, $user, array($username,$today_date));
         if (!$query) {
@@ -157,13 +159,13 @@ $count = pg_num_rows($query);
                 
                 <div class="nav">
                     <ul>
-                    <li><a href="../process/get_task.php?title=UPCOMING">UPCOMING TRIPS</a></li>
+                        <li><a href="../employee/emp_view_options.php">UPCOMING TRIPS</a></li>
                         <li><a href="../process/get_task.php?title=PAST">PAST TRIPS</a></li>
-                        <li><a href="../process/get_task.php?title=CANCEL">CANCEL TRIP</a></li>
+                        <li><a href="../process/get_task.php?title=DOWNLOAD">DOWNLOAD</a></li>
                         <li><a href="../process/change_pass.php">CHANGE PASSWORD</a></li>
                         <li><a href="../employee/emp_view_profile.php">YOUR PROFILE</a></li>
                         <li><a href="../employee/emp_view_more.php">CONTACT DETAILS</a></li>
-                        <li><a href="#">FEEDBACK</a></li>
+                        <li><a href="../process/feedback.php">FEEDBACK</a></li>
                         <li><a href="#" onclick="logout()">LOG OUT</a></li>
                     </ul>
                 </div>
@@ -176,13 +178,13 @@ $count = pg_num_rows($query);
                 
                 <div class="nav">
                     <ul>
-                    <li><a href="../process/get_task.php?title=UPCOMING">UPCOMING TRIPS</a></li>
+                        <li><a href="../travel_agent/ta_view_options.php">UPCOMING TRIPS</a></li>
                         <li><a href="../process/get_task.php?title=PAST">PAST TRIPS</a></li>
-                        <li><a href="../process/get_task.php?title=CANCEL">CANCEL TRIP</a></li>
+                        <li><a href="../process/get_task.php?title=DOWNLOAD">DOWNLOAD</a></li>
                         <li><a href="../process/change_pass.php">CHANGE PASSWORD</a></li>
                         <li><a href="../travel_agent/ta_view_profile.php">YOUR PROFILE</a></li>
                         <li><a href="../travel_agent/ta_view_more.php">CONTACT DETAILS</a></li>
-                        <li><a href="#">FEEDBACK</a></li>
+                        <li><a href="../process/feedback.php">FEEDBACK</a></li>
                         <li><a href="#" onclick="logout()">LOG OUT</a></li>
                     </ul>
                 </div>
@@ -272,7 +274,17 @@ $count = pg_num_rows($query);
                                 <input id = "unblock" type="submit" value="CANCEL">
                                 </form>
                             <?php
-                                    }else{
+                                    }else if($title === 'DOWNLOAD'){
+                                        ?>
+                                        <form method="post" action="generatePDF.php" >
+                                <input name="ticket_no" value="<?php echo $ticket_no; ?>" hidden>
+                                <input name="userType" value="<?php echo $dbtable; ?>" hidden>
+                                <input id = "unblock" type="submit" value="DOWNLOAD">
+                                </form>
+                            <?php
+                                    }
+                                    
+                                    else{
                                         ?>
                                         <form method="POST" action="view_ticket.php">
                                 <input name="ticket_no" value="<?php echo $ticket_no; ?>" hidden>

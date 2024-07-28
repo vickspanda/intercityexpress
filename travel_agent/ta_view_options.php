@@ -4,24 +4,7 @@ $ta_username = $_SESSION["ta_username"] ?? '';
 
 include '../process/!ta_username.php';
 
-include '../process/connect.php';
-$username = $ta_username;
-$userType = 'travel_agent';
-$_SESSION['userType'] = $userType;
-include '../process/getUserStatus.php';
 
-$get_ta_name_query = "SELECT ta_name FROM travel_agent WHERE username = $1";
-$ta_name_result = pg_query_params($conn, $get_ta_name_query, array($ta_username));
-
-if ($ta_name_result && pg_num_rows($ta_name_result) > 0) {
-    $ta_name_row = pg_fetch_row($ta_name_result);
-    $ta_name = $ta_name_row[0];
-} else {
-    echo '<script>window.alert("Error retrieving user information."); window.location.href="index.html";</script>';
-    exit();
-}
-
-pg_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -29,14 +12,16 @@ pg_close($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../design/ta_account.css">
+    <link rel="stylesheet" href="../design/pass_account.css">
+    <link rel="stylesheet" href="../design/ad_options.css">
     <title>Dashboard</title>
-    <script src="../script/ta_logout.js" defer></script>
+    <script src="../script/ta_logout.js"></script>
+
 
 </head>
 <body>
     <div class="bg_pass_account"></div>
-    <div class="pass_account">
+    <div class="pass_account_ppv">
         <footer>
             <div class="col1">
             <div class="nav">
@@ -52,12 +37,29 @@ pg_close($conn);
                     </ul>
                 </div>
             </div>
-            <div class="col2">
-                <div class="welcome">
-                    Welcome <?php echo htmlspecialchars($ta_name); ?>
-                </div>
+            
+            <div class="col2_ppv">
+                 <br><br><br><br><br>
+
+
+                 <br><br>
+                 <button onclick="location.href='../process/get_task.php?title=UPCOMING'" type="button" id="signup2">VIEW TRIPS</button><br><br>
+                 <br><br>
+                
+            </div>
+            <div class="col3_ppv">
+                 <br><br>
+                 <br><br><br><br><br>
+                <button onclick="location.href='../process/get_task.php?title=CANCEL'" type="button" id="signup2">CANCEL TRIPS</button><br><br>
+                
+                <br><br>
+                <br><br>
+                <br> <br> 
             </div>
         </footer>
+        <div class="signup">
+            <br><br>
+        </div>
     </div>
 </body>
 </html>
