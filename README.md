@@ -85,11 +85,11 @@ Admins have extensive control over the system, including managing users, routes,
 
 To run this project locally (IN UBUNTU), follow these steps:
 
-1. Install Python libraries like Flask, reportlab for the Generation of Ticket as PDF (Assumption is taken that Python3 is already Installed, If not, Install it):
+1. Install Python libraries like Flask, reportlab for the Generation of Ticket as PDF (Assumption is taken that Python3 is already installed, if not, install it):
    ```bash
    pip install Flask reportlab
 
-2. Install Postgresql ('Congfigure it by yourself') and Apache2:
+2. Install Postgresql ('congfigure it by yourself') and Apache2:
    ```bash
    sudo apt install postgresql apache2
 
@@ -101,7 +101,7 @@ To run this project locally (IN UBUNTU), follow these steps:
    ```bash
    sudo systemctl restart apache2.service 
 
-5. Start Your Postgresql and create all tables:
+5. Start your Postgresql and create all tables:
    ```bash
    \i psql.sql
 
@@ -110,7 +110,7 @@ To run this project locally (IN UBUNTU), follow these steps:
    cd /var/www/html/
    sudo git clone https://github.com/vickspanda/intercityexpress.git
 
-7. Edit the process/connect.php and process/connect_check.php and update the credentials as per your PostgresQL User Name and Password in which you have created the database of name "intercityexpress" by running installation Step No. 5, for connecting the website with PostgresQL Database.
+7. Edit the process/connect.php and process/connect_check.php and update the credentials as per your PostgresQL user and password in which you have created the database of name "intercityexpress" by running installation step no. 5, for connecting the website with PostgresQL Database.
    ```bash
    // connect.php
    $servername = 'localhost';
@@ -124,23 +124,23 @@ To run this project locally (IN UBUNTU), follow these steps:
    $DB_PASSWORD = 'password';
    $DB_DATABASE = 'intercityexpress';
    
-8. Also For Keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
+8. Also for keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
    ```bash
    cd intercityexpress/process/
    sudo python3 generatePDF.py
    ```
 
-9. Copy the URL and load it on browser So that, Admin Registration Can be Done By Default (Or you can set credentials as per you by Editing the "admin/add_admin.php" File):  
+9. Copy the URL and load it on browser so that, Admin Registration can be done by default (Or you can set credentials as per you by editing the "admin/add_admin.php" file):  
     'Credentials will be as:'  
-    Username: admin  
-    Password: admin@123
+    username: admin  
+    password: admin@123
    
    ```bash
    http://localhost/intercityexpress/admin/add_admin.php
 
 ## Usage
 
-Once the server is running, open your web browser and navigate to the Website given below. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
+Once the server is running, open your web browser and navigate to the website given below. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
    ```bash
    http://localhost/intercityexpress
    ```
