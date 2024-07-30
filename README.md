@@ -123,14 +123,8 @@ To run this project locally (IN UBUNTU), follow these steps:
    $DB_USERNAME = 'your_user';
    $DB_PASSWORD = 'password';
    $DB_DATABASE = 'intercityexpress';
-   
-8. Also for keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
-   ```bash
-   cd intercityexpress/process/
-   sudo python3 generatePDF.py
-   ```
 
-9. Copy the URL and load it on browser so that, Admin Registration can be done by default (Or you can set credentials as per you by editing the "admin/add_admin.php" file):  
+  8. Copy the URL and load it on browser so that, Admin Registration can be done by default (Or you can set credentials as per you by editing the "admin/add_admin.php" file):  
    
    ```bash
    http://localhost/intercityexpress/admin/add_admin.php
@@ -140,6 +134,14 @@ To run this project locally (IN UBUNTU), follow these steps:
     username: admin  
     password: admin@123
   ```
+   
+9. Also for keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
+   ```bash
+   cd intercityexpress/process/
+   sudo python3 generatePDF.py
+   ```
+
+
 
 ## Usage
 
