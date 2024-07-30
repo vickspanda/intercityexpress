@@ -89,16 +89,13 @@ To run this project locally, follow these steps:
    ```bash
    pip install Flask reportlab
 
-
 2. Install Postgresql ('Congfigure it by yourself'):
    ```bash
    sudo apt install postgresql
 
-
 3. Install apache2 for hosting the Project:
    ```bash
    sudo apt install apache2
-
 
 4. Install PHP along with all other utilities:
    ```bash
@@ -108,25 +105,20 @@ To run this project locally, follow these steps:
    sudo apt install php-pgsql
    sudo apt-get install php-curl
 
-
 5. Restart the Apache2
    ```bash
    sudo systemctl restart apache2.service 
 
-
 6. Start Your Postgresql and create all tables:
    ```bash
    \i psql.sql
-
 
 7. Clone the repository in the Apache2 Directory:
    ```bash
    cd /var/www/html/
    git clone https://github.com/vickspanda/intercityexpress.git
 
-
 8. Edit the connect.php and connectcheck.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
-
 
 ## Usage
 
