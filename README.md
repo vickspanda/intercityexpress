@@ -110,7 +110,13 @@ To run this project locally (IN UBUNTU), follow these steps:
    cd /var/www/html/
    sudo git clone https://github.com/vickspanda/intercityexpress.git
 
-7. Edit the process/connect.php and process/connect_check.php and update the credentials as per your PostgresQL user and password in which you have created the database of name "intercityexpress" by running installation step no. 5, for connecting the website with PostgresQL Database.
+7. Also for keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
+   ```bash
+   cd intercityexpress/process/
+   sudo python3 generatePDF.py
+   ```
+
+8. Edit the process/connect.php and process/connect_check.php and update the credentials as per your PostgresQL user and password in which you have created the database of name "intercityexpress" by running installation step no. 5, for connecting the website with PostgresQL Database.
    ```bash
    // connect.php
    $servername = 'localhost';
@@ -124,11 +130,6 @@ To run this project locally (IN UBUNTU), follow these steps:
    $DB_PASSWORD = 'password';
    $DB_DATABASE = 'intercityexpress';
    
-8. Also for keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
-   ```bash
-   cd intercityexpress/process/
-   sudo python3 generatePDF.py
-   ```
 9. Copy the URL and load it on browser so that, Admin Registration can be done by default (Or you can set credentials as per you by editing the "admin/add_admin.php" file):  
    
    ```bash
