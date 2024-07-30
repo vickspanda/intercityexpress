@@ -119,7 +119,20 @@ To run this project locally (IN UBUNTU), follow these steps:
    cd /var/www/html/
    git clone https://github.com/vickspanda/intercityexpress.git
 
-8. Edit the connect.php and connectcheck.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
+8. Edit the connect.php and connect_check.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
+   ```bash
+   (IN connect.php)
+   $servername = 'localhost';
+   $dbuser = 'your_user';
+   $dbpass = 'password';
+   $db = 'intercityexpress';
+
+   (IN connect_check.php)
+   $DB_SERVER = 'localhost'; // e.g., 'localhost'
+   $DB_USERNAME = 'your_user'; // e.g., 'postgres'
+   $DB_PASSWORD = 'password';
+   $DB_DATABASE = 'intercityexpress';
+
 
 9. Copy the URL and load it on browser So that, Admin Registration Can be Done By Default (Or you can set yours by Editing the "admin/add_admin.php" File):
    ```bash
@@ -129,7 +142,6 @@ To run this project locally (IN UBUNTU), follow these steps:
    ```bash
    Username: admin
    Password: admin@123
-
 
 ## Usage
 

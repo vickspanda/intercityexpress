@@ -3,7 +3,7 @@
 $servername = 'localhost';
 $dbuser = 'postgres';
 $dbpass = 'Vick$1428';
-$db = 'intercity';
+$db = 'intercityexpress';
 
 // Create connection
 $conn = pg_connect("host=$servername dbname=$db user=$dbuser password=$dbpass");

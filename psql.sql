@@ -1,5 +1,5 @@
 
-create database intercity;
+create database intercityexpress;
 
 --create table Admin
 
