@@ -152,12 +152,12 @@ And Also keep in mind that as an Admin You have to set some of settings from the
 
 Some of the Settings are like:
 
-1. Addition of Stations
-2. Addition of Routes
-3. Addition of Trains
-4. Setting of Advance Limit for Booking for each type of User differently
-5. Setting of Travel Agent's Commission and Employee's Concession
-6. Addition of Employees
+1. Addition of Stations.
+2. Addition of Routes.
+3. Addition of Trains.
+4. Setting of Advance Limit for Booking for each type of Users.
+5. Setting of Travel Agent's Commission and Employee's Concession.
+6. Addition of Employees.
 7. Adding Contact Details for the Contact Us page.
 
 ## Contact
