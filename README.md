@@ -114,7 +114,7 @@ To run this project locally (IN UBUNTU), follow these steps:
    ```bash
    \i psql.sql
 
-7. Clone the repository in the Apache2 Directory:
+7. Clone the repository in the Apache2 Directory via Normal Terminal:
    ```bash
    cd /var/www/html/
    sudo git clone https://github.com/vickspanda/intercityexpress.git
@@ -141,9 +141,15 @@ To run this project locally (IN UBUNTU), follow these steps:
 Username: admin  
 Password: admin@123
 
+10. Also For Keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state.
+   ```bash
+   cd intercityexpress/process/
+   sudo python3 generatePDF.py
+   ```
+
 ## Usage
 
-Once the server is running, open your web browser and navigate to http://localhost/intercityexpress. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
+Once the server is running, open your web browser and navigate to the Website given below. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
    ```bash
    http://localhost/intercityexpress
    ```
