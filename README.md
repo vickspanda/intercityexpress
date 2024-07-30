@@ -131,12 +131,15 @@ To run this project locally (IN UBUNTU), follow these steps:
    ```
 
 9. Copy the URL and load it on browser so that, Admin Registration can be done by default (Or you can set credentials as per you by editing the "admin/add_admin.php" file):  
-    'Credentials will be as:'  
-    username: admin  
-    password: admin@123
    
    ```bash
    http://localhost/intercityexpress/admin/add_admin.php
+
+  Credentials will be as:
+  ```bash
+    username: admin  
+    password: admin@123
+  ```
 
 ## Usage
 
