@@ -93,7 +93,7 @@ To run this project locally (IN UBUNTU), follow these steps:
    ```bash
    sudo apt install postgresql
 
-3. Install apache2 for hosting the Project:
+3. Install apache2 for hosting the Website:
    ```bash
    sudo apt install apache2
 
@@ -119,7 +119,7 @@ To run this project locally (IN UBUNTU), follow these steps:
    cd /var/www/html/
    git clone https://github.com/vickspanda/intercityexpress.git
 
-8. Edit the connect.php and connect_check.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
+8. Edit the process/connect.php and process/connect_check.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
    ```bash
    (IN connect.php)
    $servername = 'localhost';
@@ -144,6 +144,9 @@ Password: admin@123
 ## Usage
 
 Once the server is running, open your web browser and navigate to http://localhost/intercityexpress. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
+   ```bash
+   http://localhost/intercityexpress/
+
 
 And Also keep in Mind that as an Admin You have to set some of settings from the Admin's Account as initially Some of the things are not defined.
 
