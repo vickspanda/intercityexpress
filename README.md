@@ -133,7 +133,6 @@ To run this project locally (IN UBUNTU), follow these steps:
    $DB_PASSWORD = 'password';
    $DB_DATABASE = 'intercityexpress';
 
-
 9. Copy the URL and load it on browser So that, Admin Registration Can be Done By Default (Or you can set yours by Editing the "admin/add_admin.php" File):
    ```bash
    http://localhost/intercityexpress/admin/add_admin.php
@@ -146,6 +145,17 @@ To run this project locally (IN UBUNTU), follow these steps:
 
 Once the server is running, open your web browser and navigate to http://localhost/intercityexpress. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
 
+And Also keep in Mind that as an Admin You have to set some of settings from the Admin's Account as initially Some of the things are not defined.
+
+Some of the Settings are like:
+
+1. Addition of Stations
+2. Addition of Routes
+3. Addition of Trains
+4. Setting of Advance Limit for Booking for each type of User differently
+5. Setting of Travel Agent's Commission and Employee's Concession
+6. Addition of Employees
+7. Adding Contact Details for the Contact Us page.
 
 ## Contact
 

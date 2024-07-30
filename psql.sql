@@ -49,7 +49,7 @@ create table travel_agent (
     ta_id varchar(20) not null,
     username varchar(30) not null unique,
     password text not null,
-    status varchar(10)
+    status varchar(20)
 );
 
 create table emp_username_generator(
