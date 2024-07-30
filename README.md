@@ -144,9 +144,9 @@ To run this project locally (IN UBUNTU), follow these steps:
 ## Usage
 
 Once the server is running, open your web browser and navigate to the website given below. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
-     ```bash
+  ```bash
      http://localhost/intercityexpress
-     ```
+```
 
 And Also keep in mind that as an Admin You have to set some of settings from the Admin's Account as initially Some of the things are not defined.
 
