@@ -14,8 +14,6 @@ Welcome to the Intercity Express project! This project manages account and booki
 - [Website Structure](#website-structure)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Technologies Used
@@ -71,7 +69,7 @@ Admins have extensive control over the system, including managing users, routes,
 - **Home Page:** Book tickets by selecting the journey details.
 - **Login Page:** Separate login pages for each user type.
 - **Schedule Check:** Check the schedule of specific trains between stations.
-- **Contact Page:** Admin can update contact details.
+- **Contact Page:** Contact details for the Intercity Express regarding Queries.
 - **About Page:** Contains a description of the Intercity Express.
 
 ### Booking Process
@@ -87,22 +85,53 @@ Admins have extensive control over the system, including managing users, routes,
 
 To run this project locally, follow these steps:
 
-1. Clone the repository:
+1. Install Python libraries like Flask, reportlab for the Generation of Ticket as PDF:
    ```bash
+   pip install Flask reportlab
+
+
+2. Install Postgresql ('Congfigure it by yourself'):
+   ```bash
+   sudo apt install postgresql
+
+
+3. Install apache2 for hosting the Project:
+   ```bash
+   sudo apt install apache2
+
+
+4. Install PHP along with all other utilities:
+   ```bash
+   sudo apt install php libapache2-mod-php
+   sudo apt install php-cli
+   sudo apt install php-cgi
+   sudo apt install php-pgsql
+   sudo apt-get install php-curl
+
+
+5. Restart the Apache2
+   ```bash
+   sudo systemctl restart apache2.service 
+
+
+6. Start Your Postgresql and create all tables:
+   ```bash
+   \i psql.sql
+
+
+7. Clone the repository in the Apache2 Directory:
+   ```bash
+   cd /var/www/html/
    git clone https://github.com/vickspanda/intercityexpress.git
+
+
+8. Edit the connect.php and connectcheck.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
+
 
 ## Usage
 
-Once the server is running, open your web browser and navigate to http://localhost:3000. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
+Once the server is running, open your web browser and navigate to http://localhost/intercityexpress. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
 
-## Contributing
-
-We welcome contributions! Please see CONTRIBUTING.md for guidelines on how to contribute to this project.
-
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contact
 
