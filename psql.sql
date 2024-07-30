@@ -3,7 +3,7 @@ create database intercityexpress;
 
 --create table Admin
 
-\c intercity
+\c intercityexpress
 
 create table admin (
     UID varchar(05) primary key , 
