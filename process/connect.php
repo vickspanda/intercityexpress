@@ -1,9 +1,9 @@
 <?php
 
 $servername = 'localhost';
-$dbuser = 'your_user';
-$dbpass = 'your_password';
-$db = 'intercityexpress';
+$dbuser = 'postgres';
+$dbpass = 'Vick$1428';
+$db = 'intercity';
 
 // Create connection
 $conn = pg_connect("host=$servername dbname=$db user=$dbuser password=$dbpass");

@@ -121,6 +121,16 @@ To run this project locally (IN UBUNTU), follow these steps:
 
 8. Edit the connect.php and connectcheck.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
 
+9. Copy the URL and load it on browser So that, Admin Registration Can be Done By Default (Or you can set yours by Editing the "admin/add_admin.php" File):
+   ```bash
+   http://localhost/intercityexpress/admin/add_admin.php
+
+10. Credentials will be as:
+   ```bash
+   Username: admin
+   Password: admin@123
+
+
 ## Usage
 
 Once the server is running, open your web browser and navigate to http://localhost/intercityexpress. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
