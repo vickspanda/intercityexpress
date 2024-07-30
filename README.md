@@ -89,15 +89,11 @@ To run this project locally (IN UBUNTU), follow these steps:
    ```bash
    pip install Flask reportlab
 
-2. Install Postgresql ('Congfigure it by yourself'):
+2. Install Postgresql ('Congfigure it by yourself') and apache2:
    ```bash
-   sudo apt install postgresql
+   sudo apt install postgresql apache2
 
-3. Install apache2 for hosting the Website:
-   ```bash
-   sudo apt install apache2
-
-4. Install PHP along with all other utilities:
+3. Install PHP along with all other utilities:
    ```bash
    sudo apt install php libapache2-mod-php
    sudo apt install php-cli
@@ -106,20 +102,20 @@ To run this project locally (IN UBUNTU), follow these steps:
    sudo apt-get install php-curl
    sudo apt install net-tools
 
-5. Restart the Apache2
+4. Restart the Apache2
    ```bash
    sudo systemctl restart apache2.service 
 
-6. Start Your Postgresql and create all tables:
+5. Start Your Postgresql and create all tables:
    ```bash
    \i psql.sql
 
-7. Clone the repository in the Apache2 Directory via Normal Terminal:
+6. Clone the repository in the Apache2 Directory via Normal Terminal:
    ```bash
    cd /var/www/html/
    sudo git clone https://github.com/vickspanda/intercityexpress.git
 
-8. Edit the process/connect.php and process/connect_check.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
+7. Edit the process/connect.php and process/connect_check.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
    ```bash
    (IN connect.php)
    $servername = 'localhost';
@@ -133,13 +129,13 @@ To run this project locally (IN UBUNTU), follow these steps:
    $DB_PASSWORD = 'password';
    $DB_DATABASE = 'intercityexpress';
    
-9. Also For Keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
+8. Also For Keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
    ```bash
    cd intercityexpress/process/
    sudo python3 generatePDF.py
    ```
 
-10. Copy the URL and load it on browser So that, Admin Registration Can be Done By Default (Or you can set credentials as per you by Editing the "admin/add_admin.php" File):  
+9. Copy the URL and load it on browser So that, Admin Registration Can be Done By Default (Or you can set credentials as per you by Editing the "admin/add_admin.php" File):  
     'Credentials will be as:'  
     Username: admin  
     Password: admin@123
