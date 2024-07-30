@@ -145,8 +145,8 @@ Password: admin@123
 
 Once the server is running, open your web browser and navigate to http://localhost/intercityexpress. From here, you can register as a passenger, travel agent, or login as an admin or employee. Follow the on-screen instructions to explore the features.
    ```bash
-   http://localhost/intercityexpress/
-
+   http://localhost/intercityexpress
+   ```
 
 And Also keep in Mind that as an Admin You have to set some of settings from the Admin's Account as initially Some of the things are not defined.
 
