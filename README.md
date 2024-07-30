@@ -128,6 +128,7 @@ To run this project locally (IN UBUNTU), follow these steps:
    
    ```bash
    http://localhost/intercityexpress/admin/add_admin.php
+   ```
 
   Credentials will be as:
   ```bash
