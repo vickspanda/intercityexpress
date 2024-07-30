@@ -85,7 +85,7 @@ Admins have extensive control over the system, including managing users, routes,
 
 To run this project locally (IN UBUNTU), follow these steps:
 
-1. Install Python libraries like Flask, reportlab for the Generation of Ticket as PDF (Assumption is taken that Python3 is already installed, if not, install it):
+1. Install Python libraries Flask and reportlab for the Generation of Ticket as PDF (Assumption is taken that Python3 is already installed, if not, install it):
    ```bash
    pip install Flask reportlab
 
