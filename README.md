@@ -83,7 +83,7 @@ Admins have extensive control over the system, including managing users, routes,
 
 ## Installation
 
-To run this project locally, follow these steps:
+To run this project locally (IN UBUNTU), follow these steps:
 
 1. Install Python libraries like Flask, reportlab for the Generation of Ticket as PDF:
    ```bash
@@ -104,6 +104,7 @@ To run this project locally, follow these steps:
    sudo apt install php-cgi
    sudo apt install php-pgsql
    sudo apt-get install php-curl
+   sudo apt install net-tools
 
 5. Restart the Apache2
    ```bash

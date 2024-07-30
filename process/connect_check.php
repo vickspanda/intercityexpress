@@ -1,8 +1,8 @@
 <?php
 
 $DB_SERVER = 'localhost'; // e.g., 'localhost'
-$DB_USERNAME = 'postgres'; // e.g., 'postgres'
-$DB_PASSWORD = 'Vick$1428';
+$DB_USERNAME = 'your_user'; // e.g., 'postgres'
+$DB_PASSWORD = 'your_password';
 $DB_DATABASE = 'intercityexpress';
 
 try {

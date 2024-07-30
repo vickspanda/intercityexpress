@@ -1,8 +1,8 @@
 <?php
 
 $servername = 'localhost';
-$dbuser = 'postgres';
-$dbpass = 'Vick$1428';
+$dbuser = 'your_user';
+$dbpass = 'your_password';
 $db = 'intercityexpress';
 
 // Create connection
