@@ -123,7 +123,6 @@ To run this project locally (IN UBUNTU), follow these steps:
    $DB_USERNAME = 'your_user';
    $DB_PASSWORD = 'password';
    $DB_DATABASE = 'intercityexpress';
-
    
 8. Also For Keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
    ```bash
