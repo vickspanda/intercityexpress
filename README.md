@@ -154,7 +154,7 @@ Once the server is running, open your web browser and navigate to the Website gi
    http://localhost/intercityexpress
    ```
 
-And Also keep in Mind that as an Admin You have to set some of settings from the Admin's Account as initially Some of the things are not defined.
+And Also keep in mind that as an Admin You have to set some of settings from the Admin's Account as initially Some of the things are not defined.
 
 Some of the Settings are like:
 
