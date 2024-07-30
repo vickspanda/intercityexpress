@@ -141,7 +141,7 @@ To run this project locally (IN UBUNTU), follow these steps:
 Username: admin  
 Password: admin@123
 
-10. Also For Keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state.
+10. Also For Keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
    ```bash
    cd intercityexpress/process/
    sudo python3 generatePDF.py
