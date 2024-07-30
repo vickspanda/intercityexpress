@@ -117,7 +117,7 @@ To run this project locally (IN UBUNTU), follow these steps:
 7. Clone the repository in the Apache2 Directory:
    ```bash
    cd /var/www/html/
-   git clone https://github.com/vickspanda/intercityexpress.git
+   sudo git clone https://github.com/vickspanda/intercityexpress.git
 
 8. Edit the process/connect.php and process/connect_check.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
    ```bash
