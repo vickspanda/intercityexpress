@@ -5,3 +5,5 @@ function cancel_ticket() {
         window.location.href = 'cancel_ticket.php?ticket_no='+ticket_no;
     }
 }
+
+//May be this Code was not used
