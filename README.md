@@ -89,18 +89,13 @@ To run this project locally (IN UBUNTU), follow these steps:
    ```bash
    pip install Flask reportlab
 
-2. Install Postgresql ('Congfigure it by yourself') and apache2:
+2. Install Postgresql ('Congfigure it by yourself') and Apache2:
    ```bash
    sudo apt install postgresql apache2
 
-3. Install PHP along with all other utilities:
+3. Install PHP along with all other Utilities:
    ```bash
-   sudo apt install php libapache2-mod-php
-   sudo apt install php-cli
-   sudo apt install php-cgi
-   sudo apt install php-pgsql
-   sudo apt-get install php-curl
-   sudo apt install net-tools
+   sudo apt install php libapache2-mod-php php-cli php-cgi php-pgsql php-curl net-tools
 
 4. Restart the Apache2
    ```bash
@@ -117,17 +112,18 @@ To run this project locally (IN UBUNTU), follow these steps:
 
 7. Edit the process/connect.php and process/connect_check.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
    ```bash
-   (IN connect.php)
+   // connect.php
    $servername = 'localhost';
    $dbuser = 'your_user';
    $dbpass = 'password';
    $db = 'intercityexpress';
 
-   (IN connect_check.php)
-   $DB_SERVER = 'localhost'; // e.g., 'localhost'
-   $DB_USERNAME = 'your_user'; // e.g., 'postgres'
+   // connect_check.php
+   $DB_SERVER = 'localhost';
+   $DB_USERNAME = 'your_user';
    $DB_PASSWORD = 'password';
    $DB_DATABASE = 'intercityexpress';
+
    
 8. Also For Keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
    ```bash
