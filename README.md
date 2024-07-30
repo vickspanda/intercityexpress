@@ -134,7 +134,7 @@ To run this project locally (IN UBUNTU), follow these steps:
    ```bash
    http://localhost/intercityexpress/admin/add_admin.php
    ```
-    Credentials will be as follows:
+    Default credentials will be as follows:
     ```bash
     username: admin
     password: admin@123
