@@ -110,7 +110,7 @@ To run this project locally (IN UBUNTU), follow these steps:
    cd /var/www/html/
    sudo git clone https://github.com/vickspanda/intercityexpress.git
 
-7. Edit the process/connect.php and process/connect_check.php and Edit the Credentials as per your PostgresQL for connecting the project with PostgresQL.
+7. Edit the process/connect.php and process/connect_check.php and update the credentials as per your PostgresQL User Name and Password in which you have created the database of name "intercityexpress" by running installation Step No. 5, for connecting the website with PostgresQL Database.
    ```bash
    // connect.php
    $servername = 'localhost';
