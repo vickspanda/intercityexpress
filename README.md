@@ -82,7 +82,7 @@ Admins have extensive control over the system, including managing users, routes,
 6. Ticket is generated and the user is redirected to their specific dashboard.
 
 
-"!!! --- YOU CAN HAVE LOOK IN THE SCREENSHOTS FOLDER FOR THE PREVIEW OF THE PROJECT --- !!!"  
+!!! --- YOU CAN HAVE LOOK IN THE SCREENSHOTS FOLDER FOR THE PREVIEW OF THE PROJECT --- !!!  
 
 ## Installation
 
