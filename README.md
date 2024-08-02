@@ -81,6 +81,9 @@ Admins have extensive control over the system, including managing users, routes,
 5. Complete payment information.
 6. Ticket is generated and the user is redirected to their specific dashboard.
 
+
+YOU CAN HAVE LOOK IN THE SCREENSHOTS FOLDER FOR THE PREVIEW OF THE PROJECT.  
+
 ## Installation
 
 To run this project locally (IN UBUNTU), follow these steps:
