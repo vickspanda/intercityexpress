@@ -37,9 +37,9 @@ session_destroy();
 
 // Check if the query was successful
 if ($ta_query) {
-    echo '<script>window.alert("Password changed successfully!"); window.location.href="ta_login.html"</script>';
+    echo '<script>window.alert("Password changed successfully!"); window.location.href="index.html"</script>';
 } else {
-    echo '<script>window.alert("Got some technical issue!"); window.location.href="ta_login.html"</script>';
+    echo '<script>window.alert("Got some technical issue!"); window.location.href="index.html"</script>';
 }
 
 // Close the connection
