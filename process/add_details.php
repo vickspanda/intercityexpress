@@ -190,7 +190,7 @@ if ($getLimitExe) {
                                 <input type="text" name="train_no" placeholder="Train's Name" id="train_no" value="<?php echo $train_name; ?>" readonly required><br>
                                 <span class="error" id="trainNoError">Please Enter only Number</span>
                                 <div id="trainMessage"></div><br><br>
-                                <input type="text" name="doj" placeholder="Date of Journey" id="dep" value="<?php echo $doj; ?>" onfocus="(this.type='date')" onblur="(this.type='text')" required><br>
+                                <input type="text" name="doj" placeholder="Date of Journey" id="dep" value="<?php echo $doj; ?>" onfocus="(this.type='date')" onblur="(this.type='text')" readonly required><br>
                                 <span class="error" id="depError">Valid Time is required</span><br><br>
                                 <input type="number" name="age" placeholder="Enter Traveler's Age" id="age" value="<?php echo $user_age; ?>" required><br>
                                 <span class="error" id="AC_fareError">Please Enter only Number</span>
