@@ -1,4 +1,3 @@
-https://www.hackerrank.com/profile/vickspanda1
 # Intercity Express
 
 Welcome to the Intercity Express project! This project manages account and booking services for different types of users, including passengers, travel agents, employees, and admins. The project features a robust set of functionalities tailored to each user type, enhancing the overall travel booking experience.
