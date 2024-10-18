@@ -103,7 +103,7 @@ pg_close($conn);
                         ?>
 
                         <p class="no-user">
-                            No Active User Found !!!
+                            No FeedBack Found !!!
                         </div>
                         <?php
                     }
