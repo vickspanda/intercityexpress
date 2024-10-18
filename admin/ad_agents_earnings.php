@@ -96,7 +96,7 @@ $count = pg_num_rows($query);
                         ?>
 
                         <p class="no-user" style="text-align:center;width:100%">
-                            No Trip Found !!!
+                            No Record Found !!!
                         </div>
                         <?php
                     }
