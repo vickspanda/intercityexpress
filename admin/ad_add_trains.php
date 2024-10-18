@@ -4,20 +4,6 @@ $ad_username = $_SESSION["admin_username"] ?? '';
 
 include '../process/!admin_username.php';
 
-
-$servername = 'localhost';
-$dbuser = 'postgres';
-$dbpass = 'Vick$1428';
-$db = 'intercityexpress';
-
-// Attempt to connect to the PostgreSQL database
-$conn = pg_connect("host=$servername dbname=$db user=$dbuser password=$dbpass");
-if (!$conn) {
-    die("Connection failed: " . pg_last_error());
-}
-
-// Close the connection after use
-pg_close($conn);
 ?>
 
 <!DOCTYPE html>
