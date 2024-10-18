@@ -90,7 +90,7 @@ To run this project locally (IN UBUNTU), follow these steps:
 
 1. Install Python libraries Flask and reportlab for the Generation of Ticket as PDF (Assumption is taken that python3 is already installed, if not, install it):
    ```bash
-   pip install Flask reportlab
+   sudo apt install python3-flask python3-reportlab
 
 2. Install Postgresql ('congfigure it by yourself') and Apache2:
    ```bash
