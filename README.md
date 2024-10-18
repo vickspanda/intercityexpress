@@ -104,15 +104,15 @@ To run this project locally (IN UBUNTU), follow these steps:
    ```bash
    sudo systemctl restart apache2.service 
 
-5. Start your Postgresql and create all tables:
-   ```bash
-   \i psql.sql
-
-6. Clone the repository in the Apache2 Directory via Normal Terminal:
+5. Clone the repository in the Apache2 Directory via Normal Terminal:
    ```bash
    cd /var/www/html/
    sudo git clone https://github.com/vickspanda/intercityexpress.git
-
+   
+6. Start your Postgresql and create all tables:
+   ```bash
+   \i /var/www/html/intercityexpress/psql.sql
+   
 7. Also for keeping the Feature to Download Ticket as PDF Live, you need to keep generatePDF.py in running state:
    ```bash
    cd intercityexpress/process/
