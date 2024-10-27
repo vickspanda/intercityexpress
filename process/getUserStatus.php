@@ -5,8 +5,11 @@
     if($getStatusExe){
         $getStatusRow = pg_fetch_assoc($getStatusExe);
         $status = $getStatusRow['status'];
-        if($status === 'Blocked' || $status === 'Not-verified'){
+        if($status === 'Blocked'){
             echo '<script>window.location.href="../process/block_alert.php";</script>';
+        }
+        if($status === 'Not-verified'){
+            echo '<script>window.location.href="../travel_agent/ta_alert.php";</script>';
         }
     }
 ?>
