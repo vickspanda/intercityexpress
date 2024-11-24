@@ -8,19 +8,19 @@ services:
     ports:
       - "80:80"
     environment:
-      DB_HOST: dpg-ct1klpl2ng1s73e7cvqg-a
-      DB_USER: vickspanda_user
-      DB_PASS: f9bkm3PUogNzIS2MSQi5qW35j093X9IW
-      DB_NAME: vickspanda
+      DB_HOST: dpg-ct1kpl2ng1s73e7cvqg-a
+      DB_USER: intercityexpress_user
+      DB_PASS: BfzQgG46egXkd5ubkJa2CITGUI8AGLWg
+      DB_NAME: intercityexpress
     depends_on:
       - db
 
   db:
     image: postgres:16
     environment:
-      POSTGRES_USER: vickspanda_user
-      POSTGRES_PASSWORD: f9bkm3PUogNzIS2MSQi5qW35j093X9IW
-      POSTGRES_DB: vickspanda
+      DB_USER: intercityexpress_user
+      DB_PASS: BfzQgG46egXkd5ubkJa2CITGUI8AGLWg
+      DB_NAME: intercityexpress
     volumes:
       - db_data:/var/lib/postgresql/data
 
