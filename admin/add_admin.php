@@ -29,7 +29,7 @@ if (!$add_admin_execute) {
 }
 else
 {
-    echo "Successfully Registered";
+    echo '<script>window.alert("Successfully Registered !!!"); window.location.href="../";</script>';
 }
 // Close database connection
 pg_close($ad_conn);
