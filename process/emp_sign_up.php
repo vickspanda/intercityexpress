@@ -1,4 +1,5 @@
 <?php
+session_start();
 echo "<!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,7 @@ $emp_des = $_POST["designation"] ?? '';
 $emp_password = $_POST["password"] ?? '';
 
 if (isset($_GET["part"])) {
-    session_start();
+    
     $emp_username = $_SESSION["emp_username"] ?? '';
     
     include '../!emp_username.php';
