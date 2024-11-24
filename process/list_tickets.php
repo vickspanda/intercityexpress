@@ -89,7 +89,7 @@ if(!$username && !$admin_username){
 
 $today_date = date("Y-m-d");
 
-if(!$admin_username){
+if(!isset($admin_username)){
     if($title === 'UPCOMING' || $title === 'CANCEL' || $title === 'DOWNLOAD'){
 
         $user = "SELECT tickets.ticket_no, tickets.board_stn, tickets.drop_stn, $userType.user_name, $userType.user_age, tickets.status, seat_allocated.doj FROM $userType, tickets, seat_allocated WHERE tickets.ticket_no = $userType.ticket_no AND tickets.ticket_no = seat_allocated.ticket_no AND $userType.username = $1 AND tickets.status ='Confirmed' AND seat_allocated.doj >= $2 ORDER BY tickets.ticket_no DESC LIMIT 5";
