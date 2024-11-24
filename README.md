@@ -83,7 +83,8 @@ Admins have extensive control over the system, including managing users, routes,
 6. Ticket is generated and the user is redirected to their specific dashboard.
 
 ## Preview
-![aa](https://github.com/user-attachments/assets/4f05f075-7350-45d3-a989-e22a82ba8bae)
+![Screenshot from 2024-11-24 19-33-31](https://github.com/user-attachments/assets/13780bb5-6601-48b6-aeec-9236cdb8961f)
+
 
 !!! --- YOU CAN HAVE LOOK IN THE SCREENSHOTS FOLDER FOR THE PREVIEW OF THE PROJECT --- !!!  
 
