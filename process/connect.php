@@ -1,9 +1,9 @@
 <?php
 
-$servername = 'db';
-$dbuser = 'vickspanda_user';
-$dbpass = 'f9bkm3PUogNzIS2MSQi5qW35j093X9IW';
-$db = 'vickspanda';
+$servername = 'DB_HOST';
+$dbuser = 'DB_USER';
+$dbpass = 'DB_PASS';
+$db = 'DB_NAME';
 
 // Create connection
 $conn = pg_connect("host=$servername dbname=$db user=$dbuser password=$dbpass");
