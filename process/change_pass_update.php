@@ -1,4 +1,7 @@
 <?php
+
+// Start session
+session_start();
 echo "<!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -13,8 +16,7 @@ echo "<!DOCTYPE html>
 include '../process/connect.php';
 
 
-// Start session
-session_start();
+
 
 if(isset($_SESSION["pass_username"])){
     $username = $_SESSION["pass_username"];
