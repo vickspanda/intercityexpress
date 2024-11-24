@@ -1,7 +1,10 @@
 # Use an official PHP-Apache image as the base
 FROM php:8.1-apache
 
-# Install necessary PHP extensions
+# Install necessary dependencies
+RUN apt-get update && apt-get install -y libpq-dev
+
+# Install PHP extensions
 RUN docker-php-ext-install pdo pdo_pgsql pgsql
 
 # Copy project files to the Apache web directory
@@ -15,3 +18,4 @@ EXPOSE 80
 
 # Start Apache in the foreground
 CMD ["apache2-foreground"]
+
