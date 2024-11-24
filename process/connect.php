@@ -1,9 +1,9 @@
 <?php
 
-$servername = 'DB_HOST';
-$dbuser = 'DB_USER';
-$dbpass = 'DB_PASS';
-$db = 'DB_NAME';
+$servername = getenv('DB_HOST');
+$dbuser = getenv('DB_USER');
+$dbpass = getenv('DB_PASS');
+$db = getenv('DB_NAME');
 
 // Create connection
 $conn = pg_connect("host=$servername dbname=$db user=$dbuser password=$dbpass");
