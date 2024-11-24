@@ -1,4 +1,5 @@
 <?php
+session_start();
 echo "<!DOCTYPE html>
 <head>
     <title>Authenticating ...</title>
@@ -6,7 +7,7 @@ echo "<!DOCTYPE html>
 <body>
 </body>
 </html>";
-session_start();
+
 include '../process/connect.php';
 $ad_conn = $conn;
 
