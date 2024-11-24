@@ -1,9 +1,9 @@
 <?php
 
-$DB_SERVER = 'db'; // e.g., 'localhost'
-$DB_USERNAME = 'vickspanda_user'; // e.g., 'postgres'
-$DB_PASSWORD = 'f9bkm3PUogNzIS2MSQi5qW35j093X9IW';
-$DB_DATABASE = 'vickspanda';
+$DB_SERVER = 'DB_HOST'; // e.g., 'localhost'
+$DB_USERNAME = 'DB_USER'; // e.g., 'postgres'
+$DB_PASSWORD = 'DB_PASS';
+$DB_DATABASE = 'DB_NAME';
 
 try {
     $conn = new PDO("pgsql:host=$DB_SERVER;dbname=$DB_DATABASE", $DB_USERNAME, $DB_PASSWORD);
