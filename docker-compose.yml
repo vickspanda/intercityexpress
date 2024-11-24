@@ -8,7 +8,7 @@ services:
     ports:
       - "80:80"
     environment:
-      DB_HOST: db
+      DB_HOST: dpg-ct1klpl2ng1s73e7cvqg-a
       DB_USER: vickspanda_user
       DB_PASS: f9bkm3PUogNzIS2MSQi5qW35j093X9IW
       DB_NAME: vickspanda
@@ -16,7 +16,7 @@ services:
       - db
 
   db:
-    image: postgres:13
+    image: postgres:16
     environment:
       POSTGRES_USER: vickspanda_user
       POSTGRES_PASSWORD: f9bkm3PUogNzIS2MSQi5qW35j093X9IW
