@@ -84,9 +84,9 @@ Admins have extensive control over the system, including managing users, routes,
 
 ## Preview
 ![Screenshot from 2024-11-24 19-33-31](https://github.com/user-attachments/assets/13780bb5-6601-48b6-aeec-9236cdb8961f)
+![Screenshot from 2024-11-24 19-40-06](https://github.com/user-attachments/assets/380738fb-b759-4cea-b280-97570bd6242e)
+![Screenshot from 2024-11-24 19-41-37](https://github.com/user-attachments/assets/87c696b6-14ca-463c-9ed2-07a6609dfe88)
 
-
-!!! --- YOU CAN HAVE LOOK IN THE SCREENSHOTS FOLDER FOR THE PREVIEW OF THE PROJECT --- !!!  
 
 ## Installation
 
