@@ -12,6 +12,7 @@ Welcome to the Intercity Express project! This project manages account and booki
   - [Admin](#admin)
 - [Admin Management](#admin-management)
 - [Website Structure](#website-structure)
+- [Preview](#preview)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contact](#contact)
@@ -81,6 +82,8 @@ Admins have extensive control over the system, including managing users, routes,
 5. Complete payment information.
 6. Ticket is generated and the user is redirected to their specific dashboard.
 
+## Preview
+![aa](https://github.com/user-attachments/assets/4f05f075-7350-45d3-a989-e22a82ba8bae)
 
 !!! --- YOU CAN HAVE LOOK IN THE SCREENSHOTS FOLDER FOR THE PREVIEW OF THE PROJECT --- !!!  
 
