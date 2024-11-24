@@ -6,7 +6,7 @@ echo "<!DOCTYPE html>
 <body>
 </body>
 </html>";
-
+session_start();
 include '../process/connect.php';
 $ad_conn = $conn;
 
@@ -40,7 +40,6 @@ if (!$ad_row) {
 // Verify the password
 $hashed_password = $ad_row['password'];
 if (password_verify($ad_password, $hashed_password)) {
-    session_start();
     $_SESSION["admin_username"] = $ad_row['username'];
     echo '<script>window.location.href="admin_dashboard.php";</script>';
 } else {
