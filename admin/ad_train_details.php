@@ -58,6 +58,7 @@ $thu = get_dep_data($conn, $train_no, 'thu');
 $fri = get_dep_data($conn, $train_no, 'fri');
 $sat = get_dep_data($conn, $train_no, 'sat');
 $sun = get_dep_data($conn, $train_no, 'sun');
+$run_on = '';
 if ($sun == 'TRUE'){
     if($flag == TRUE){
         $run_on = $run_on .', ';
