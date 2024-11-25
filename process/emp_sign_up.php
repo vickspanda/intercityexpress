@@ -32,7 +32,7 @@ if (isset($_GET["part"])) {
     
     $emp_username = $_SESSION["emp_username"] ?? '';
     
-    include '../!emp_username.php';
+    include '!emp_username.php';
     $part = $_GET["part"];
 
     if ($part === 'more') {
@@ -90,7 +90,7 @@ if (isset($_GET["part"])) {
 } else {
     $ad_username = $_SESSION["admin_username"] ?? '';
     
-    include '../!admin_username.php';
+    include '!admin_username.php';
 
 
     // Begin transaction
