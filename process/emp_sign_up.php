@@ -88,7 +88,6 @@ if (isset($_GET["part"])) {
     }
     
 } else {
-    session_start();
     $ad_username = $_SESSION["admin_username"] ?? '';
     
     include '../!admin_username.php';
