@@ -21,7 +21,7 @@ if(isset($_POST["username"]))
     $emp_username = $_POST["username"];
     $blocked_users = "FALSE";
 }
-if(!$emp_username){
+if(!isset($emp_username)){
     $emp_username = $_COOKIE['username'];
     $blocked_users = $_COOKIE['su'];
 }
