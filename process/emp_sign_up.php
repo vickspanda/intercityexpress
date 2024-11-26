@@ -89,8 +89,8 @@ if (isset($_GET["part"])) {
     
 } else {
     $ad_username = $_SESSION["admin_username"] ?? '';
+    include '../process/!admin_username.php';
     
-    include '!admin_username.php';
 
 
     // Begin transaction
