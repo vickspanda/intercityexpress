@@ -14,8 +14,8 @@
     $user_age = $_SESSION['user_age'];
     $ticket_fare = $_SESSION['ticket_fare'];
     $total_fare = $_SESSION['total_fare'];
-    $ta_comm = $_SESSION['ta_comm'];
-    $emp_conn = $_SESSION['emp_conn'];
+    $ta_comm = $_SESSION['ta_comm'] ?? '';
+    $emp_conn = $_SESSION['emp_conn'] ?? '';
     $user_mob = $_SESSION['user_mob'];
     $user_email = $_SESSION['user_email'];
 
