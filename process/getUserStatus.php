@@ -2,7 +2,7 @@
 
     $getUserStatus = "SELECT status FROM $userType WHERE username = $1";
     $getStatusExe = pg_query_params($conn, $getUserStatus, array($username));
-    if($getStatusExe){
+    if(pg_num_rows($getStatusExe) > 0){
         $getStatusRow = pg_fetch_assoc($getStatusExe);
         $status = $getStatusRow['status'];
         if($status === 'Blocked'){
