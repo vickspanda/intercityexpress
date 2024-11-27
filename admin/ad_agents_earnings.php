@@ -3,7 +3,7 @@ session_start();
 include '../process/connect.php';
 
 if(isset($_SESSION['admin_username'])){
-    $admin_username = $_SESSION['admin_username'];
+    $admin_username = $_SESSION['admin_username'] ?? '';
 }
 
 
