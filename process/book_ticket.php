@@ -132,7 +132,7 @@
                         if($payment_execute){
                             pg_query($conn,"COMMIT");
                         echo '<script>window.alert("Your Ticket has been Booked Successfully!!!");</script>';
-                            $_SESSION['bug'] == TRUE;
+                            $_SESSION['bug'] = 'TRUE';
                         echo '<script>window.location.href="view_ticket.php";</script>';
                         }else{
                             pg_query($conn, "ROLLBACK"); // Rollback the transaction if emp_reg_execute fails
