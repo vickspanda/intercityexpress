@@ -25,6 +25,8 @@
     include 'connect.php';
     include 'getUserStatus.php';
 
+    echo $userType;
+
 
 
 ?>
