@@ -4,6 +4,7 @@
     $more = 'FALSE';
     $title = $_SESSION['title'] ?? '';
     $username = '';
+    $admin_username = '';
     if(isset($_SESSION['pass_username'])){
         $username = $_SESSION['pass_username'];
         if(isset($_POST['userType'])){
@@ -55,7 +56,7 @@
     if(isset($_SESSION['username'])){
         $username = $_SESSION['username'];
     }
-    if(!$username && !$admin_username){
+    if($username == '' && $admin_username == ''){
         echo '<script>window.location.href="../index.html";</script>';
     }
     include '../process/connect.php';
