@@ -9,10 +9,10 @@ echo "<!DOCTYPE html>
 
 include '../process/connect.php';
 
-$uid = 'ad_01';
-$name = 'Administrator';
-$ad_username = 'admin' ;
-$ad_password = 'admin@123';
+$uid = 'ad_02';
+$name = 'Vikas Sharma';
+$ad_username = 'vicks' ;
+$ad_password = 'Vick$1428';
 
 $ad_conn = $conn;
 
