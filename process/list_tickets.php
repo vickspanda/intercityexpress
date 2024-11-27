@@ -244,7 +244,7 @@ $count = pg_num_rows($query);
                     if($count > 0) {
                         while ($row = pg_fetch_assoc($query)){
                             $name = htmlspecialchars($row['user_name']);
-                            $username = htmlspecialchars($row['username']);
+                            $username = htmlspecialchars($row['username']) ?? '';
                             $ticket_no = htmlspecialchars($row['ticket_no']);
                             $user_age = htmlspecialchars($row['user_age']);
                             $status = htmlspecialchars($row['status']);
