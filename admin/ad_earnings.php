@@ -67,8 +67,6 @@ $count = pg_num_rows($query);
                 <?php 
                     if($count > 0) {
                         $row  = pg_fetch_assoc($query);
-                            $name = htmlspecialchars($row['ta_name']);
-                            $username = htmlspecialchars($row['username']);
                             $ttotal_fare = htmlspecialchars($row['ttotal_fare']);
                             $tta_comm = htmlspecialchars($row['tta_comm']);
 
