@@ -27,7 +27,10 @@ function isUsernameTaken($pdo, $username, $userType) {
 if (isset($_POST['username'])) {
     $username = $_POST['username'];
     $userType = $_POST["userType"];
-    $wtdo = $_POST['do'] ?? '';
+    if(isset($_POST['do'])){
+             $wtdo = $_POST['do'] ;
+        }
+   
 
     // Check if the username is taken
     if ($userType != 'stations' && !isUsernameTaken($pdo, $username, $userType)) {
