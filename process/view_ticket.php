@@ -63,9 +63,12 @@
     include '../process/connect.php';
     include 'getUserStatus.php';
     if(isset($_SESSION['ticket_no'])){
-        $ticket_no = $_SESSION['ticket_no'];
-        if(isset($_SESSION['userType'])){
-            $userType = $_SESSION["userType"] ?? '';
+        if($_SESSION['bug'] == TRUE){
+            $ticket_no = $_SESSION['ticket_no'];
+            $_SESSION['bug'] = FALSE;
+            if(isset($_SESSION['userType'])){
+                $userType = $_SESSION["userType"] ?? '';
+            }
         }
     }
 
