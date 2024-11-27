@@ -1,6 +1,6 @@
 <?php
 session_start();
-$ad_username = $_SESSION["admin_username"] ?? '';
+$ad_username = $_SESSION["admin_username"] ?? "";
 
 include '../process/!admin_username.php';
 
