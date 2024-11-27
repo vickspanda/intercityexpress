@@ -1,6 +1,8 @@
 <?php
 session_start();
 include '../process/connect.php';
+$title = '';
+$username = '';
 
 if(isset($_SESSION['pass_username'])){
     $username = $_SESSION['pass_username'];
