@@ -5,10 +5,11 @@
     $title = $_SESSION['title'] ?? '';
     $username = '';
     $admin_username = '';
+    $userType = $_SESSION['userType'];
     if(isset($_SESSION['pass_username'])){
         $username = $_SESSION['pass_username'];
         if(isset($_POST['userType'])){
-            $userType = $_POST["userType"] ?? '';
+            $userType = $_POST["userType"];
             $_SESSION['userType'] = $_POST["userType"] ;
 
         }
@@ -19,7 +20,7 @@
     if(isset($_SESSION['emp_username'])){
         $username = $_SESSION['emp_username'];
         if(isset($_POST['userType'])){
-            $userType = $_POST["userType"] ?? '';
+            $userType = $_POST["userType"];
             $_SESSION['userType'] = $_POST["userType"] ;
         }
         if(isset($_POST['ticket_no'])){
@@ -30,7 +31,7 @@
     if(isset($_SESSION['admin_username'])){
         $admin_username = $_SESSION['admin_username'];
         if(isset($_POST['userType'])){
-            $userType = $_POST["userType"] ?? '';
+            $userType = $_POST["userType"];
             $_SESSION['userType'] = $_POST["userType"] ;
 
         }
@@ -44,7 +45,7 @@
     if(isset($_SESSION['ta_username'])){
         $username = $_SESSION['ta_username'];
         if(isset($_POST['userType'])){
-            $userType = $_POST["userType"] ?? '';
+            $userType = $_POST["userType"];
             $_SESSION['userType'] = $_POST["userType"] ;
         }
         if(isset($_POST['ticket_no'])){
