@@ -2,7 +2,7 @@
     session_start();
     $emp_username = $_SESSION["emp_username"];
     include '../process/connect.php';
-    include '../process/!emp_username';
+    include '../process/!emp_username.php';
 
     
     $username = $emp_username;
