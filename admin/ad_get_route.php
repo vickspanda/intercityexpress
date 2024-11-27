@@ -2,12 +2,6 @@
 // fetch_station_details.php
 header('Content-Type: application/json'); // Set the content type to JSON
 
-// Database connection details
-$DB_SERVER = 'localhost'; // e.g., 'localhost'
-$DB_USERNAME = 'postgres'; // e.g., 'postgres'
-$DB_PASSWORD = 'Vick$1428';
-$DB_DATABASE = 'intercityexpress';
-
 include '../process/connect_check.php';
 
 
