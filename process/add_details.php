@@ -136,7 +136,6 @@ if ($getLimitExe) {
         } else {
             $user_gender = 'Select Gender';
         }
-        echo $userType;
 ?>
         <!DOCTYPE html>
         <html lang="en">
