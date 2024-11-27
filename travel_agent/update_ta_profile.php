@@ -1,11 +1,9 @@
 <?php
 session_start();
 $ta_username = $_SESSION["ta_username"] ?? '';
-
+include '../process/connect.php';
 include '../process/!ta_username.php';
 
-
-include '../process/connect.php';
 $username = $ta_username;
 $userType = 'travel_agent';
 $_SESSION['userType'] = $userType;
