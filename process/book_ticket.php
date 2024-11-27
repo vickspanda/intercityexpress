@@ -14,8 +14,8 @@
     $user_age = $_SESSION['user_age'];
     $ticket_fare = $_SESSION['ticket_fare'];
     $total_fare = $_SESSION['total_fare'];
-    $ta_comm = $_SESSION['ta_comm'];
-    $emp_conn = $_SESSION['emp_conn'];
+    $ta_comm = $_SESSION['ta_comm'] ?? '';
+    $emp_conn = $_SESSION['emp_conn'] ?? '';
     $total_seats = $_SESSION['total_seats'];
     $user_mob = $_SESSION['user_mob'];
     $user_email = $_SESSION['user_email'];
@@ -132,10 +132,7 @@
                         if($payment_execute){
                             pg_query($conn,"COMMIT");
                         echo '<script>window.alert("Your Ticket has been Booked Successfully!!!");</script>';
-                            echo $_SESSION['userType'];
-                            echo $_SESSION['ta_username'];
-                            
-                            //echo '<script>window.location.href="view_ticket.php";</script>';
+                        echo '<script>window.location.href="view_ticket.php";</script>';
                         }else{
                             pg_query($conn, "ROLLBACK"); // Rollback the transaction if emp_reg_execute fails
                             session_destroy();
