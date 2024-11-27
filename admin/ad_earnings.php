@@ -1,15 +1,12 @@
 <?php
 session_start();
 include '../process/connect.php';
-
+$admin_username = '';
 if(isset($_SESSION['admin_username'])){
     $admin_username = $_SESSION['admin_username'];
 }
-
-
-if(!$admin_username){
-    echo '<script>window.location.href="../admin/index.html";</script>';
-}
+$ad_username = $admin_username;
+include '../process/!admin_username.php';
 
 
 $user = "SELECT SUM(payment.ta_comm) as tta_comm, SUM(payment.total_fare) as ttotal_fare, SUM(payment.ticket_fare) as tticket_fare FROM payment WHERE payment.status = 'Successful'";
