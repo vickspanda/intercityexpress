@@ -57,6 +57,7 @@
             if($userType === 'passenger')
             {
                 $_SESSION['pass_username'] = $username;
+                $_SESSION['userType'] = 'passenger';
                 $insert_into_sec = "INSERT INTO tickets_pass VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)";
                 $sec_array = array($ticket_no,$username,$user_name,$user_gender,$user_age,$ticket_fare,$total_fare,$user_mob,$user_email);
                 $sec_execute = pg_query_params($conn,$insert_into_sec,$sec_array);
@@ -64,6 +65,7 @@
             else if($userType === 'employee')
             {
                 $_SESSION['emp_username'] = $username;
+                $_SESSION['userType'] = 'employee';
                 $insert_into_sec = "INSERT INTO tickets_emp VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)";
                 $sec_array = array($ticket_no,$username,$user_name,$user_gender,$user_age,$ticket_fare,$emp_conn,$total_fare,$user_mob,$user_email);
                 $sec_execute = pg_query_params($conn,$insert_into_sec,$sec_array);
@@ -71,6 +73,7 @@
             else if($userType === 'travel_agent')
             {
                 $_SESSION['ta_username'] = $username;
+                $_SESSION['userType'] = 'travel_agent';
                 $insert_into_sec = "INSERT INTO tickets_ta (ticket_no, username, user_name, user_gender, user_age, ticket_fare, ta_comm, total_fare, user_mob, user_email) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
 
                 $sec_array = array($ticket_no, $username, $user_name, $user_gender, $user_age, $ticket_fare, $ta_comm, $total_fare, $user_mob, $user_email);
@@ -129,8 +132,10 @@
                         if($payment_execute){
                             pg_query($conn,"COMMIT");
                         echo '<script>window.alert("Your Ticket has been Booked Successfully!!!");</script>';
+                            echo $_SESSION['userType'];
+                            echo $_SESSION['ta_username'];
                             
-                            echo '<script>window.location.href="view_ticket.php";</script>';
+                            //echo '<script>window.location.href="view_ticket.php";</script>';
                         }else{
                             pg_query($conn, "ROLLBACK"); // Rollback the transaction if emp_reg_execute fails
                             session_destroy();
