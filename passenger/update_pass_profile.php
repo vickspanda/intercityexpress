@@ -1,11 +1,9 @@
 <?php
 session_start();
 $pass_username = $_SESSION["pass_username"] ?? '';
-
+include '../process/connect.php';
 include '../process/!pass_username.php';
 
-
-include '../process/connect.php';
 $username = $pass_username;
 $userType = 'passenger';
 $_SESSION['userType'] = $userType;
