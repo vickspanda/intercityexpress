@@ -13,7 +13,6 @@ echo "<!DOCTYPE html>
 </body>
 </html>";
 
-include '../process/connect.php';
 
 
 $from_station = $_POST["from_station"] ?? '';
