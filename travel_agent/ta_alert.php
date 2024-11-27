@@ -1,9 +1,8 @@
 <?php
     session_start();
     $ta_username = $_SESSION["ta_username"];
-    include '../process/!ta_username.php';
-
     include '../process/connect.php';
+    include '../process/!ta_username.php';
 
 $ta_conn = $conn;
 $get_ta_name_query = "SELECT ta_name FROM travel_agent WHERE username = $1";
