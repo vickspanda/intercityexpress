@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$ad_username = '';
 if(isset($_SESSION['admin_username'])){
     $ad_username = $_SESSION['admin_username'];
     $train_no = $_POST['train_no'];
