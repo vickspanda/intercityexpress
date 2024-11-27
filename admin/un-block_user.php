@@ -13,8 +13,6 @@ echo "<!DOCTYPE html>
 </body>
 </html>";
 
-include '../process/connect.php';
-
 
 $username = $_POST["username"] ?? '';
 $userType = $_POST["userType"] ?? '';
