@@ -1,10 +1,10 @@
 <?php
 session_start();
 $ad_username = $_SESSION["admin_username"] ?? '';
-
+include '../process/connect.php';
 include '../process/!admin_username.php';
 
-include '../process/connect.php';
+
 
 
 if(isset($_GET["ta_username"]))
