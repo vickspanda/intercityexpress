@@ -1,4 +1,5 @@
 <?php
+session_start();
 echo "<!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,6 @@ $p_seca = $_POST["p_seca"] ?? '';
 
 if(isset($_GET["part"])){
     $past = $_GET["part"];
-    session_start();
     $pass_username = $_SESSION["pass_username"] ?? '';
     
     if (!$pass_username) {
