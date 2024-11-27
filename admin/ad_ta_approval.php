@@ -1,10 +1,8 @@
 <?php
 session_start();
 $ad_username = $_SESSION["admin_username"] ?? '';
-
-include '../process/!admin_username.php';
-
 include '../process/connect.php';
+include '../process/!admin_username.php';
 
 
 $blocked_ta = "SELECT ta_name, username FROM travel_agent WHERE status='Not-verified' LIMIT 7";
