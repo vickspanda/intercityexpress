@@ -9,6 +9,7 @@
     $endStn = $_SESSION['endStn'];
     $startStn = $_SESSION['startStn'];
     $userType = $_SESSION['userType'];
+    echo $userType;
     $username = $_SESSION['username'];
     $user_name = $_POST["traveler_name"];
     $_SESSION['user_name'] = $user_name;
