@@ -1,11 +1,11 @@
 <?php
 session_start();
 include '../process/connect.php';
-
+$admin_username = '';
 if(isset($_SESSION['admin_username'])){
     $admin_username = $_SESSION['admin_username'] ?? '';
 }
-
+$ad_username = $admin_username;
 include '../process/!admin_username.php';
 
 
