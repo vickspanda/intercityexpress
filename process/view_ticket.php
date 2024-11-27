@@ -2,7 +2,8 @@
     session_start();
     $get_back = FALSE;
     $more = 'FALSE';
-    $title = $_SESSION['title'];
+    $title = $_SESSION['title'] ?? '';
+    $username = '';
     if(isset($_SESSION['pass_username'])){
         $username = $_SESSION['pass_username'];
         if(isset($_POST['userType'])){
