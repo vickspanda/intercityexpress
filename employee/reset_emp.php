@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $emp_username = $_SESSION["reset_emp_username"];
+    $emp_username = $_SESSION["reset_emp_username"] ?? '';
     if(!$emp_username)  {
         echo '<script>window.location.href="forgot_emp.html"</script>';
       }
