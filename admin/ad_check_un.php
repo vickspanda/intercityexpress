@@ -1,10 +1,6 @@
 <?php
 
 session_start();
-$ad_username = $_SESSION["admin_username"] ?? '';
-include '../process/connect.php';
-include '../process/!admin_username.php';
-
 // Assuming you have already established a PostgreSQL connection
 // Replace these variables with your actual database credentials
 include '../process/connect_check.php';
