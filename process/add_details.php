@@ -29,6 +29,11 @@ include 'getUserStatus.php';
 $getLimit = "SELECT booking_limit FROM limits WHERE user_type = $1";
 $getLimitExe = pg_query_params($conn, $getLimit, array($userType));
 
+$user_name = '';
+$user_gender = '';
+$user_email = '';
+$user_mob = '';
+
 if ($getLimitExe) {
     $getLimitRow = pg_fetch_assoc($getLimitExe);
     $booking_limit = $getLimitRow['booking_limit'];
