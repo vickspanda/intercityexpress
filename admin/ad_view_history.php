@@ -35,7 +35,7 @@ include '../process/!admin_username.php';
                             <option value="travel_agent">Travel Agent</option>
                         </select>
                     </div><br><br>
-                <input type="text" id="username" name="username" placeholder="Enter User's Username" onblur="validateUsername()" autofocus required>
+                <input type="text" id="username" name="username" placeholder="Enter User's Username" onblur="validateUsername()" required>
                  <div id="usernameMessage"></div>
                 
             </div><br><br>
