@@ -20,11 +20,17 @@ if(isset($_GET["part"]))
         $wtdm = 'readonly';
         $dism = 'disabled';
         $reqp = 'required';
+        $wtdp = '';
+        $disp = '';
+        $reqm = '';
     }else if($part === 'more')
     {
         $wtdp = 'readonly';
         $disp = 'disabled';
         $reqm = 'required';
+        $wtdm = '';
+        $dism = '';
+        $reqp = '';
     }
 }
 
