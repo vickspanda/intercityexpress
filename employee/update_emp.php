@@ -1,4 +1,6 @@
 <?php
+// Start session
+session_start();
 echo "<!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -13,8 +15,7 @@ echo "<!DOCTYPE html>
 include '../process/connect.php';
 
 
-// Start session
-session_start();
+
 
 $emp_username = $_SESSION["reset_emp_username"];
 $emp_password = $_POST["emp_password"];
