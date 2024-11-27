@@ -13,10 +13,10 @@ if(isset($_SESSION['admin_username'])){
     }
 
 }
-
+    include '../process/connect.php';
     include '../process/!admin_username.php';
 
-    include '../process/connect.php';
+
 
     $user = "SELECT tickets.ticket_no,tickets.user_type, seat_allocated.coach_no, seat_allocated.seat_no FROM tickets, seat_allocated WHERE tickets.ticket_no = seat_allocated.ticket_no AND tickets.status ='Confirmed' AND seat_allocated.doj = $1 AND seat_allocated.coach_no = $3 AND tickets.train_no = $2  ORDER BY tickets.ticket_no DESC";
     $query = pg_query_params($conn, $user, array($doj,$train_no,$coach_no));
