@@ -1,7 +1,7 @@
 <?php
 session_start();
 $ta_username = $_SESSION["ta_username"] ?? '';
-
+include '../process/connect.php';
 include '../process/!ta_username.php';
 
 
