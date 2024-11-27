@@ -1,9 +1,8 @@
 <?php
 session_start();
-$emp_username = $_SESSION["emp_username"];
-include '../process/!emp_username';
-
+$emp_username = $_SESSION["emp_username"] ?? '';
 include '../process/connect.php';
+include '../process/!emp_username';
 $username = $emp_username;
 $userType = 'employee';
 $_SESSION['userType'] = $userType;
