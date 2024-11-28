@@ -1,4 +1,5 @@
 <?php
+session_start();
 echo "<!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +35,6 @@ $ta_status = 'Not-verified';
 
 if(isset($_GET["part"]))
 {
-    session_start();
     $ta_username = $_SESSION["ta_username"] ?? '';
     
     include '../process/!ta_username.php';
