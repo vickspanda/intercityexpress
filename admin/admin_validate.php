@@ -15,7 +15,6 @@ $ad_conn = $conn;
 $ad_username = $_POST["ad_username"] ?? '';
 $ad_password = $_POST["ad_password"] ?? '';
 
-include '../process/!admin_username.php';
 
 
 // Sanitize inputs if needed (not shown here, but recommended)
