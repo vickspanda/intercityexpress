@@ -24,9 +24,8 @@ if(isset($_SESSION['book']) == TRUE){
         exit();
     }
 }
-include '../process/!pass_username.php';
 
-if (!$pass_username || !$pass_password) {
+if ($pass_username=='' || $pass_password=='') {
     echo '<script>window.location.href="index.html";</script>';
     exit();
 }
