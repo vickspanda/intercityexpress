@@ -27,9 +27,8 @@ if(isset($_SESSION['book']) == TRUE){
         exit();
     }
 }
-include '../process/!ta_username.php';
 
-if (!$ta_username || !$ta_password) {
+if ($ta_username ==''|| $ta_password == '') {
     echo '<script>window.location.href="index.html";</script>';
     exit;
 }
