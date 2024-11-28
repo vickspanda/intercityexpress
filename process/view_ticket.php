@@ -5,7 +5,7 @@
     $title = $_SESSION['title'] ?? '';
     $username = '';
     $admin_username = '';
-    $userType = $_SESSION['userType'];
+    $userType = $_SESSION['userType'] ?? '';
     if(isset($_SESSION['pass_username'])){
         $username = $_SESSION['pass_username'];
         if(isset($_POST['userType'])){
