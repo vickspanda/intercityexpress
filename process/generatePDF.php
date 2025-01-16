@@ -136,7 +136,7 @@ if ($userType === 'travel_agent') {
 $ticket_info_json = json_encode($ticket_info);
 
 // Call the Flask API to generate the PDF
-$ch = curl_init('http://localhost:5000/generate_ticket');
+$ch = curl_init('https://generatepdf-thce.onrender.com/generate_ticket');
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $ticket_info_json);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
